@@ -1,0 +1,7 @@
+
+@import '../../assets/variables';
+.main-content{
+    height: calc(100vh - #{$headerHeigh});
+    width: 100%;
+    background: rgb(255, 229, 229);
+}
