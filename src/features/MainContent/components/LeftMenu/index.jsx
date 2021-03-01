@@ -9,8 +9,8 @@ LeftMenu.propTypes = {
 function LeftMenu(props) {
     return (
         <div className="left-menu">
-              <nav class="navbar">
-                <ul class="navbar-nav">
+              <nav class="left-menu__navbar">
+                <ul class="left-menu__navbar-nav">
                     <li class="nav-item">
                         <NavLink to="/">
                             <a href="#" class="nav-link">

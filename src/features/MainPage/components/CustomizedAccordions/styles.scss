@@ -1,0 +1,39 @@
+@import '../../../../assets/variables';
+.custom-option{
+    width: $optionDropdownWidth;
+
+    &__option--wrapper{
+        padding: 0px 20px;
+    }
+
+    &__test{
+        justify-content: flex-start;
+    }
+
+    &__btn{
+        width: 50%;
+        height: 50px;
+    }
+}
+.MuiFormGroup-row {
+    margin: -5px 0;
+    margin-left: 15px;
+}
+.MuiAccordionSummary-root {
+    background: white!important;
+}
+.MuiAccordionSummary-content:first-of-type {
+    justify-content: center;
+    color: black;
+}
+.MuiAccordionSummary-content{
+    gap: 0 10px;
+}
+.custom-option__option--wrapper {
+    padding: 0px;
+}
+.MuiAccordionSummary-content:first-of-type {
+    grid-gap: 0 10px;
+    gap: 0 10px;
+    justify-content: flex-start;
+}

@@ -19,6 +19,7 @@ function MainContent(props) {
             <LeftMenu/>
             <Switch>
                 <Route path="/" component={MainPage} exact/>
+                <Route path="/main" component={MainPage} exact/>
                 <Route path="/post" component={PostNewItem} exact/>
                 <Route path="/favorite" component={FavoriteList} exact/>
                 <Route path="/about" component={AboutUs} exact/>

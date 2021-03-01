@@ -1,0 +1,18 @@
+@import '../../../../assets/variables';
+.rent-page{
+    display: flex;
+    flex-direction: row;
+    gap: 0 10px;
+
+    &__option{
+        width: 375px!important;
+    }
+
+    &__list-items{
+        height: auto;
+        width: calc(100% - #{$optionDropdownWidth});
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}

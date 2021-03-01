@@ -1,0 +1,40 @@
+@import '../../../../assets/variables';
+
+.paper-tabs{
+    margin-left: $leftMenu;
+    box-sizing: border-box;
+    padding: 0 10rem;
+    text-align: center;
+
+    &__tabs{
+        background: white;
+        color: $textColor;
+    }
+    // &__test{
+    //     justify-content: center;
+    //     border: none;
+    //     outline: none;
+    //     box-shadow: none;
+    // }
+}
+.MuiTabs-flexContainer {
+    justify-content: center;
+    button {
+        width: 50%;
+        color: $color1;
+    }
+}
+.MuiPaper-elevation4{
+    box-shadow:none!important;
+}
+.PrivateTabIndicator-colorSecondary-6 {
+    background-color: $color1!important;
+}
+.paper-tabs {
+    margin-left: 0;
+    box-sizing: border-box;
+    padding: 0 7rem;
+    text-align: center;
+    width: 100%;
+    height: auto;
+}

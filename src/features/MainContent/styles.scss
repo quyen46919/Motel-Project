@@ -3,5 +3,9 @@
 .main-content{
     height: calc(100vh - #{$headerHeigh});
     width: 100%;
-    background: rgb(255, 229, 229);
+    background: white;
+    overflow-x: hidden;
+}
+.main-content::-webkit-scrollbar{
+    display: none;
 }

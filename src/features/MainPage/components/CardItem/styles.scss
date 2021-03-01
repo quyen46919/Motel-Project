@@ -1,0 +1,9 @@
+.card-item {
+    cursor: pointer;
+    &__card--action{
+        padding: 2px 8px!important;
+    }
+}
+.card-item:hover{
+    box-shadow: 0 0 7px rgb(156, 156, 156);
+}
