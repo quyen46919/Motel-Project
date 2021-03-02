@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import { NavLink } from 'react-router-dom';
+
+
 LeftMenu.propTypes = {
     
 };
+
 
 function LeftMenu(props) {
     return (
@@ -47,7 +50,7 @@ function LeftMenu(props) {
                         </NavLink>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item" id="nav-item--hidden">
                         <NavLink to="/about">
                             <a href="#" class="nav-link">
                             <i class="fas fa-id-card-alt"></i>
@@ -56,7 +59,7 @@ function LeftMenu(props) {
                         </NavLink>
                     </li>
 
-                    <li class="nav-item" id="themeButton">
+                    <li class="nav-item">
                         <NavLink to="/setting">
                             <a href="#" class="nav-link">
                             <i class="fas fa-wrench"></i>

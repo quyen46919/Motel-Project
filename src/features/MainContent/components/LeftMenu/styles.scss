@@ -13,7 +13,7 @@
       margin-top: $headerHeigh!important ;
       height: calc(100vh - #{$headerHeigh})!important;
       position: fixed;
-      z-index: 100000;
+      z-index: 1000;
       background-color: $bgPrimary;
       transition: width 600ms ease;
       overflow: hidden;
@@ -119,7 +119,7 @@
 
   
   /* Small screens */
-  @media only screen and (max-width: 600px) {
+  @media screen and (max-width: 1240px) {
     .left-menu__navbar {
       bottom: 0;
       width: 100vw;
@@ -134,6 +134,9 @@
   
     .left-menu__navbar-nav {
       flex-direction: row;
+      // height: 4rem;
+      // justify-content: center;
+      // align-items: center;
     }
   
     .nav-link {
@@ -146,7 +149,7 @@
   }
   
   /* Large screens */
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 1240px) {
     .left-menu__navbar {
       top: 0;
       width: 5rem;
@@ -175,5 +178,21 @@
     .left-menu__navbar:hover .logo-text
     {
       left: 0px;
+    }
+  }
+
+  @media (max-width: 479px){
+    .left-menu__navbar-nav{
+      height: 60px;
+    }
+    li.nav-item{
+      flex: 1;
+    }
+    #nav-item--hidden{
+      display: none!important;
+    }
+
+    .left-menu .nav-item:last-child{
+      margin-top: 0;
     }
   }

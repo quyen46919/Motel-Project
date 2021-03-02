@@ -1,13 +1,11 @@
 
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
-import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
+import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
+import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-
-import CheckBox from '../../../../components/CheckBox';
+import React from 'react';
+import ListOption from '../ListOption';
 import './styles.scss';
 
 
@@ -73,56 +71,7 @@ export default function CustomizedAccordions() {
           <Typography style={abc}>Lọc theo yêu cầu</Typography>
         </AccordionSummary>
       </Accordion>
-      <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>Tiện ích</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography className="custom-option__option--wrapper">
-            <CheckBox props="Wifi"/>
-            <CheckBox props="khu nấu ăn"/>
-            <CheckBox props="Chỗ phơi đồ"/>
-            <CheckBox props="Tủ lạnh"/>
-            <CheckBox props="Điều hòa"/>
-            <CheckBox props="Máy nước nóng"/>
-            <CheckBox props="Tủ chứa đồ"/>
-            <CheckBox props="Quạt"/>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>Loại nhà trọ</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            <CheckBox props="Chung chủ"/>
-            <CheckBox props="Không chung chủ"/>
-            <CheckBox props="Căn hộ"/>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>Sắp xếp theo</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            <CheckBox props="Từ cao xuống thấp"/>
-            <CheckBox props="Từ thấp đến cao"/>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary>
-          <Button variant="outlined" color="primary" className="custom-option__btn">
-            Đặt lại
-          </Button>
-          <Button variant="contained" color="primary" className="custom-option__btn">
-            Áp dụng
-          </Button>
-        </AccordionSummary>
-      </Accordion>
+      <ListOption/>
     </div>
   );
 }

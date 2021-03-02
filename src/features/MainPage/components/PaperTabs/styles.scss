@@ -3,8 +3,11 @@
 .paper-tabs{
     margin-left: $leftMenu;
     box-sizing: border-box;
-    padding: 0 10rem;
     text-align: center;
+    margin-left: 0;
+    // padding: 0 7rem;
+    width: 100%;
+    height: auto;
 
     &__tabs{
         background: white;
@@ -16,6 +19,12 @@
     //     outline: none;
     //     box-shadow: none;
     // }
+}
+.MuiBox-root-9 {
+    padding: 24px 0!important;
+}
+.MuiBox-root-27 {
+    padding: 24px 0 !important;
 }
 .MuiTabs-flexContainer {
     justify-content: center;
@@ -37,4 +46,15 @@
     text-align: center;
     width: 100%;
     height: auto;
+}
+
+@media screen and (max-width: 1680px){
+    .paper-tabs{
+        padding: 0 3rem!important;
+    }
+}
+@media screen and (max-width: 767px){
+    .paper-tabs{
+        padding: 0!important;
+    }
 }

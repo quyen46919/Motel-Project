@@ -1,6 +1,8 @@
 @import '../../../../assets/variables';
 .custom-option{
-    width: $optionDropdownWidth;
+    // width: $optionDropdownWidth;
+    flex: 2;
+    transition: .25s;
 
     &__option--wrapper{
         padding: 0px 20px;
@@ -36,4 +38,15 @@
     grid-gap: 0 10px;
     gap: 0 10px;
     justify-content: flex-start;
+}
+
+@media (max-width: 1240px){
+    .custom-option {
+        flex: 3;
+    }
+}
+@media (max-width: 1023px){
+    .custom-option {
+        display: none;
+    }
 }

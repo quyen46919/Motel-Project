@@ -1,0 +1,20 @@
+
+
+.sub-menu{
+    opacity: 0;
+    pointer-events: none;
+    background: #5392f9!important;
+}
+
+@media (max-width: 1024px){
+    .sub-menu{
+        opacity: 1;
+        pointer-events: all;
+        margin-top: 10px!important;
+    }
+}
+
+.accor-details{
+    padding-top: 5px!important;
+    padding-bottom: 3px!important;
+}

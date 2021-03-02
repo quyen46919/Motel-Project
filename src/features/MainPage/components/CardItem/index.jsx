@@ -13,7 +13,7 @@ import './styles.scss';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 310
+    maxWidth: 315
   },
   media: {
     height: 0,

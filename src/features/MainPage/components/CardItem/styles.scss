@@ -7,3 +7,39 @@
 .card-item:hover{
     box-shadow: 0 0 7px rgb(156, 156, 156);
 }
+
+@media (max-width: 1550px){
+    .card-item {
+        max-width: 340px!important;
+    }
+}
+@media (max-width: 1239px){
+    .card-item {
+        max-width: 300px!important;
+    }
+}
+@media (max-width: 1115px){
+    .card-item {
+        max-width: 260px!important;
+    }
+}
+@media (max-width: 1024px){
+    .card-item {
+        max-width: 270px!important;
+    }
+}
+@media (max-width: 767px){
+    .card-item {
+        max-width: 320px!important;
+    }
+}
+@media (max-width: 600px){
+    .card-item {
+        max-width: 350px!important;
+    }
+}
+@media (max-width: 319px){
+    .card-item {
+        max-width: 350px!important;
+    }
+}

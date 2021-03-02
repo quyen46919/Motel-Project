@@ -59,7 +59,7 @@
         }
 
          input {
-            flex: 10;
+            flex: 8;
             height: 100%;
             outline: none;
             border: none;
@@ -142,7 +142,13 @@
     }
 
     &__form--sub{
+        background: white!important;
+        z-index: 1000!important;
+        height: 60px!important;
+        margin: 0!important;
+        padding: 20px 0!important;
         display: none;
+        
     }
 }
 
@@ -164,6 +170,84 @@
             .header__select--wrapper{
                 box-shadow: 3px 0  15px $gray1;
             }
+        }
+    }
+}
+@media screen and (max-width: 767px){
+    .header{
+        flex-wrap: wrap;
+
+        &__search--wrapper{
+            display: none!important;
+        }
+
+        &__form--sub{
+            display: none!important;
+            display: flex;
+            width: 100%;
+            margin-top: 15px;
+
+
+            .header__select--wrapper{
+                box-shadow: 3px 0  15px $gray1;
+            }
+
+        }
+        &__icon{
+            border-radius: 3px;
+        }
+
+        &__button{
+            width: 50px!important;
+        }
+
+    }
+}
+
+@media screen and (max-width: 550px){
+    .header{
+        // flex-wrap: wrap;
+        height: calc(#{$headerHeigh} - 20px);
+
+        &__form{
+            justify-content: flex-end;
+            width: 50px;
+        }
+        &__form--sub{
+            display: none;
+        }
+
+        &__search--wrapper{
+            width: 50px;
+            height: 40px;
+
+            input {
+                flex: 0.5!important;
+            }
+            ::placeholder{
+                font-size: 13px;
+            }
+        }
+        &__icon{
+            width: 50px!important;
+            border-radius: 3px;
+            // transform: translateX(120%);
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 450px){
+    .header{
+        &__search--wrapper{
+            width: 50px;
+
+            input{
+                display: none;
+            }
+        }
+        &__icon{
+            border-radius: 3px;
+            transform: translateX(120%);
         }
     }
 }

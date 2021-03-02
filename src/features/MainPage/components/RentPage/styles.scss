@@ -10,9 +10,16 @@
 
     &__list-items{
         height: auto;
-        width: calc(100% - #{$optionDropdownWidth});
+        // width: calc(100% - #{$optionDropdownWidth});
+        flex: 6;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
         gap: 10px;
+    }
+}
+@media screen and (max-width: 1680px){
+    .rent-page{
+        // flex-direction: column;
     }
 }

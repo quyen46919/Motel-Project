@@ -3,11 +3,19 @@ import React, { useState } from 'react';
 import '../../fontawesome/css/all.css';
 import CustomSelect from './components/CustomSelect';
 import Button from '@material-ui/core/Button';
+import SearchIcon from '@material-ui/icons/Search';
+import RoomIcon from '@material-ui/icons/Room';
+import NearMeIcon from '@material-ui/icons/NearMe';
+import HomeIcon from '@material-ui/icons/Home';
 import './styles.scss';
 
 Header.propTypes = {};
 
+
+
 function Header(props) {
+
+
     const [data1, setData1] = useState({
         title: "Khu vực",
         value1: "Cẩm Lệ", 
@@ -32,8 +40,9 @@ function Header(props) {
         value4: "25-30m2",
         value5: "Lớn hơn"
     });
-    
 
+    
+    
     return (
         <div className="header">
             <div className="header__logo">
@@ -42,30 +51,30 @@ function Header(props) {
             <form action="" className="header__form">
                 <div className="header__search--wrapper">
                     <div className="header__icon">
-                        <i class="fas fa-search"></i>
+                        <SearchIcon/>
                     </div>
                     <input type="text" className="header__search" placeholder="Nhập tên đường bạn muốn tìm..."/>
                 </div>
                 <div className="header__select--wrapper">
                     <div className="header__icon">
-                        <i class="fas fa-location-arrow"></i>
+                        <NearMeIcon/>
                     </div>
                     <CustomSelect data={data1}/>
                 </div>
                 <div className="header__select--wrapper">
                     <div className="header__icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <RoomIcon/>
                     </div>
                     <CustomSelect data={data2}/>
                 </div>
                 <div className="header__select--wrapper">
                     <div className="header__icon">
-                        <i class="fas fa-money-bill-wave-alt"></i>
+                        <HomeIcon/>
                     </div>
                     <CustomSelect data={data3}/>
                 </div>
                 <Button variant="contained" color="primary" disableElevation>
-                    Tìm kiếm
+                    TÌM KIẾM
                 </Button>
             </form>
             <div className="header__login">
@@ -76,23 +85,23 @@ function Header(props) {
             <form action="" className="header__form--sub">
             <div className="header__select--wrapper">
                     <div className="header__icon">
-                        <i class="fas fa-location-arrow"></i>
+                        <SearchIcon/>
                     </div>
                     <CustomSelect data={data1}/>
                 </div>
                 <div className="header__select--wrapper">
                     <div className="header__icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <NearMeIcon/>
                     </div>
                     <CustomSelect data={data2}/>
                 </div>
                 <div className="header__select--wrapper">
                     <div className="header__icon">
-                        <i class="fas fa-money-bill-wave-alt"></i>
+                        <HomeIcon/>
                     </div>
                     <CustomSelect data={data3}/>
                 </div>
-                <Button variant="contained" color="primary" disableElevation>
+                <Button variant="contained" color="primary" disableElevation className="header__button">
                     Tìm kiếm
                 </Button>
             </form>
