@@ -50,7 +50,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PaperTabs() {
+PaperTabs.defaultProps  = {
+  list: {}
+};
+
+export default function PaperTabs({list}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -67,10 +71,10 @@ export default function PaperTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <RentPage id="1"/>
+        {list.data1}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <RentPage id="2"/>
+        {list.data2}
       </TabPanel>
     </div>
   );

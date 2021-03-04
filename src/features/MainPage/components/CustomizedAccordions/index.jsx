@@ -57,7 +57,7 @@ export default function CustomizedAccordions() {
     setExpanded(newExpanded ? panel : false);
   };
 
-  const abc = {
+  const typoStyles = {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -68,7 +68,7 @@ export default function CustomizedAccordions() {
     <div className="custom-option">
       <Accordion square className="custom-option__test">
         <AccordionSummary>
-          <Typography style={abc}>Lọc theo yêu cầu</Typography>
+          <Typography style={typoStyles}>Lọc theo yêu cầu</Typography>
         </AccordionSummary>
       </Accordion>
       <ListOption/>

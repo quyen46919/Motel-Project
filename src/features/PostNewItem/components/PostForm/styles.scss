@@ -1,0 +1,12 @@
+.policy{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    > *{
+        margin: 0;
+        padding: 0;
+    }
+}

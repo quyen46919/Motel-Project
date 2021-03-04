@@ -1,0 +1,34 @@
+@import '../../assets/variables';
+
+
+.post-page{
+    text-align: center;
+    margin-left: $leftMenu;
+    padding : 0 7rem;
+    
+    .paper-tabs{
+        padding: 0!important;
+    }
+    
+    h1{
+        color: #20274d;
+
+    }
+
+}
+@media (max-width: 1240px){
+    .post-page{
+        margin-left: 0!important;
+        padding: 0!important;
+    }
+}
+@media (max-width: 600px){
+    .post-page {
+        padding: 1rem!important;
+    }
+}
+@media (max-width: 400px){
+    .post-page {
+        padding: 0rem!important;
+    }
+}

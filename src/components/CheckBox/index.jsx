@@ -10,12 +10,13 @@ const GreenCheckbox = withStyles({
     color: green[400],
     "&$checked": {
       color: green[600]
-    }
+    },
+    transform : "translateY(-2px)"
   },
   checked: {}
 })((props) => <Checkbox color="default" {...props} />);
 
-export default function CheckboxLabels({props}) {
+export default function CheckBox({props}) {
   const [state, setState] = React.useState({
     checkedA: true
   });
