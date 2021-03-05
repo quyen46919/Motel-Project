@@ -10,6 +10,11 @@ import ToysIcon from '@material-ui/icons/Toys';
 import AcUnitIcon from '@material-ui/icons/AcUnit';
 import WifiIcon from '@material-ui/icons/Wifi';
 import OpacityIcon from '@material-ui/icons/Opacity';
+import FormatColorResetIcon from '@material-ui/icons/FormatColorReset';
+import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
+import VideocamIcon from '@material-ui/icons/Videocam';
+import DeleteIcon from '@material-ui/icons/Delete';
+import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-start",
     },
     textColor:{
-        color: "#20274d"
+        color: "#20274d",
+        transform: "translateY(-2px)"
     }
   }));
 
@@ -63,6 +69,18 @@ function ListCheckbox(props) {
                 <div className={classes.wrapper}>
                     <WhatshotIcon fontSize="large"  className={classes.textColor}/>
                     <CustomCheckbox props="Nấu ăn trong phòng"/>
+                </div>
+                <div className={classes.wrapper}>
+                    <FormatColorResetIcon fontSize="large"  className={classes.textColor}/>
+                    <CustomCheckbox props="Không nhậu nhẹt"/>
+                </div>
+                <div className={classes.wrapper}>
+                    <PersonAddDisabledIcon fontSize="large"  className={classes.textColor}/>
+                    <CustomCheckbox props="Cấm mời bạn qua đêm"/>
+                </div>
+                <div className={classes.wrapper}>
+                    <RecordVoiceOverIcon fontSize="large"  className={classes.textColor}/>
+                    <CustomCheckbox props="Cấm làm ồn sau 22h"/>
                 </div>
             </div>
 
@@ -94,6 +112,14 @@ function ListCheckbox(props) {
                 <div className={classes.wrapper}>
                     <OpacityIcon fontSize="large"  className={classes.textColor}/>
                     <CustomCheckbox props="Máy nước nóng"/>
+                </div>
+                <div className={classes.wrapper}>
+                    <VideocamIcon fontSize="large"  className={classes.textColor}/>
+                    <CustomCheckbox props="Camera an ninh"/>
+                </div>
+                <div className={classes.wrapper}>
+                    <DeleteIcon fontSize="large"  className={classes.textColor}/>
+                    <CustomCheckbox props="Chỗ đổ rác"/>
                 </div>
             </div>
         </>
