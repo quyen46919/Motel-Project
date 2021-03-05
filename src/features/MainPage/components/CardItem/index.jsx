@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   textStyles: {
     color: "rgba(0, 0, 0, 0.54)",
+    transform: "translateY(-4px)"
   }
 }));
 

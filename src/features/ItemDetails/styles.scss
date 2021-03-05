@@ -1,0 +1,133 @@
+
+@import '../../assets/variables';
+
+$paddingTop: 1rem;
+$distance: 0.1rem;
+.item-details{
+    margin-left: $leftMenu;
+    padding: $basePadding;
+    position: relative;
+    display: flex;
+    padding-bottom: 5rem;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 280px;
+        width: 100%;
+        background-color: $backgroundColor;
+        z-index: 0;
+    }
+
+    &__content{
+        flex: 5;
+        z-index: 1;
+        height: auto;
+    }
+    &__header{
+        padding-top: $paddingTop;
+        > * {
+            margin: 0.8rem 0rem;
+            padding: 0;
+            color: $textColor2;
+        }
+
+        h3, p{
+            color: $textColor3;
+        }
+    }
+    &__utility,
+    &__request,
+    &__info{
+        margin-top: 2rem;
+        color: $backgroundColor;
+    }
+    &__utility-content,
+    &__request-content,
+    &__info-content{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0 1rem;
+    }
+    &__1-ultility,
+    &__1-request{
+        width: 25%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        font-weight: 500;
+        height: 45px;
+    }
+    &__1-info{
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 5rem;
+        color: $backgroundColor;
+        font-weight: 500;
+        height: 45px;
+    }
+    &__img-block{
+        flex: 2;
+        z-index: 1;
+        height: 700px;
+        background-color: white;
+        box-sizing: border-box;
+        margin-top: $paddingTop;
+        box-shadow: 1px 1px 7px rgb(199, 199, 199);
+
+    }
+
+    &__img-wrapper{
+        background: white;
+        padding: $distance;
+
+    }
+
+    &__img--1{
+        background-image: url("../../assets/images/genshin_12_4K.jpg");
+        background-size: cover;
+        height: 250px;
+        flex: 1 100%;
+        cursor: pointer;
+    }
+    &__sub-imgs{
+        display: flex;
+        margin-top: $distance;
+        gap: $distance;
+    }
+    &__img{
+        background-size: cover;
+        height: 100px;
+        flex: 1 33%;
+        cursor: pointer;
+    }
+    &__img--2{
+        background-image: url("../../assets/images/grass.jpg");
+    }
+    &__img--3{
+        background-image: url("../../assets/images/blosom.jpg");;
+    }
+    &__img--4{
+        background-image: url("../../assets/images/bloom.jpg");
+    }
+
+    &__content-btn{
+        display: flex;
+        // padding: 0 0.5rem;
+        flex-direction: column;
+        align-items: center;
+
+        h1{
+            color: $backgroundColor;
+        }
+    }
+
+}
+

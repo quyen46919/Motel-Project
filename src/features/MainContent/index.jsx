@@ -9,6 +9,7 @@ import FavoriteList from '../FavoriteList';
 import AboutUs from '../AboutUs';
 import Contact from '../Contact';
 import UserInfo from '../UserInfo';
+import ItemDetails from '../ItemDetails';
 MainContent.propTypes = {
     
 };
@@ -22,6 +23,7 @@ function MainContent(props) {
             <Switch>
                 <Route path="/" component={MainPage} exact/>
                 <Route path="/main" component={MainPage} exact/>
+                <Route path="/main/details" component={ItemDetails} />
                 <Route path="/post" component={PostNewItem} exact/>
                 <Route path="/favorite" component={FavoriteList} exact/>
                 <Route path="/about" component={AboutUs} exact/>
