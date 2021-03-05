@@ -8,6 +8,8 @@ MainPage.propTypes = {
     
 };
 const listPaperTabs = {
+    label1:"Tìm trọ",
+    label2: "Ghép trọ",
     data1: <RentPage id="1"/>,
     data2: <RentPage id="2"/>,
 }

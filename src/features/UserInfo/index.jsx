@@ -1,14 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PaperTabs from '../MainPage/components/PaperTabs';
+import UserForm from './components/UserForm';
+import MotelForm from './components/MotelForm';
+import './styles.scss';
 
 UserInfo.propTypes = {
     
 };
 
+const data = {
+    label1: "Thông tin cá nhân",
+    label2: "Thông tin nhà trọ",
+    data1: <UserForm/>,
+    data2: <MotelForm/>
+}
+
 function UserInfo(props) {
     return (
-        <div>
-            THIS IS USER INFO PAGE
+        <div className="user-info">
+            <h1>Thông tin cá nhân & cài đặt</h1>
+            <PaperTabs component={'span'} list={data}/>
         </div>
     );
 }

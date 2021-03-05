@@ -68,7 +68,7 @@ export default function CustomizedAccordions() {
     <div className="custom-option">
       <Accordion square className="custom-option__test">
         <AccordionSummary>
-          <Typography style={typoStyles}>Lọc theo yêu cầu</Typography>
+          <Typography component={'span'} style={typoStyles}>Lọc theo yêu cầu</Typography>
         </AccordionSummary>
       </Accordion>
       <ListOption/>

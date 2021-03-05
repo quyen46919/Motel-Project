@@ -9,6 +9,8 @@ PostNewItem.propTypes = {
     
 };
 const data = {
+    label1:"Tìm trọ",
+    label2: "Ghép trọ",
     data1: <PostForm id="1"/>,
     data2: <PostForm id="2"/>
 }

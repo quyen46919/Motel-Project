@@ -23,7 +23,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography component={'div'}>{children}</Typography>
+          <Typography>{children}</Typography>
         </Box>
       )}
     </div>
@@ -66,14 +66,14 @@ export default function PaperTabs({list}) {
     <div className={`${classes.root} paper-tabs`}>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" className="paper-tabs__tabs">
-          <Tab label={list.label1} {...a11yProps(0)} className="paper-tabs__tab"/>
-          <Tab label={list.label2} {...a11yProps(1)} />
+          <Tab label="Tìm trọ" {...a11yProps(0)} className="paper-tabs__tab"/>
+          <Tab label="Ghép trọ" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <TabPanel component={'div'} value={value} index={0}>
+      <TabPanel component={'span'} value={value} index={0}>
         {list.data1}
       </TabPanel>
-      <TabPanel component={'div'} value={value} index={1}>
+      <TabPanel component={'span'} value={value} index={1}>
         {list.data2}
       </TabPanel>
     </div>

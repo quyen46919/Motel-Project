@@ -1,0 +1,57 @@
+@import '../../../../assets/variables';
+
+.paper-tabs{
+    margin-left: $leftMenu;
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: 0;
+    // padding: 0 7rem;
+    width: 100%;
+    height: auto;
+
+    &__tabs{
+        background: white;
+        color: $textColor;
+    }
+    // &__test{
+    //     justify-content: center;
+    //     border: none;
+    //     outline: none;
+    //     box-shadow: none;
+    // }
+}
+.PrivateTabIndicator-colorSecondary-8 {
+    background-color: #5392f9!important;
+}
+.MuiTabs-flexContainer {
+    justify-content: center;
+    button {
+        width: 50%;
+        color: $color1;
+    }
+}
+.MuiPaper-elevation4{
+    box-shadow:none!important;
+}
+.PrivateTabIndicator-colorSecondary-6 {
+    background-color: $color1!important;
+}
+.paper-tabs {
+    margin-left: 0;
+    box-sizing: border-box;
+    padding: 0 7rem;
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 1680px){
+    .paper-tabs{
+        padding: 0 3rem!important;
+    }
+}
+@media screen and (max-width: 767px){
+    .paper-tabs{
+        padding: 0!important;
+    }
+}

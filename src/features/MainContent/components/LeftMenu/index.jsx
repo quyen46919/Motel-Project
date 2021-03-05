@@ -12,59 +12,47 @@ LeftMenu.propTypes = {
 function LeftMenu(props) {
     return (
         <div className="left-menu">
-              <nav class="left-menu__navbar">
-                <ul class="left-menu__navbar-nav">
-                    <li class="nav-item">
-                        <NavLink to="/">
-                            <a href="#" class="nav-link">
-                            <i class="fas fa-h-square"></i>
-                            <span class="link-text">Thuê trọ</span>
-                            </a>
+              <nav className="left-menu__navbar">
+                <ul className="left-menu__navbar-nav">
+                    <li className="nav-item">
+                        <NavLink to="/" className="nav-link">
+                            <i className="fas fa-h-square"></i>
+                            <span className="link-text">Thuê trọ</span>
                         </NavLink>
                     </li>
 
-                    <li class="nav-item">
-                        <NavLink to="/post">
-                            <a href="#" class="nav-link">
-                            <i class="fab fa-pushed"></i>
-                            <span class="link-text">Đăng tin</span>
-                            </a>
+                    <li className="nav-item">
+                        <NavLink to="/post" className="nav-link">
+                            <i className="fab fa-pushed"></i>
+                            <span className="link-text">Đăng tin</span>
                         </NavLink>
                     </li>
 
-                    <li class="nav-item">
-                        <NavLink to="/favorite">
-                            <a href="#" class="nav-link">
-                            <i class="fas fa-heart"></i>
-                            <span class="link-text">Yêu thích</span>
-                            </a>
+                    <li className="nav-item">
+                        <NavLink to="/favorite" className="nav-link">
+                            <i className="fas fa-heart"></i>
+                            <span className="link-text">Yêu thích</span>
                         </NavLink>
                     </li>
 
-                    <li class="nav-item">
-                        <NavLink to="/contact">
-                            <a href="#" class="nav-link">
-                            <i class="fas fa-ad"></i>
-                            <span class="link-text">Liên hệ</span>
-                            </a>
+                    <li className="nav-item">
+                        <NavLink to="/contact" className="nav-link">
+                            <i className="fas fa-ad"></i>
+                            <span className="link-text">Liên hệ</span>
                         </NavLink>
                     </li>
 
-                    <li class="nav-item" id="nav-item--hidden">
-                        <NavLink to="/about">
-                            <a href="#" class="nav-link">
-                            <i class="fas fa-id-card-alt"></i>
-                            <span class="link-text">Về chúng tôi</span>
-                            </a>
+                    <li className="nav-item" id="nav-item--hidden">
+                        <NavLink to="/about" className="nav-link">
+                            <i className="fas fa-id-card-alt"></i>
+                            <span className="link-text">Về chúng tôi</span>
                         </NavLink>
                     </li>
 
-                    <li class="nav-item">
-                        <NavLink to="/setting">
-                            <a href="#" class="nav-link">
-                            <i class="fas fa-wrench"></i>
-                            <span class="link-text">Cài đặt</span>
-                            </a>
+                    <li className="nav-item">
+                        <NavLink to="/setting" className="nav-link">
+                            <i className="fas fa-wrench"></i>
+                            <span className="link-text">Cài đặt</span>
                         </NavLink>
                     </li>
                 </ul>

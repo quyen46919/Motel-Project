@@ -70,10 +70,10 @@ export default function ListOption() {
     <>
       <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>Tiện ích</Typography>
+          <Typography component={'span'}>Tiện ích</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography className="custom-option__option--wrapper">
+          <Typography component={'span'} className="custom-option__option--wrapper">
             <CheckBox props="Wifi"/>
             <CheckBox props="khu nấu ăn"/>
             <CheckBox props="Chỗ phơi đồ"/>
@@ -87,10 +87,10 @@ export default function ListOption() {
       </Accordion>
       <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>Loại nhà trọ</Typography>
+          <Typography component={'span'}>Loại nhà trọ</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography component={'span'}>
             <CheckBox props="Chung chủ"/>
             <CheckBox props="Không chung chủ"/>
             <CheckBox props="Căn hộ"/>
@@ -99,10 +99,10 @@ export default function ListOption() {
       </Accordion>
       <Accordion square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>Sắp xếp theo</Typography>
+          <Typography component={'span'}>Sắp xếp theo</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography component={'span'}>
             <CheckBox props="Từ cao xuống thấp"/>
             <CheckBox props="Từ thấp đến cao"/>
           </Typography>

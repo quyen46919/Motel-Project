@@ -34,10 +34,10 @@ export default function CardItem({img}) {
         title="Paella dish"
       />
       <CardContent>
-        <Typography variant="button" gutterBottom>
+        <Typography component={'span'} variant="button" gutterBottom>
             Cho thuê 1 phòng trọ tại K544/16 Đường 2/9 Quận Hải Châu (chỉ nữ)
         </Typography>
-        <Typography variant="body1" color="textSecondary" component="p">
+        <Typography component={'span'} variant="body1" color="textSecondary">
           2.500.000 VND
         </Typography>
       </CardContent>

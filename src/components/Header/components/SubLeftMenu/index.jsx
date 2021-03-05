@@ -144,7 +144,7 @@ export default function SubLeftMenu() {
       <List>
         <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-            <Typography>Tìm kiếm theo</Typography>
+            <Typography component={'span'}>Tìm kiếm theo</Typography>
           </AccordionSummary>
           <AccordionDetails className="accor-details">
             <TextField id="standard-basic" label="Tên đường" />
