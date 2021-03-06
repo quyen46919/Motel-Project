@@ -18,7 +18,10 @@ function RentPage({id}) {
                 <CardItem img={id === "1" ? img : img2}/>
                 <CardItem img={id === "1" ? img : img2}/>
                 <CardItem img={id === "1" ? img : img2}/>
-                <CardItem img={id === "1" ? img : img2}/>         
+                <CardItem img={id === "1" ? img : img2}/> 
+                <CardItem img={id === "1" ? img : img2}/>
+                <CardItem img={id === "1" ? img : img2}/>
+                <CardItem img={id === "1" ? img : img2}/>   
             </div>
         </div>
     );

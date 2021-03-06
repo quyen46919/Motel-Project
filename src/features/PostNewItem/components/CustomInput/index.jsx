@@ -55,7 +55,7 @@ export default function CustomInput({title}) {
   const classes = useStyles();
 
   return (
-    <form className={`${classes.root} custom-input`}>
+    <div className={`${classes.root} custom-input`}>
         <div className={classes.titleWrap}>
           <h1 className={classes.titleColor}>{title}</h1>
         </div>
@@ -158,6 +158,6 @@ export default function CustomInput({title}) {
             </div>
         </div>
 
-    </form>
+    </div>
   );
 }

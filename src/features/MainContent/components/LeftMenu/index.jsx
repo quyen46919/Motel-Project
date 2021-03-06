@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 
 
 LeftMenu.propTypes = {
@@ -10,6 +10,9 @@ LeftMenu.propTypes = {
 
 
 function LeftMenu(props) {
+    // const match = useRouteMatch();
+    let { path, url } = useRouteMatch();
+    
     return (
         <div className="left-menu">
               <nav className="left-menu__navbar">
