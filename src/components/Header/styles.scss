@@ -142,7 +142,7 @@
     }
 
     &__form--sub{
-        background: white!important;
+        background: #20274d!important;
         z-index: 1000!important;
         height: 60px!important;
         margin: 0!important;
@@ -168,7 +168,7 @@
             margin-top: 15px;
 
             .header__select--wrapper{
-                box-shadow: 3px 0  15px $gray1;
+                // box-shadow: 3px 0  15px $gray1;
             }
         }
     }

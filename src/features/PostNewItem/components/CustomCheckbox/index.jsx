@@ -3,6 +3,7 @@ import { green } from "@material-ui/core/colors";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
 
 const GrayCheckbox = withStyles({
@@ -15,24 +16,31 @@ const GrayCheckbox = withStyles({
   checked: {}
 })((props) => <Checkbox color="default" {...props} />);
 
-const customStyles = {
+const useStyles = makeStyles((theme) => ({
+  customStyles: {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
     gap: "0 1rem",
-}
-const centerDiv = {
+    ["@media (max-width: 320px)"]: {
+      width: "200px!important"
+    }
+  },
+  centerDiv : {
     width: "200px",
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
-}
-const textStyles = {
-  color: "#20274d",
-  marginLeft: "10px",
-}
+  },
+  textStyles : {
+    color: "#20274d",
+    marginLeft: "10px",
+  }
+}));
+
 
 export default function CustomCheckbox({props}) {
+  const classes = useStyles();
   const [state, setState] = React.useState({
     checkedA: true
   });
@@ -42,9 +50,9 @@ export default function CustomCheckbox({props}) {
   };
 
   return (
-    <div style={customStyles}>
-        <div style={centerDiv}>
-            <p style={textStyles}>{props}</p>
+    <div className={classes.customStyles}>
+        <div className={classes.centerDiv}>
+            <p className={classes.textStyles}>{props}</p>
         </div>
         
         <FormControlLabel

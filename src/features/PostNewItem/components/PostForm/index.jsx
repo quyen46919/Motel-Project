@@ -5,13 +5,12 @@ import CustomInput from '../CustomInput';
 import ListCheckbox from '../ListCheckbox';
 import './styles.scss';
 
-PostForm.propTypes = {
-    
-};
+
 const buttonStyles = {
     background: "#5392f9",
     color: "white",
-    padding : "unset 1.5rem"
+    padding : "unset 1.5rem",
+    marginTop: "1rem"
 }
 function PostForm({id}) {
     return (

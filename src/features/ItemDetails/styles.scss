@@ -3,6 +3,8 @@
 
 $paddingTop: 1rem;
 $distance: 0.1rem;
+$boxShadow: 1px 1px 7px rgb(199, 199, 199);
+
 .item-details{
     margin-left: $leftMenu;
     padding: $basePadding;
@@ -19,8 +21,15 @@ $distance: 0.1rem;
         width: 100%;
         background-color: $backgroundColor;
         z-index: 0;
+        transition: .25s;
     }
 
+    &__img-hidden{
+        display: none;
+    }
+    &__btn-hidden{
+        display: none!important;
+    }
     &__content{
         flex: 5;
         z-index: 1;
@@ -68,7 +77,7 @@ $distance: 0.1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-right: 5rem;
+        padding-right: 2.5rem;
         color: $backgroundColor;
         font-weight: 500;
         height: 45px;
@@ -80,7 +89,7 @@ $distance: 0.1rem;
         background-color: white;
         box-sizing: border-box;
         margin-top: $paddingTop;
-        box-shadow: 1px 1px 7px rgb(199, 199, 199);
+        box-shadow: $boxShadow;
 
     }
 
@@ -120,7 +129,6 @@ $distance: 0.1rem;
 
     &__content-btn{
         display: flex;
-        // padding: 0 0.5rem;
         flex-direction: column;
         align-items: center;
 
@@ -129,5 +137,227 @@ $distance: 0.1rem;
         }
     }
 
+    &__comments{
+        margin-top: 2rem;
+        width: 100%;
+        height: auto;
+        background: white;
+        box-sizing: border-box;
+
+    }
+
+    &__user-comment--block{
+        box-shadow: $boxShadow;
+        padding: 1rem;
+        border-radius: 10px;
+
+        h3 {
+            margin: 0;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__user{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0 1rem;
+    }
+
+    &__avatar{
+        width: $avatarSize;
+        height: $avatarSize;
+        background: white;
+        border-radius: 50%;
+        background-image: url("../../assets/images/genshin_12_4K.jpg");
+        background-size: cover;
+    }
+
+    &__another-comments{
+        margin-top: 1.5rem;
+        padding: 0 1rem;
+        margin-bottom: 5rem;
+    }
 }
 
+@media (max-width: 1350px){
+    .item-details{
+        &::after{
+            height: 330px;
+        }
+    }
+}
+@media (max-width: 1240px){
+    .item-details{
+        margin-left: 0;
+
+        &::after{
+            height: 650px;
+        }
+        &__img-block{
+            display: none;
+        }
+        &__img-hidden{
+            margin-top: 1rem;
+            display: block;
+        }
+        
+        &__img-hidden{
+            display: flex;
+            flex-direction: row;
+            gap: 0.1rem;
+        }
+        &__img--1{
+            width: 60%;
+            height: 350px;
+            margin: 0;
+
+        }
+        &__sub-imgs{
+            width: 40%;
+            flex-direction: column;
+            >*{
+                height: 10px;
+            }
+        }
+
+        &__btn-hidden{
+            display: flex!important;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 800px;
+            padding: 0 3rem;
+            justify-content: center;
+            align-items: center;
+            > *{
+                flex: 1;
+            }
+            h1{
+                transform: translateX(50px);
+            }
+        }
+    }
+}
+@media (max-width: 1024px){
+    .item-details{
+        margin-top: 100px;
+        padding: 0 1rem;
+
+    }
+}
+@media (max-width: 850px){
+    .item-details{
+        &__btn-hidden{
+            flex-direction: column!important;
+            width: unset!important;
+            padding: 0!important;
+            align-items: center;
+            justify-content: center;
+            h1{
+                transform: translateX(10px);
+                margin: 0;
+                margin-top: 1rem;
+            }
+            > *{ 
+                // width: 100%;
+            }
+        }
+    }
+}
+@media (max-width: 769px){
+    .item-details{
+        margin-top: 100px!important;
+    }
+}
+@media (max-width: 767px){
+    .item-details{
+        margin-top: 0!important;
+        padding: 0 1rem;
+
+        &__1-ultility,
+        &__1-request{
+            width: 33%;
+        }
+        &__1-info{
+            padding-right: 0!important;
+        }
+        &__avatar{
+            display: none;
+        }
+    }
+
+}
+@media (max-width: 690px){
+    .item-details{
+        &::after{
+            height: 710px;
+        }
+    }
+}
+@media (max-width: 500px){
+    .item-details{
+        &__header{
+            h1{
+                font-size: 22px!important;
+            }
+        }
+        &::after{
+            height: 600px;
+        }
+        &__1-ultility,
+        &__1-request{
+            width: 47%;
+        }        
+        &__1-info{
+            width: 100%;
+        }
+
+        &__img-hidden{
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+            height: 300px;
+        }
+
+        &__img--1{
+            flex: 70%;
+            width: 100%;
+        }
+        &__sub-imgs{
+            flex: 30%;
+            flex-direction: row;
+            width: 100%;
+        }
+        &__img{
+            flex: 33%;
+            height: 100%;
+        }
+    }
+}
+@media (max-width: 450px){
+    .item-details{
+        padding:0 0.5rem!important;
+
+        &::after{
+            height: 620px;
+        }
+        &__img-hidden{
+            padding: 0;
+        }
+
+        &__content{
+            width: 100px!important;
+        }
+    }
+}
+@media (max-width: 375px){
+    .item-details{
+        &::after{
+            height: 630px;
+        }
+        &__1-ultility,
+        &__1-request{
+            width: 100%;
+        }
+    }
+}

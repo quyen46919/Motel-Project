@@ -22,7 +22,10 @@ const useStyles = makeStyles((theme) => ({
       flexWrap: "wrap",
       alignItems: "center",
       justifyContent: "flex-start",
-      gap: "0 1rem"
+      gap: "0 1rem",
+      ["@media (max-width:1024px)"]: {
+          justifyContent: "center"
+      },
     },
     wrapper: {
       width: "320px",
@@ -30,7 +33,10 @@ const useStyles = makeStyles((theme) => ({
       flexWrap: "wrap",
       alignItems: "center",
       justifyContent: "flex-start",
-      gap: "0rem"
+      gap: "0rem",
+      ["@media (maxWidth:1024px)"]: {
+        justifyContent: "center"
+      },
     },
     IconStyles: {
         transform: 'translateY(10px)'

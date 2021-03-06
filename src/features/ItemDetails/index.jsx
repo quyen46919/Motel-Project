@@ -15,16 +15,43 @@ import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import WcIcon from '@material-ui/icons/Wc';
 import CustomButton from './components/Button';
 import CustomButton2 from './components/Button2';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Comment from './components/Comment';
+
+const useStyles = makeStyles((theme) => ({
+    textField: {
+        width: "100%"
+    }
+  }));
 
 function ItemDetails(props) {
+
+    const classes = useStyles();
+
+
     return (
         <div className="item-details">
             <div className="item-details__content">
+                <div className="item-details__img-wrapper item-details__img-hidden">
+                    <div className="item-details__img--1"/>
+                    <div className="item-details__sub-imgs">
+                        <div className="item-details__img item-details__img--2"/>
+                        <div className="item-details__img item-details__img--3"/>
+                        <div className="item-details__img item-details__img--4"/>
+                    </div>
+                </div>
                 <div className="item-details__header">
                     <h1>Cho thuê 1 phòng trọ tại K544/10 đường 2-9 quận Hải Châu thành phố Đà Nẵng</h1>
                     <h3>Trọ thoáng mát, gần đại học Đông Á, Kiến Trúc (khoảng 3 phút đi bộ), gần chợ, bệnh viện,giờ giấc thoải mái</h3>
                     <h4>Chủ trọ : Nguyễn Quang Vinh</h4>
                     <p>Cập nhật vào 20/2/2021</p>
+                </div>
+                <div className="item-details__content-btn item-details__btn-hidden">
+                    <h1>2.500.000 VND</h1>
+                    <CustomButton2 title="Liên hệ với chủ trọ"/>
+                    <CustomButton title="Thêm vào yêu thích"/>
+                    <CustomButton title="Báo đã có người thuê"/>
                 </div>
                 <div className="item-details__utility">
                     <h1>Tiện ích có sẵn</h1>
@@ -130,6 +157,30 @@ function ItemDetails(props) {
                         </div>
                     </div>
                 </div>
+
+                <div className="item-details__comments">
+                    <div className="item-details__user-comment--block">
+                        <form autoComplete="off">
+                            <h3>Bình luận</h3>
+                            <div className="item-details__user">
+                                <div className="item-details__avatar">
+                                </div>
+                                <TextField 
+                                    id="outlined-basic" 
+                                    variant="outlined" 
+                                    className={classes.textField}
+                                />
+                            </div>
+                        </form>
+                    </div>
+                    <div className="item-details__another-comments">
+                        <Comment />
+                        <Comment />
+                        <Comment />
+                        <Comment />
+                    </div>
+                </div>
+
             </div>
             <div className="item-details__img-block">
                 <div className="item-details__img-wrapper">
@@ -147,6 +198,8 @@ function ItemDetails(props) {
                     <CustomButton title="Báo đã có người thuê"/>
                 </div>
             </div>
+
+
         </div>
     );
 }

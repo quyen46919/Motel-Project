@@ -1,0 +1,73 @@
+
+@import '../../../../assets/variables';
+.comment{
+    display: flex;
+    gap: 0 1rem;
+    margin-top: 2rem;
+
+    &__avatar{
+        flex: 10%;
+        background-image: url("../../../../assets/images/blosom.jpg");
+        background-size: cover;
+        width: $avatarSize;
+        height: $avatarSize;
+        border-radius: 50%;
+        float: left;
+    }
+    &__content{
+        flex: 90%;
+        display: flex;
+        flex-direction: column;
+
+        p{ 
+            margin: 0.4rem 0;
+            font-size: 16px;
+        }
+    }
+
+    &__title{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0 0.5rem;
+        
+        h3{ margin: 0; }
+
+    }
+    &__time {
+        font-size: 13px;
+        color: $gray1;
+    }
+
+    &__status{
+        display: flex;
+        gap: 0 5rem;
+    }
+    &__status--div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0 0.5rem;
+        cursor: pointer;
+        color: $gray1;
+    }
+}
+@media (max-width: 500px){
+    .comment {
+        &__status{
+            gap: 0 2rem;
+        }
+    }
+}
+@media (max-width: 375px){
+    .comment {
+        flex-direction: column;
+
+        &__avatar{
+            margin-bottom: 0.5rem;
+        }
+        &__status{
+            gap: 0 1rem;
+        }
+    }
+}
