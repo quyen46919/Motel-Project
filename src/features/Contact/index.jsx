@@ -17,8 +17,10 @@ const style = {
 function Contact(props) {
   return (
     <div className="contact">
-      <ContactIntro />
-      <ContactForm />
+      <div className="contact__content">
+        <ContactIntro />
+        <ContactForm />
+      </div>
     </div>
   );
 }

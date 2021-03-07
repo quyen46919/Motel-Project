@@ -4,9 +4,10 @@ import './style.scss';
 import PropTypes from 'prop-types';
 
 const style = {
-  background: 'rgb(86, 145, 246)',
+  background: '#1379ff',
   color: '#fff',
   padding: '15px 40px',
+  float: 'right',
 };
 function ContactForm(props) {
   return (
@@ -16,22 +17,14 @@ function ContactForm(props) {
           <span>Tên của bạn</span>
           <div className="contact__form-item-input">
             <i className="far fa-user"></i>
-            <input
-              type="text"
-              // placeholder="name..."
-              className="contact__form-item-input--style"
-            />
+            <input type="text" className="contact__form-item-input--style" />
           </div>
         </div>
         <div className="contact__form-item">
           <span>Địa chỉ Email của bạn</span>
           <div className="contact__form-item-input">
             <i className="far fa-envelope"></i>
-            <input
-              type="email"
-              // placeholder="email address..."
-              className="contact__form-item-input--style"
-            />
+            <input type="email" className="contact__form-item-input--style" />
           </div>
         </div>
         <div className="contact__form-item">
