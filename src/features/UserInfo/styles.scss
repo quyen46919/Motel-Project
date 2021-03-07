@@ -5,4 +5,27 @@
     margin-left: $leftMenu;
     padding: 0 7rem;
     margin-top: calc(#{$headerHeigh} + 30px);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+@media (max-width: 1240px){
+    .user-info{
+        margin: 0;
+        padding: 0 3rem;
+        margin-bottom: 4rem;
+        margin-top: 100px;
+    }
+}
+@media (max-width: 1024px){
+    .user-info{
+        margin-top: 200px;
+        text-align: center;
+    }
+}
+@media (max-width: 768px){
+    .user-info{
+        margin-bottom: 5rem;
+        padding: 0rem;
+        margin-top: 100px;
+    }
 }

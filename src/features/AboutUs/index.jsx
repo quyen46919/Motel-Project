@@ -1,19 +1,16 @@
 import React from 'react';
-import Foundation from './containers/Foundation';
-import Purpose from './containers/Purpose';
+import PropTypes from 'prop-types';
 
-import './styles.scss';
+AboutUs.propTypes = {
+    
+};
 
-AboutUs.propTypes = {};
 function AboutUs(props) {
-  return (
-    <div className="about-us">
-      <div className="about-us__content">
-        <Foundation />
-        <Purpose />
-      </div>
-    </div>
-  );
+    return (
+        <div className="about-us">
+            this is ABOUT US PAGE
+        </div>
+    );
 }
 
 export default AboutUs;

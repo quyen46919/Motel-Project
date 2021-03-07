@@ -33,3 +33,9 @@
     display: flex!important;
     justify-content: flex-start!important;
 }
+@media (max-width: 1024px){
+    .motel-form{
+        margin-top: 0;
+        padding: 0;
+    }
+}

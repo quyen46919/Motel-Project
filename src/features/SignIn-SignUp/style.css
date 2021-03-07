@@ -10,6 +10,20 @@
 .sign-container input {
   font-family: "Poppins", sans-serif;
 }
+a.social-icon {
+  height: 60px;
+  width: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21px;
+  text-decoration: none;
+  border: 1px solid #4481eb;
+  color: #4481eb;
+  margin: 10px;
+}
 
 .sign-container {
   position: relative;
@@ -28,7 +42,7 @@
   background: #4481eb;
   transition: 0.8s ease-in-out;
   z-index: 6;
-}s
+}
 .sign-container .forms-container {
   position: absolute;
   width: 100%;

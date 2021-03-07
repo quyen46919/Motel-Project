@@ -55,14 +55,15 @@ $bg-img: url('../../assets/images/genshin_12_4K.jpg');
 
     &__nav a:hover
     {
-        padding: 0.3rem 1rem;
+        padding: 0.7rem 1rem!important;
+        padding-bottom: 1rem!important;
         border-radius: 10px;
         background-color: white;
         color: #002a61!important;
     }
 
     &__nav a:hover{
-        padding: 0.5rem 1.2rem;
+        // padding: 0.5rem 1.2rem;
     }
 
     &__logo{
@@ -145,18 +146,25 @@ $bg-img: url('../../assets/images/genshin_12_4K.jpg');
         padding-left: 50px;
 
         p{
-            margin: -20px 7px!important;
+            margin: 0px 7px!important;
             text-transform: uppercase;
             font-weight: 700;
         }
     }
 
+    &__redirect-btn {
+        height: 100%;
+    }
     &__button{
         height: 100%;
         width: 150px;
         background-color: orange!important;
-        color: white!important;
         text-transform: uppercase;
+        border-radius: 0 3px 3px 0!important;
+
+        > * {
+            color: white!important;
+        }
     }
 }
 

@@ -24,13 +24,13 @@ function MainContent(props) {
             <LeftMenu/>
             <Switch>
                 <Route path="/" component={MainPage} exact/>
-                <Route path="/main" component={MainPage} exact/>
-                <Route path="/main/details/:ItemId" component={ItemDetails} />
-                <Route path="/post" component={PostNewItem} exact/>
-                <Route path="/favorite" component={FavoriteList} exact/>
-                <Route path="/about" component={AboutUs} exact/>
-                <Route path="/contact" component={Contact} exact/>
-                <Route path="/setting" component={UserInfo} exact/>
+                <Route path="/main" component={MainPage} />
+                <Route path="/details/:ItemId" component={ItemDetails} exact/>
+                <Route path="/post" component={PostNewItem} />
+                <Route path="/favorite" component={FavoriteList} />
+                <Route path="/about" component={AboutUs} />
+                <Route path="/contact" component={Contact} />
+                <Route path="/setting" component={UserInfo} />
             </Switch>
             {/* <Switch>
                 <Route path={match.path} component={MainPage} exact/>

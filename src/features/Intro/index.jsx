@@ -2,22 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import img from '../../assets/images/genshin_12_4K.jpg';
-import CustomSelect from '../../components/Header/components/CustomSelect';
+import {PEOPLE, AREA, PRICES, ACREAGE} from '../../assets/constant';
 import { Button } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
+import CustomSelect from './components/CustomSelect';
 
 Intro.propTypes = {
     
 };
 
-const initData = {
-    title: '',
-    value1: 'Data1',
-    value2: 'Data2',
-    value3: 'Data3',
-    value4: 'Data4',
-    value5: 'Data5',
-}
 
 function Intro(props) {
     return (
@@ -39,7 +32,7 @@ function Intro(props) {
                     </p>
                     <p>
                         <NavLink to="/contact">
-                            Công tác
+                            Cộng tác
                         </NavLink>
                     </p>
                     <p>
@@ -50,12 +43,12 @@ function Intro(props) {
                 </div>
                 <div className="intro__auth">
                     <a href="#">
-                        <NavLink to="/login">
+                        <NavLink to="/sign-in-sign-up">
                             Đăng nhập
                         </NavLink>
                     </a>
                     <a href="#">
-                        <NavLink to="/logup">
+                        <NavLink to="/sign-in-sign-up">
                             Đăng ký
                         </NavLink>
                     </a>
@@ -69,24 +62,26 @@ function Intro(props) {
                 <div className="intro__form--wrapper">
                     <form action className="intro__search--form">
                         <div class="intro__wrapper">
-                            <p class="title">Số người</p>  
-                            <CustomSelect data={initData}/>
+                            <p class="title">Khu vực</p>  
+                            <CustomSelect props={AREA} />
                         </div>
                         <div class="intro__wrapper">
                             <p class="title">Diện tích</p>  
-                            <CustomSelect data={initData}/>
+                            <CustomSelect props={ACREAGE} />
                         </div>   
                         <div class="intro__wrapper">
                             <p class="title">Giá phòng</p>  
-                            <CustomSelect data={initData}/>
+                            <CustomSelect props={PRICES} />
                         </div>
                         <div class="intro__wrapper">
-                            <p class="title">Chưa biết</p>  
-                            <CustomSelect data={initData}/>
+                            <p class="title">Số người</p>  
+                            <CustomSelect props={PEOPLE} />
                         </div>
-                        <Button variant="contained" className="intro__button">
-                            Tìm kiếm
-                        </Button>
+                        <NavLink to="/" className="intro__redirect-btn">
+                            <Button variant="contained" className="intro__button">
+                                    Tìm kiếm
+                            </Button>
+                        </NavLink>
                     </form>
                 </div>
             </div>

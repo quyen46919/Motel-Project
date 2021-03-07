@@ -9,8 +9,14 @@ import CustomSelect from '../CustomSelect';
 
 const useStyles = makeStyles((theme) => ({
     textFieldStyles: {
-        width: "35ch"
-    }
+        width: "35ch",
+        ["@media (max-width: 970px)"]: {
+            width: "30ch"
+        },
+        ["@media (max-width: 650px)"]: {
+            width: "90vw"
+        }
+    },
   }));
 
   const sex = [

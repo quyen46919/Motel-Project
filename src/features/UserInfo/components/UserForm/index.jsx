@@ -71,7 +71,20 @@ function UserForm(props) {
         <form action="" className="user-form">
             <div className="user-form__info--wrapper">
                 <div className="user-form__input">
-                    
+                <div className="user-form__avatar user-form__avatar--hidden">
+                    <div className="user-form__avatar--wrapper">
+                        {/* background-img in here */}
+                    </div>
+                    <div className={classes.root}>
+                        <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
+                        <label htmlFor="icon-button-file" className={classes.changeAvatar}>
+                            <IconButton color="primary" aria-label="upload picture" component="span">
+                            <PhotoCamera />
+                            </IconButton>
+                            <p>Thay đổi ảnh đại diện</p>
+                        </label>
+                    </div>
+                </div>
                     <TextField
                         required
                         id="standard-required"
