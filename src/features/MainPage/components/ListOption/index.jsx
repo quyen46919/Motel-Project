@@ -74,14 +74,17 @@ export default function ListOption() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography component={'span'} className="custom-option__option--wrapper">
+            <CheckBox props="Chổ để xe"/>
+            <CheckBox props="Quạt"/>
+            <CheckBox props="Điều hòa"/>
             <CheckBox props="Wifi"/>
+            <CheckBox props="Toilet riêng"/>
+            <CheckBox props="Máy nước nóng"/>
+            <CheckBox props="Camera an ninh"/>
+            <CheckBox props="Chỗ đổ rác"/>
+            <CheckBox props="Tủ chứa đồ"/>
             <CheckBox props="khu nấu ăn"/>
             <CheckBox props="Chỗ phơi đồ"/>
-            <CheckBox props="Tủ lạnh"/>
-            <CheckBox props="Điều hòa"/>
-            <CheckBox props="Máy nước nóng"/>
-            <CheckBox props="Tủ chứa đồ"/>
-            <CheckBox props="Quạt"/>
           </Typography>
         </AccordionDetails>
       </Accordion>

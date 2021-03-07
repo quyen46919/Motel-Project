@@ -13,6 +13,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    z-index: 1000;
 
     &__icon {
         border: none;
@@ -25,6 +27,7 @@
         align-items: center;
         color: $gray1;
         border-radius: 3px 0 0 3px;
+
     }
     &__logo{
         height: 100%;
@@ -78,7 +81,8 @@
         border-radius: 3px;
 
          .header__icon{
-            width: 40px;
+            // width: 40px;
+            flex: 1;
             i{
                 color: $gray1;
                 font-size: 23px;

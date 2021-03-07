@@ -107,30 +107,77 @@ export default function SubLeftMenu() {
   };
 
   
-  const [data1, setData1] = useState({
-    title: "Khu vực",
-    value1: "Cẩm Lệ", 
-    value2: "Hải Châu",
-    value3: "Ngũ Hành Sơn",
-    value4: "Sơn Trà",
-    value5: "Liên Chiểu"
-  });
-  const [data2, setData2] = useState({
-      title: "Giá phòng",
-      value1: "Dưới 1 triệu", 
-      value2: "1 - 1.5 triệu",
-      value3: "1.5 - 2 triệu",
-      value4: "2.5 - 3 triệu",
-      value5: "cao hơn"   
-  });
-  const [data3, setData3] = useState({
-      title: "Diện tích",
-      value1: "Dưới 15m2", 
-      value2: "15-20m2",
-      value3: "20-25m2",
-      value4: "25-30m2",
-      value5: "Lớn hơn"
-  });
+  const area = [
+    {
+      value: 1,
+      label: 'Hải Châu',
+    },
+    {
+      value: 2,
+      label: 'Cẩm Lệ',
+    },
+    {
+      value: 3,
+      label: 'Ngũ Hành Sơn',
+    },
+    {
+      value: 4,
+      label: 'Liên Chiểu',
+    },
+    {
+      value: 5,
+      label: 'Sơn Trà',
+    },
+  ];
+  const prices = [
+    {
+      value: 1,
+      label: 'Dưới 1 triệu',
+    },
+    {
+      value: 2,
+      label: '1 - 1.5 triệu',
+    },
+    {
+      value: 3,
+      label: '1.5 - 2 triệu',
+    },
+    {
+      value: 4,
+      label: '2 - 2.5 triệu',
+    },
+    {
+      value: 5,
+      label: 'Trên 2.5 triệu',
+    },
+  ];
+  const acreage = [
+    {
+      value: 1,
+      label: 'Dưới 15m2',
+    },
+    {
+      value: 2,
+      label: '15 - 20m2',
+    },
+    {
+      value: 3,
+      label: '20 - 25m2',
+    },
+    {
+      value: 4,
+      label: '25 - 30m2',
+    },
+    {
+      value: 5,
+      label: 'Trên 30m2',
+    },
+  ];
+const title = {
+    value1: "Khu vực",
+    value2: "Giá phòng",
+    value3: "Diện tích"
+}
 
   const list = (anchor) => (
     <div
@@ -150,11 +197,11 @@ export default function SubLeftMenu() {
             <TextField id="standard-basic" label="Tên đường" />
           </AccordionDetails>
           <AccordionDetails className="accor-details">
-            <CustomSelect data={data1}/>
-            <CustomSelect data={data2}/>
+            <CustomSelect props={area} title={title.value1}/>
+            <CustomSelect props={prices} title={title.value2}/>
           </AccordionDetails>
           <AccordionDetails className="accor-details">
-            <CustomSelect data={data3}/>
+          <CustomSelect props={acreage} title={title.value3}/>
           </AccordionDetails>
         </Accordion>
         <ListOption/>

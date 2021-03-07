@@ -15,6 +15,9 @@ import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
 import VideocamIcon from '@material-ui/icons/Videocam';
 import DeleteIcon from '@material-ui/icons/Delete';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import FreeBreakfastIcon from '@material-ui/icons/FreeBreakfast';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -126,6 +129,18 @@ function ListCheckbox(props) {
                 <div className={classes.wrapper}>
                     <DeleteIcon fontSize="large"  className={classes.textColor}/>
                     <CustomCheckbox props="Chỗ đổ rác"/>
+                </div>
+                <div className={classes.wrapper}>
+                    <DashboardIcon fontSize="large"  className={classes.textColor}/>
+                    <CustomCheckbox props="Tủ chứa đồ"/>
+                </div>
+                <div className={classes.wrapper}>
+                    <FreeBreakfastIcon fontSize="large"  className={classes.textColor}/>
+                    <CustomCheckbox props="Chỗ nấu ăn"/>
+                </div>
+                <div className={classes.wrapper}>
+                    <Brightness4Icon fontSize="large"  className={classes.textColor}/>
+                    <CustomCheckbox props="Chỗ phơi đồ"/>
                 </div>
             </div>
         </>

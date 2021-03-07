@@ -33,7 +33,10 @@
 .MuiPaper-elevation4{
     box-shadow:none!important;
 }
-.PrivateTabIndicator-colorSecondary-6 {
+// .PrivateTabIndicator-colorSecondary-6,
+// .PrivateTabIndicator-root-7, 
+// .PrivateTabIndicator-colorSecondary-9,
+.MuiTabs-indicator {
     background-color: $color1!important;
 }
 .paper-tabs {

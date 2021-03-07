@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   textField2: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: "calc(60ch + 16px)"
+    width: "calc(60ch + 32px)"
   },
   wrapDiv: {
     flex: 1,
@@ -96,10 +96,11 @@ export default function CustomInput({title}) {
           <div className={classes.wrapDiv}>
             <TextField
                 label="Giá trọ"
-              id="standard-helperText"
-              defaultValue="2.000.000"
+              id="standard-number"
+              defaultValue="2000000"
               className={classes.textField}
               helperText="Giá 1 phòng không phụ thuộc số người"
+              type="number"
             />
             <TextField
                 label="Hình thức"
@@ -122,8 +123,44 @@ export default function CustomInput({title}) {
                 id="standard-helperText"
                 defaultValue="0"
                 className={classes.textField}
-                helperText="Bỏ trống nếu không có gác lửng"
+                helperText="Bỏ trống nếu không có gác lửng (Đơn vị: m2)"
                 />
+            </div>
+        </div>
+        <div className={`${classes.wrapDiv} custom-input__line`}>
+          <div className={classes.wrapDiv}>
+            <TextField
+              label="Giá điện"
+              id="standard-number"
+              defaultValue="3000"
+              className={classes.textField}
+              helperText="Đơn vị: VND/kWh"
+              type="number"
+            />
+            <TextField
+                label="Giá nước"
+                id="standard-number"
+                defaultValue="7000"
+                className={classes.textField}
+                helperText="Đơn vị: VND/Khối (hoặc thỏa thuận)"
+                type="number"
+            />
+            </div>
+            <div className={classes.wrapDiv}>
+                <TextField
+                    label="Số người tối đa"
+                    id="standard-number"
+                    defaultValue="3"
+                    className={classes.textField}
+                    type="number"
+                />
+              {/* <TextField
+                label="Diện tích gác lửng"
+                id="standard-helperText"
+                defaultValue="0"
+                className={classes.textField}
+                helperText="Bỏ trống nếu không có gác lửng"
+                /> */}
             </div>
         </div>
 
@@ -154,7 +191,6 @@ export default function CustomInput({title}) {
               <UploadButton title="TẢI LÊN ẢNH PHÒNG TRỌ"/>
               <UploadButton title="TẢI LÊN ẢNH PHÒNG TRỌ"/>
               <UploadButton title="TẢI LÊN ẢNH NHÀ TRỌ"/>
-              <UploadButton title="ẢNH DỰ PHÒNG"/>
             </div>
         </div>
 

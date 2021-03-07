@@ -11,6 +11,7 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
     position: relative;
     display: flex;
     padding-bottom: 5rem;
+    margin-top: 80px!important;
 
     &::after{
         content: '';
@@ -225,7 +226,7 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
             display: flex!important;
             flex-direction: row;
             flex-wrap: wrap;
-            width: 800px;
+            width: 875px;
             padding: 0 3rem;
             justify-content: center;
             align-items: center;
@@ -240,7 +241,7 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
 }
 @media (max-width: 1024px){
     .item-details{
-        margin-top: 100px;
+        margin-top: 170px!important;
         padding: 0 1rem;
 
     }
@@ -254,12 +255,9 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
             align-items: center;
             justify-content: center;
             h1{
-                transform: translateX(10px);
+                transform: translateX(-3px);
                 margin: 0;
                 margin-top: 1rem;
-            }
-            > *{ 
-                // width: 100%;
             }
         }
     }
@@ -271,7 +269,7 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
 }
 @media (max-width: 767px){
     .item-details{
-        margin-top: 0!important;
+        margin-top: 65px!important;
         padding: 0 1rem;
 
         &__1-ultility,
@@ -279,7 +277,7 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
             width: 33%;
         }
         &__1-info{
-            padding-right: 0!important;
+            // padding-right: 0!important;
         }
         &__avatar{
             display: none;
@@ -296,6 +294,7 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
 }
 @media (max-width: 500px){
     .item-details{
+        margin-top: 55px!important;
         &__header{
             h1{
                 font-size: 22px!important;
@@ -310,6 +309,7 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
         }        
         &__1-info{
             width: 100%;
+            padding-right: 0!important;
         }
 
         &__img-hidden{
@@ -339,7 +339,7 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
         padding:0 0.5rem!important;
 
         &::after{
-            height: 620px;
+            height: 615px;
         }
         &__img-hidden{
             padding: 0;
@@ -353,11 +353,14 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
 @media (max-width: 375px){
     .item-details{
         &::after{
-            height: 630px;
+            height: 640px;
         }
         &__1-ultility,
         &__1-request{
             width: 100%;
+        }
+        &__1-info{
+            
         }
     }
 }

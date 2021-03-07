@@ -1,16 +1,35 @@
+
+@import '../../../../assets/variables';
+
 .motel-form{
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
+    h2{
+        color: $titleColor!important;
+    }
+    &__input{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;   
+    }
 
-    &__input--wrapper{
+    &__input--wrapper,
+    &__friends{
         display: flex;
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
         gap: 2rem!important;
     }
-    &__submit-btn{
-        margin-top: 3rem;
+    &__friends{
+        margin-bottom: 1rem;
     }
+    &__submit-btn{
+        margin-top: 1rem;
+    }
+}
+.MuiSelect-select{
+    display: flex!important;
+    justify-content: flex-start!important;
 }

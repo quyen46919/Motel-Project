@@ -6,14 +6,17 @@ import MenuItem from '@material-ui/core/MenuItem';
 const useStyles = makeStyles((theme) => ({
     root: {
       margin: theme.spacing(1),
-      minWidth: 125,
+      minWidth: "35ch",
+
     },
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
     textField: {
         flex: "1",
-        width: "120px"
+        width: "35ch",
+        // display: "flex",
+        // justifyContent: "flex-start!important"
     }
   }));
 
