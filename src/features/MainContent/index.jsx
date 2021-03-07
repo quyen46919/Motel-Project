@@ -10,6 +10,7 @@ import AboutUs from '../AboutUs';
 import Contact from '../Contact';
 import UserInfo from '../UserInfo';
 import ItemDetails from '../ItemDetails';
+import Header from '../../components/Header';
 MainContent.propTypes = {
     
 };
@@ -19,11 +20,12 @@ function MainContent(props) {
 
     return (
         <div className="main-content">
+            <Header/>
             <LeftMenu/>
             <Switch>
                 <Route path="/" component={MainPage} exact/>
                 <Route path="/main" component={MainPage} exact/>
-                <Route path="/main/details" component={ItemDetails} />
+                <Route path="/main/details/:ItemId" component={ItemDetails} />
                 <Route path="/post" component={PostNewItem} exact/>
                 <Route path="/favorite" component={FavoriteList} exact/>
                 <Route path="/about" component={AboutUs} exact/>

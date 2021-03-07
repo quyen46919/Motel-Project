@@ -6,9 +6,10 @@ import CardMedia from "@material-ui/core/CardMedia";
 import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import SvgLoveIcons from "./component/LoveIcon";
 import ShareIcon from "./component/ShareIcon";
-import React from "react";
 import './styles.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
   textStyles: {
     color: "rgba(0, 0, 0, 0.54)",
-    transform: "translateY(-4px)"
+    transform: "translateY(-4px)",
+  },
+  navLink: {
+    textDecoration: "none",
+    color: "unset"
   }
 }));
 
@@ -30,20 +35,23 @@ export default function CardItem({img}) {
 
 
   return (
+
     <Card className={`${classes.root} card-item`} >
-      <CardMedia
-        className={classes.media}
-        image={img}
-        title="Paella dish"
-      />
-      <CardContent>
-        <Typography component={'div'} variant="button" gutterBottom>
-            Cho thuê 1 phòng trọ tại K544/16 Đường 2/9 Quận Hải Châu (chỉ nữ)
-        </Typography>
-        <Typography component={'div'} variant="body1" color="textSecondary">
-          2.500.000 VND
-        </Typography>
-      </CardContent>
+      <NavLink to="/main/details/12312" className={classes.navLink}>
+        <CardMedia
+          className={classes.media}
+          image={img}
+          title="items"
+        />
+        <CardContent>
+          <Typography component={'div'} variant="button" gutterBottom>
+              Cho thuê 1 phòng trọ tại K544/16 Đường 2/9 Quận Hải Châu (chỉ nữ)
+          </Typography>
+          <Typography component={'div'} variant="body1" color="textSecondary">
+            2.500.000 VND
+          </Typography>
+        </CardContent>
+      </NavLink>
       <CardActions disableSpacing className="card-item__card--action">
         <IconButton>
           <SvgLoveIcons />
@@ -55,5 +63,6 @@ export default function CardItem({img}) {
         <p className={classes.textStyles}>Chia sẻ</p>
       </CardActions>
     </Card>
+
   );
 }

@@ -1,11 +1,12 @@
 import Button from '@material-ui/core/Button';
-import React from 'react';
-import CustomInput from '../CustomInput';
-import './styles.scss';
-
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
+import TextField from "@material-ui/core/TextField";
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import React from 'react';
+import CustomSelect from '../CustomSelect';
+import './styles.scss';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,36 +21,49 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-    }
+    },
+    textFieldStyles: {
+        minWidth: "35ch!important",
+        width: "35ch!important"
+      }
   }));
+
+  const sex = [
+      {
+          value: 1,
+          label: "Nam"
+      },
+      {
+          value: 2,
+          label: "Nữ"
+      },
+      {
+          value: 3,
+          label: "Không xác định"
+      },
+  ]
+  const job = [
+    {
+        value: 1,
+        label: "Học sinh"
+    },
+    {
+        value: 2,
+        label: "Sinh viên"
+    },
+    {
+        value: 3,
+        label: "Người lao động"
+    },
+    {
+        value: 4,
+        label: "Công nhân viên chức"
+    },
+]
 
 UserForm.propTypes = {
     
 };
-const firstName = {
-    label: "Họ đệm",
-    value: "Nguyễn Châu",
-}
-const lastName = {
-    label: "Tên",
-    value: "Quyền",
-}
-const address = {
-    label: "Địa chỉ",
-    value: "02 Cống Quỳnh, Cẩm Lệ, Đà Nẵng",
-}
-const phone = {
-    label: "Số điện thoại",
-    value: "0123456789",
-}
-const sex = {
-    label: "Giới tính",
-    value: "Nam",
-}
-const email = {
-    label: "Email liên lạc",
-    value: "abc12345@donga.edu.vn",
-}
 function UserForm(props) {
     const classes = useStyles();
 
@@ -57,12 +71,38 @@ function UserForm(props) {
         <form action="" className="user-form">
             <div className="user-form__info--wrapper">
                 <div className="user-form__input">
-                    <CustomInput data={firstName}/>
-                    <CustomInput data={lastName}/>
-                    <CustomInput data={address}/>
-                    <CustomInput data={phone}/>
-                    <CustomInput data={sex}/>
-                    <CustomInput data={email}/>
+                    
+                    <TextField
+                        required
+                        id="standard-required"
+                        label="Họ đệm"
+                        defaultValue="Nguyễn Văn"
+                        className={classes.textFieldStyles}
+                    />
+                    <TextField
+                        required
+                        id="standard-required"
+                        label="Tên"
+                        defaultValue="Quyền"
+                        className={classes.textFieldStyles}
+                    />
+                    <TextField
+                        required
+                        id="standard-required"
+                        label="Địa chỉ"
+                        defaultValue="02 Cống Quỳnh, Cẩm Lệ, Đà Nẵng"
+                        className={classes.textFieldStyles}
+                    />
+                    <TextField
+                        required
+                        label="Số điện thoại"
+                        id="standard-number"
+                        defaultValue="0123456789"
+                        className={classes.textFieldStyles}
+                        type="number"
+                    />
+                    <CustomSelect props={sex} title="Giới tính"/>
+                    <CustomSelect props={job} title="Nghề nghiệp"/>
                 </div>
                 <div className="user-form__avatar">
                     <div className="user-form__avatar--wrapper">

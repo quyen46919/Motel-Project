@@ -4,4 +4,5 @@
 .user-info{
     margin-left: $leftMenu;
     padding: 0 7rem;
+    margin-top: calc(#{$headerHeigh} + 30px);
 }

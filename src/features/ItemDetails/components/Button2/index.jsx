@@ -9,7 +9,10 @@ const useStyles = makeStyles((theme) => ({
     height: "60px",
     backgroundColor:"#ec5252!important",
     border:"#ec5252!important",
-    color: "white"
+    color: "white",
+    ["@media (max-width: 375px)"]: {
+      width: "250px"
+    }
   },
 }));
 

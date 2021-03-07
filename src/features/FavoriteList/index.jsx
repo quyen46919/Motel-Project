@@ -25,7 +25,6 @@ function FavoriteList(props) {
                 <CardItem img={imgUrl}/>
                 <CardItem img={imgUrl}/>
                 <CardItem img={imgUrl}/>
-                <CardItem img={imgUrl}/>
             </div>
         </div>
     );

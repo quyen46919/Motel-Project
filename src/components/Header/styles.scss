@@ -13,6 +13,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    z-index: 1000;
 
     &__icon {
         border: none;
@@ -25,6 +27,7 @@
         align-items: center;
         color: $gray1;
         border-radius: 3px 0 0 3px;
+
     }
     &__logo{
         height: 100%;
@@ -78,7 +81,8 @@
         border-radius: 3px;
 
          .header__icon{
-            width: 40px;
+            // width: 40px;
+            flex: 1;
             i{
                 color: $gray1;
                 font-size: 23px;
@@ -142,7 +146,7 @@
     }
 
     &__form--sub{
-        background: white!important;
+        background: #20274d!important;
         z-index: 1000!important;
         height: 60px!important;
         margin: 0!important;
@@ -168,7 +172,7 @@
             margin-top: 15px;
 
             .header__select--wrapper{
-                box-shadow: 3px 0  15px $gray1;
+                // box-shadow: 3px 0  15px $gray1;
             }
         }
     }

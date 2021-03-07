@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header'
 import Intro from './features/Intro';
 import SignInSignUp from './features/SignIn-SignUp';
 import MainContent from './features/MainContent';
@@ -12,7 +11,7 @@ function App() {
     <div className="App">
       {/* <Switch>
         <Route path="/" exact> */}
-          <Header/>
+
           <MainContent/>
         {/* </Route>
         <Route path="/content">

@@ -8,9 +8,9 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-
+    margin-top: $headerHeigh;
     h1{
-        margin-bottom: 0;
+        // margin-bottom: 0;
     }
     &__list-item,
     &__suggestions{
@@ -52,14 +52,15 @@
 }
 @media (max-width: 1024px){
     .favorite-list{
-        margin-top: 60px;
+        margin-top: 160px;
     }
 }
+
 @media (max-width: 768px){
     .favorite-list{
         margin-left: 0;
         padding: 0;
-        margin-top: 0px;
+        margin-top: 90px;
         &__p{
             margin: 0.5rem auto;
         }
@@ -69,5 +70,10 @@
             justify-content: center;
             margin-left: 0rem;
         }
+    }
+}
+@media (max-width: 700px){
+    .favorite-list{
+        margin-top: 80px!important;
     }
 }
