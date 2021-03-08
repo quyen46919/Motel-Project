@@ -1,0 +1,26 @@
+
+@import '../../assets/variables';
+.not-found{
+    margin-left: $leftMenu;
+    margin-top: $headerHeigh;
+    height: calc(100% - #{$headerHeigh});
+    width: calc(100% - #{$leftMenu});
+    // padding: 0 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__img--block{
+        height: 100%;
+        width: 100%;
+        background-image: url("../../assets/images/not-found-page-demo.png");
+        background-size: contain;
+        // background-position: -635px;
+    }
+}
+@media (max-width: 1240px){
+    .not-found{
+        margin-left: 0!important;
+        margin-right: 0!important;
+    }
+}

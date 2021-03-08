@@ -1,0 +1,98 @@
+
+@import '../../assets/variables';
+.contact {
+    display: flex;
+    margin-top: $headerHeigh;
+    margin-left: $leftMenu;
+    padding: $basePadding;
+    > *{
+        color: $titleColor!important;
+    }
+    &__h1{
+        color: $titleColor;
+        font-size: 50px!important;
+        margin-bottom: 0;
+        margin-top: 40px;
+    }
+    &__p{
+        margin-top: 1rem;
+        color: $titleColor;
+        font-size: 25px;
+        font-weight: 500;
+    }
+    &__content,
+    &__form-div{
+        flex: 1;
+        padding: 0 1rem;
+    }
+    
+    &__info{
+        display: flex;
+        flex-direction: column;
+    }
+    &__1-info{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        padding: 0 1rem;
+        font-size: 20px!important;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        width: 500px;
+        cursor: pointer;
+        transition: .25s ease-in-out;
+
+        &:hover{
+            background: #5392f9;
+            color: white;
+        }
+    }
+    &__social-icon{
+        margin-top: 3rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0 2rem;
+
+        & > * {
+            height: 60px;
+            width: 60px;
+            color: $titleColor;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 21px;
+            border: 1px solid $titleColor;
+            text-decoration: none;
+            margin: 10px;
+            padding: 1rem;
+            cursor: pointer;
+
+        }
+        & > *:hover{
+            border: 1px solid #4481eb;
+            color: #4481eb;
+        }
+    }
+    &__form-div{
+        margin-top: 40px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__form{
+        box-shadow: 1px 0 7px silver;
+        width: 450px;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+    }
+    &__btn-wrapper{
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+}

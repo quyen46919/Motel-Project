@@ -11,6 +11,7 @@ import Contact from '../Contact';
 import UserInfo from '../UserInfo';
 import ItemDetails from '../ItemDetails';
 import Header from '../../components/Header';
+import NotFound from '../NotFound';
 MainContent.propTypes = {
     
 };
@@ -31,6 +32,7 @@ function MainContent(props) {
                 <Route path="/about" component={AboutUs} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/setting" component={UserInfo} />
+                <Route component={NotFound}/>
             </Switch>
             {/* <Switch>
                 <Route path={match.path} component={MainPage} exact/>
