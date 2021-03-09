@@ -1,18 +1,19 @@
-# Getting Started with Create React App
+# Clone project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dùng ssh key để clone project
 
-## Available Scripts
+## Cài đặt các package cần thiết
+1. Cài node server
+2. Cài node_modules : npm install -g node-modules
+3. Cài các package khác: 
+    - Vào package.json
+    - Dùng git bash/ terminal: npm install --save .
 
-In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Dùng git bash/ terminal: npm start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
 ### `npm test`
 

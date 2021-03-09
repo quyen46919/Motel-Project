@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 // import CustomSelect from './components/CustomSelect';
-import '../../fontawesome/css/all.css';
 import CustomSelect from './components/CustomSelect';
 import Button from '@material-ui/core/Button';
 import SearchIcon from '@material-ui/icons/Search';
 import RoomIcon from '@material-ui/icons/Room';
 import NearMeIcon from '@material-ui/icons/NearMe';
 import HomeIcon from '@material-ui/icons/Home';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { makeStyles } from '@material-ui/core/styles';
 import './styles.scss';
 
 
-Header.propTypes = {};
 
+Header.propTypes = {};
+const useStyles = makeStyles((theme) => ({
+    logIn: {
+      color: "white",
+      fontSize: "40px"
+    }
+}));
 
 
 function Header(props) {
+    const classes = useStyles();
 
     const area = [
         {
@@ -126,7 +134,7 @@ function Header(props) {
                 </Button>
             </form>
             <div className="header__login">
-                <i className="fas fa-sign-in-alt"></i>
+                <ExitToAppIcon className={classes.logIn}/>
             </div>
 
 
