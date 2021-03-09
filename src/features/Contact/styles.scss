@@ -5,6 +5,7 @@
     margin-top: $headerHeigh;
     margin-left: $leftMenu;
     padding: $basePadding;
+    margin-bottom: 3rem;
     > *{
         color: $titleColor!important;
     }
@@ -95,4 +96,71 @@
         justify-content: flex-end;
     }
     
+}
+@media (max-width: 1240px){
+    .contact{
+        padding: 0 2rem;
+        margin-left: 0;
+    }
+}
+@media (max-width: 1024px){
+    .contact{
+        padding: 0 5rem;
+        margin-top: 200px;
+        flex-direction: column;
+        &__h1{
+            margin-top: 0px!important;
+        }
+    }
+}
+@media (max-width: 768px){
+    .contact{
+        padding: 0 5rem;
+        margin-top: 100px;
+    }
+}
+@media (max-width: 600px){
+    .contact{
+        padding: 0 2rem;
+        &__1-info{
+            width: 400px;
+        }
+    }
+}
+@media (max-width: 500px){
+    .contact{
+        padding: 0rem;
+        margin-top: 70px!important;;
+        &__1-info{
+            width: 400px;
+        }
+        &__form{
+            padding: 0 1rem;
+            margin-bottom: 5rem;
+        }
+    }
+}
+@media (max-width: 400px){
+    .contact{
+        &__h1{
+            font-size: 30px!important;
+        }
+        p{
+            font-size: 17px!important;
+        }
+        &__social-icon{
+            margin-top: 10px;
+            gap: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        &__1-info{
+            width: 270px;
+        }
+        &__form{
+            p{
+                margin: 0.5rem 0;
+            }
+        }
+    }
 }

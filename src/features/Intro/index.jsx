@@ -42,16 +42,12 @@ function Intro(props) {
                     </p>
                 </div>
                 <div className="intro__auth">
-                    <a href="#">
                         <NavLink to="/sign-in-sign-up">
                             Đăng nhập
                         </NavLink>
-                    </a>
-                    <a href="#">
                         <NavLink to="/sign-in-sign-up">
                             Đăng ký
                         </NavLink>
-                    </a>
                 </div>
             </div>
             <div className="intro__main">
@@ -60,21 +56,21 @@ function Intro(props) {
                     <p>Chọn các mục thông tin phía dưới, chúng tôi sẽ cho bạn những đề xuất tốt nhất!</p>
                 </div>
                 <div className="intro__form--wrapper">
-                    <form action className="intro__search--form">
-                        <div class="intro__wrapper">
-                            <p class="title">Khu vực</p>  
+                    <form className="intro__search--form">
+                        <div className="intro__wrapper">
+                            <p className="title">Khu vực</p>  
                             <CustomSelect props={AREA} />
                         </div>
-                        <div class="intro__wrapper">
-                            <p class="title">Diện tích</p>  
+                        <div className="intro__wrapper">
+                            <p className="title">Diện tích</p>  
                             <CustomSelect props={ACREAGE} />
                         </div>   
-                        <div class="intro__wrapper">
-                            <p class="title">Giá phòng</p>  
+                        <div className="intro__wrapper">
+                            <p className="title">Giá phòng</p>  
                             <CustomSelect props={PRICES} />
                         </div>
-                        <div class="intro__wrapper">
-                            <p class="title">Số người</p>  
+                        <div className="intro__wrapper">
+                            <p className="title">Số người</p>  
                             <CustomSelect props={PEOPLE} />
                         </div>
                         <NavLink to="/" className="intro__redirect-btn">
