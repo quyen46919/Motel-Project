@@ -17,7 +17,7 @@ function MainPage(props) {
     return (
         <div className="main-page">
             <SubSearchForm/>
-            <h2>Chỗ trọ nổi bật khuyến nghị cho bạn</h2>
+            <h1 style={{textTransform: "uppercase"}}>Chỗ trọ nổi bật khuyến nghị cho bạn</h1>
             <PaperTabs list={listPaperTabs}/>
         </div>
     );

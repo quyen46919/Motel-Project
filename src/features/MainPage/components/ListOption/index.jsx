@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import CheckBox from '../../../../components/CheckBox';
 import './styles.scss';
 
@@ -59,13 +60,13 @@ export default function ListOption() {
     setExpanded(newExpanded ? panel : false);
   };
 
-  const abc = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%,-50%)',
-    textTransform: 'uppercase'
+  const {register, handleSubmit, errors, control} = useForm();
+
+
+  const onSubmit = (values) => {
+    console.log("FORM DATA: ", values);
   }
+
   return (
     <>
       <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -113,10 +114,10 @@ export default function ListOption() {
       </Accordion>
       <Accordion>
         <AccordionSummary>
-          <Button variant="outlined" color="primary" className="custom-option__btn">
+          <Button type="reset" variant="outlined" color="primary" className="custom-option__btn">
             Đặt lại
           </Button>
-          <Button variant="contained" color="primary" className="custom-option__btn">
+          <Button type="submit" variant="contained" color="primary" className="custom-option__btn">
             Áp dụng
           </Button>
         </AccordionSummary>

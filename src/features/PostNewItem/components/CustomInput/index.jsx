@@ -5,7 +5,7 @@ import UploadButton from '../UploadButton';
 import './styles.scss';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  root2: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-around",
@@ -55,9 +55,9 @@ export default function CustomInput({title}) {
   const classes = useStyles();
 
   return (
-    <div className={`${classes.root} custom-input`}>
+    <div className={`${classes.root2} custom-input`}>
         <div className={classes.titleWrap}>
-          <h1 className={classes.titleColor}>{title}</h1>
+          <h1 className={classes.titleColor}>Thông tin về nhà trọ</h1>
         </div>
         <div className={`${classes.wrapDiv} custom-input__line`}>
           <div className={classes.wrapDiv}>
@@ -147,20 +147,21 @@ export default function CustomInput({title}) {
             />
             </div>
             <div className={classes.wrapDiv}>
-                <TextField
-                    label="Số người tối đa"
+              <TextField
+                  label="Số người tối đa"
+                  id="standard-number"
+                  defaultValue="3"
+                  className={classes.textField}
+                  type="number"
+              />
+              <TextField
+                    label="Số phòng tương tự"
                     id="standard-number"
-                    defaultValue="3"
+                    defaultValue="0"
                     className={classes.textField}
+                    helperText="Trong trường hợp có nhiều phòng tương tự muốn đăng tin cùng lúc"
                     type="number"
                 />
-              {/* <TextField
-                label="Diện tích gác lửng"
-                id="standard-helperText"
-                defaultValue="0"
-                className={classes.textField}
-                helperText="Bỏ trống nếu không có gác lửng"
-                /> */}
             </div>
         </div>
 
@@ -176,7 +177,7 @@ export default function CustomInput({title}) {
             </div>
             <div className={classes.wrapDiv}>
              <TextField
-                  label="Mô tả chung"
+                label="Mô tả chung"
                 id="standard-helperText"
                 defaultValue="Trọ có đầy đủ tiện nghi, giờ giấc linh hoạt"
                 className={classes.textField2}

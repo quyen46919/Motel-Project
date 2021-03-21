@@ -1,99 +1,44 @@
-import React, { useState } from 'react';
-// import CustomSelect from './components/CustomSelect';
-import CustomSelect from './components/CustomSelect';
 import Button from '@material-ui/core/Button';
-import SearchIcon from '@material-ui/icons/Search';
-import RoomIcon from '@material-ui/icons/Room';
-import NearMeIcon from '@material-ui/icons/NearMe';
-import HomeIcon from '@material-ui/icons/Home';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { makeStyles } from '@material-ui/core/styles';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import HomeIcon from '@material-ui/icons/Home';
+import NearMeIcon from '@material-ui/icons/NearMe';
+import RoomIcon from '@material-ui/icons/Room';
+import SearchIcon from '@material-ui/icons/Search';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import CustomSelect from './components/CustomSelect';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import './styles.scss';
+import { Controller, useForm } from 'react-hook-form';
+import { MenuItem, Select, TextField } from '@material-ui/core';
 
 
+Header.propTypes = {
 
-Header.propTypes = {};
+};
 const useStyles = makeStyles((theme) => ({
     logIn: {
       color: "white",
       fontSize: "40px"
-    }
+    },
+    textField: {
+      flex: "3",
+      minWidth: "10px!important",
+      height: "90%",
+      paddingLeft: "10px"
+  }
 }));
-
 
 function Header(props) {
     const classes = useStyles();
+    const [location, setLocation] = React.useState("haichau");
 
-    const area = [
-        {
-          value: 1,
-          label: 'Hải Châu',
-        },
-        {
-          value: 2,
-          label: 'Cẩm Lệ',
-        },
-        {
-          value: 3,
-          label: 'Ngũ Hành Sơn',
-        },
-        {
-          value: 4,
-          label: 'Liên Chiểu',
-        },
-        {
-          value: 5,
-          label: 'Sơn Trà',
-        },
-      ];
-      const prices = [
-        {
-          value: 1,
-          label: 'Dưới 1 triệu',
-        },
-        {
-          value: 2,
-          label: '1 - 1.5 triệu',
-        },
-        {
-          value: 3,
-          label: '1.5 - 2 triệu',
-        },
-        {
-          value: 4,
-          label: '2 - 2.5 triệu',
-        },
-        {
-          value: 5,
-          label: 'Trên 2.5 triệu',
-        },
-      ];
-      const acreage = [
-        {
-          value: 1,
-          label: 'Dưới 15m2',
-        },
-        {
-          value: 2,
-          label: '15 - 20m2',
-        },
-        {
-          value: 3,
-          label: '20 - 25m2',
-        },
-        {
-          value: 4,
-          label: '25 - 30m2',
-        },
-        {
-          value: 5,
-          label: 'Trên 30m2',
-        },
-      ];
-    const title = {
-        value1: "Khu vực",
-        value2: "Giá phòng",
-        value3: "Diện tích"
+    const {register, handleSubmit, errors, control} = useForm();
+
+
+    const onSubmit = (values) => {
+      console.log("FORM DATA: ", values);
     }
 
     return (
@@ -101,68 +46,155 @@ function Header(props) {
             <div className="header__logo">
                 <h1>LOGO</h1>
             </div>
-            <form action="" className="header__form">
+            <form action="" className="header__form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="header__search--wrapper">
                     <div className="header__icon">
                         <SearchIcon/>
                     </div>
-                    <input type="text" className="header__search" placeholder="Nhập tên đường bạn muốn tìm..."/>
+                    <input type="text"
+                      name="search" 
+                      className="header__search" 
+                      placeholder="Nhập tên đường bạn muốn tìm..." 
+                      ref={register}
+                     />
                 </div>
                 <div className="header__select--wrapper">
                     <div className="header__icon">
                         <NearMeIcon/>
                     </div>
-                    {/* <CustomSelect data={data1}/> */}
-                    <CustomSelect props={area} title={title.value1}/>
+                    <Controller 
+                      control={control}
+                      as={Select}
+                      name="location"
+                      inputRef={register}
+                      id="standard-select-currency"
+                      className={classes.textField}
+                      defaultValue="haichau"
+                    >
+                      <MenuItem value="haichau">Hải Châu</MenuItem>
+                      <MenuItem value="camle">Cẩm Lệ</MenuItem>
+                      <MenuItem value="lienchieu">Liên Chiểu</MenuItem>
+                      <MenuItem value="sontra">Sơn Trà</MenuItem>
+                      <MenuItem value="nguhanhson">Ngũ Hành Sơn</MenuItem>
+                    </Controller>
                 </div>
                 <div className="header__select--wrapper">
                     <div className="header__icon">
-                        <RoomIcon/>
+                        <AttachMoneyIcon/>
                     </div>
-                    <CustomSelect props={prices} title={title.value2}/>
-                    {/* <CustomSelect data={data2}/> */}
+                    <Controller 
+                      control={control}
+                      as={Select}
+                      name="prices"
+                      inputRef={register}
+                      id="standard-select-currency"
+                      className={classes.textField}
+                      defaultValue="1tr"
+                    >
+                      <MenuItem value="1tr">Dưới 1 triệu</MenuItem>
+                      <MenuItem value="1tr5-2tr">1.5 - 2 triệu</MenuItem>
+                      <MenuItem value="2tr-2.5tr">2 - 2.5 triệu</MenuItem>
+                      <MenuItem value="2.5tr-3tr">2.5 - 3 triệu</MenuItem>
+                      <MenuItem value="3tr">Hơn 3 triệu</MenuItem>
+                    </Controller>
                 </div>
                 <div className="header__select--wrapper">
                     <div className="header__icon">
                         <HomeIcon/>
                     </div>
-                    <CustomSelect props={acreage} title={title.value3}/>
-                    {/* <CustomSelect data={data3}/> */}
+                    <Controller 
+                      control={control}
+                      as={Select}
+                      inputRef={register}
+                      name="acreage"
+                      id="standard-select-currency"
+                      className={classes.textField}
+                      defaultValue="15"
+                    >
+                      <MenuItem value="15">Dưới 15m2</MenuItem>
+                      <MenuItem value="20">15-20m2</MenuItem>
+                      <MenuItem value="25">20-25m2</MenuItem>
+                      <MenuItem value="30">25-30m2</MenuItem>
+                      <MenuItem value="35">Hơn 30m2</MenuItem>
+                    </Controller>
                 </div>
-                <Button variant="contained" color="primary" disableElevation>
-                    TÌM KIẾM
+                <Button type="submit" variant="contained" color="primary" >
+                  Tìm kiếm
                 </Button>
             </form>
-            <div className="header__login">
+            {/* <div className="header__login"> */}
+            <Link to="/sign-in-sign-up" className="header__login">
                 <ExitToAppIcon className={classes.logIn}/>
-            </div>
+            </Link>
+                
+            {/* </div> */}
 
 
-            <form action="" className="header__form--sub">
+          <form action="" className="header__form--sub" onSubmit={handleSubmit(onSubmit)}>
             <div className="header__select--wrapper">
-                    <div className="header__icon">
-                        <SearchIcon/>
-                    </div>
-                    <CustomSelect props={area} title={title.value1}/>
-                    {/* <CustomSelect data={data1}/> */}
-                </div>
-                <div className="header__select--wrapper">
                     <div className="header__icon">
                         <NearMeIcon/>
                     </div>
-                    <CustomSelect props={prices} title={title.value2}/>
-                    {/* <CustomSelect data={data2}/> */}
+                    <Controller 
+                      control={control}
+                      as={Select}
+                      name="location"
+                      inputRef={register}
+                      id="standard-select-currency"
+                      className={classes.textField}
+                      defaultValue="haichau"
+                    >
+                      <MenuItem value="haichau">Hải Châu</MenuItem>
+                      <MenuItem value="camle">Cẩm Lệ</MenuItem>
+                      <MenuItem value="lienchieu">Liên Chiểu</MenuItem>
+                      <MenuItem value="sontra">Sơn Trà</MenuItem>
+                      <MenuItem value="nguhanhson">Ngũ Hành Sơn</MenuItem>
+                    </Controller>
+                </div>
+                <div className="header__select--wrapper">
+                    <div className="header__icon">
+                        <AttachMoneyIcon/>
+                    </div>
+                    <Controller 
+                      control={control}
+                      as={Select}
+                      name="prices"
+                      inputRef={register}
+                      id="standard-select-currency"
+                      className={classes.textField}
+                      defaultValue="1tr"
+                    >
+                      <MenuItem value="1tr">Dưới 1 triệu</MenuItem>
+                      <MenuItem value="1tr5-2tr">1.5 - 2 triệu</MenuItem>
+                      <MenuItem value="2tr-2.5tr">2 - 2.5 triệu</MenuItem>
+                      <MenuItem value="2.5tr-3tr">2.5 - 3 triệu</MenuItem>
+                      <MenuItem value="3tr">Hơn 3 triệu</MenuItem>
+                    </Controller>
                 </div>
                 <div className="header__select--wrapper">
                     <div className="header__icon">
                         <HomeIcon/>
                     </div>
-                    <CustomSelect props={acreage} title={title.value3}/>
-                    {/* <CustomSelect data={data3}/> */}
+                    <Controller 
+                      control={control}
+                      as={Select}
+                      inputRef={register}
+                      name="acreage"
+                      id="standard-select-currency"
+                      className={classes.textField}
+                      defaultValue="15"
+                    >
+                      <MenuItem value="15">Dưới 15m2</MenuItem>
+                      <MenuItem value="20">15-20m2</MenuItem>
+                      <MenuItem value="25">20-25m2</MenuItem>
+                      <MenuItem value="30">25-30m2</MenuItem>
+                      <MenuItem value="35">Hơn 30m2</MenuItem>
+                    </Controller>
                 </div>
-                <Button variant="contained" color="primary" disableElevation className="header__button">
-                    Tìm kiếm
+                <Button type="submit" variant="contained" color="primary" >
+                  Tìm kiếm
                 </Button>
+
             </form>
         </div>
     );

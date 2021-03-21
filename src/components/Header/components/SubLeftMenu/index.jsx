@@ -1,16 +1,19 @@
-import { Typography } from '@material-ui/core';
+import { Checkbox, FormControlLabel, FormGroup, MenuItem, Select, Typography } from '@material-ui/core';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import Button from "@material-ui/core/Button";
+import { green } from '@material-ui/core/colors';
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import { Label } from '@material-ui/icons';
 import clsx from "clsx";
-import React, {useState} from "react";
-import ListOption from '../../../../features/MainPage/components/ListOption';
-import CustomSelect from '../CustomSelect';
+import React from "react";
+import { Controller, useForm } from 'react-hook-form';
+import CheckBox from '../../../CheckBox';
+import Input from '../InputCheckbox';
 import './styles.scss';
 
 const useStyles = makeStyles({
@@ -21,8 +24,7 @@ const useStyles = makeStyles({
 
     list: {
       width: '50vw'
-    }
-    
+    } 
   },
   fullList: {
     width: "auto"
@@ -70,8 +72,6 @@ const AccordionDetails = withStyles((theme) => ({
 }))(MuiAccordionDetails);
 
 
-
-
 export default function SubLeftMenu() {
 
   const [expanded, setExpanded] = React.useState('panel1');
@@ -80,19 +80,12 @@ export default function SubLeftMenu() {
     setExpanded(newExpanded ? panel : false);
   };
 
-  const abc = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%,-50%)',
-    textTransform: 'uppercase'
-  }
   const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
-    right: false
+    right: false,
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -105,88 +98,43 @@ export default function SubLeftMenu() {
 
     setState({ ...state, [anchor]: open });
   };
-
   
-  const area = [
-    {
-      value: 1,
-      label: 'Hải Châu',
+
+  // handle data change
+  const {register, handleSubmit, errors, control} = useForm({
+    defaultValues: {
+      carPark: false,
+      fan: false,
+      airCondition: false,
+      wifi: false,
+      waterHeater: false,
+      toilet: false,
+      camera: false,
+      desc: false,
+      asc: false,
+      trashCan: false,
+      kitchen: false,
+      board: false,
+      dryingGround: false,
+      coOwner: false,
+      noCoOwner: false,
+      apartment: false
     },
-    {
-      value: 2,
-      label: 'Cẩm Lệ',
-    },
-    {
-      value: 3,
-      label: 'Ngũ Hành Sơn',
-    },
-    {
-      value: 4,
-      label: 'Liên Chiểu',
-    },
-    {
-      value: 5,
-      label: 'Sơn Trà',
-    },
-  ];
-  const prices = [
-    {
-      value: 1,
-      label: 'Dưới 1 triệu',
-    },
-    {
-      value: 2,
-      label: '1 - 1.5 triệu',
-    },
-    {
-      value: 3,
-      label: '1.5 - 2 triệu',
-    },
-    {
-      value: 4,
-      label: '2 - 2.5 triệu',
-    },
-    {
-      value: 5,
-      label: 'Trên 2.5 triệu',
-    },
-  ];
-  const acreage = [
-    {
-      value: 1,
-      label: 'Dưới 15m2',
-    },
-    {
-      value: 2,
-      label: '15 - 20m2',
-    },
-    {
-      value: 3,
-      label: '20 - 25m2',
-    },
-    {
-      value: 4,
-      label: '25 - 30m2',
-    },
-    {
-      value: 5,
-      label: 'Trên 30m2',
-    },
-  ];
-const title = {
-    value1: "Khu vực",
-    value2: "Giá phòng",
-    value3: "Diện tích"
-}
+    mode: "onChange"
+   });
+
+
+  const onSubmit = (values) => {
+    console.log("FORM DATA: ", values);
+  }
 
   const list = (anchor) => (
-    <div
+    <form
       className={clsx(classes.list, {
         [classes.fullList]: anchor === "top" || anchor === "bottom"
       })}
       role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
-      // onKeyDown={toggleDrawer(anchor, false)}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <List>
         <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -194,26 +142,192 @@ const title = {
             <Typography component={'span'}>Tìm kiếm theo</Typography>
           </AccordionSummary>
           <AccordionDetails className="accor-details">
-            <TextField id="standard-basic" label="Tên đường" />
+            <TextField 
+              id="standard-basic" 
+              label="Tên đường" 
+            />
           </AccordionDetails>
           <AccordionDetails className="accor-details">
-            <CustomSelect props={area} title={title.value1}/>
-            <CustomSelect props={prices} title={title.value2}/>
+            <Controller 
+              control={control}
+              as={Select}
+              name="location"
+              inputRef={register}
+              id="standard-select-currency"
+              className={classes.textField}
+              defaultValue="haichau"
+            >
+              <MenuItem value="haichau">Hải Châu</MenuItem>
+              <MenuItem value="camle">Cẩm Lệ</MenuItem>
+              <MenuItem value="lienchieu">Liên Chiểu</MenuItem>
+              <MenuItem value="sontra">Sơn Trà</MenuItem>
+              <MenuItem value="nguhanhson">Ngũ Hành Sơn</MenuItem>
+            </Controller>
+            <Controller 
+              control={control}
+              as={Select}
+              name="prices"
+              inputRef={register}
+              id="standard-select-currency"
+              className={classes.textField}
+              defaultValue="1tr"
+            >
+              <MenuItem value="1tr">Dưới 1 triệu</MenuItem>
+              <MenuItem value="1tr5-2tr">1.5 - 2 triệu</MenuItem>
+              <MenuItem value="2tr-2.5tr">2 - 2.5 triệu</MenuItem>
+              <MenuItem value="2.5tr-3tr">2.5 - 3 triệu</MenuItem>
+              <MenuItem value="3tr">Hơn 3 triệu</MenuItem>
+            </Controller>
           </AccordionDetails>
           <AccordionDetails className="accor-details">
-          <CustomSelect props={acreage} title={title.value3}/>
+              <Controller 
+                control={control}
+                as={Select}
+                inputRef={register}
+                name="acreage"
+                id="standard-select-currency"
+                className={classes.textField}
+                defaultValue="15"
+              >
+                <MenuItem value="15">Dưới 15m2</MenuItem>
+                <MenuItem value="20">15-20m2</MenuItem>
+                <MenuItem value="25">20-25m2</MenuItem>
+                <MenuItem value="30">25-30m2</MenuItem>
+                <MenuItem value="35">Hơn 30m2</MenuItem>
+              </Controller>
           </AccordionDetails>
         </Accordion>
-        <ListOption/>
+      <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+          <Typography component={'span'}>Tiện ích</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography component={'span'} className="custom-option__option--wrapper">
+          <Input 
+            control={control} 
+            name="carPark" 
+            props="Chỗ để xe"
+          />
+          <Input 
+            control={control} 
+            name="fan" 
+            props="Quạt"
+          />
+          <Input 
+            control={control} 
+            name="airCondition" 
+            props="Điều hòa"
+          />
+          <Input 
+            control={control} 
+            name="wifi" 
+            props="Wifi"
+          />
+          <Input 
+            control={control} 
+            name="toilet" 
+            props="Toilet riêng"
+          />
+          <Input 
+            control={control} 
+            name="waterHeater" 
+            props="Điều hòa"
+          />
+          <Input 
+            control={control} 
+            name="camera" 
+            props="Camera an ninh"
+          />
+          <Input 
+            control={control} 
+            name="trashCan" 
+            props="Chỗ đổ rác"
+          />
+          <Input 
+            control={control} 
+            name="board" 
+            props="Tủ chứa đồ"
+          />
+          <Input 
+            control={control} 
+            name="kitchen" 
+            props="Bếp / Chỗ nấu ăn"
+          />
+          <Input 
+            control={control} 
+            name="dryingGround" 
+            props="Chỗ phơi đồ"
+          />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+          <Typography component={'span'}>Loại nhà trọ</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography component={'span'}>
+          <Input 
+            control={control} 
+            name="coOwner" 
+            props="Chung chủ"
+          />
+          <Input 
+            control={control} 
+            name="noCoOwner" 
+            props="Không chung chủ"
+          />
+          <Input 
+            control={control} 
+            name="apartment" 
+            props="Căn hộ"
+          />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+          <Typography component={'span'}>Sắp xếp theo</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography component={'span'}>
+          <Input 
+            control={control} 
+            name="asc" 
+            props="Từ cao xuống thấp"
+          />
+          <Input 
+            control={control} 
+            name="desc" 
+            props="Từ thấp đến cao"
+          />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary>
+          <Button type="reset" variant="outlined" color="primary" className="custom-option__btn">
+            Đặt lại
+          </Button>
+          <Button type="submit" variant="contained" color="primary" className="custom-option__btn">
+            Áp dụng
+          </Button>
+        </AccordionSummary>
+      </Accordion>
       </List>
-    </div>
+    </form>
   );
 
   return (
     <div>
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)} className="sub-menu" variant="contained" color="primary">
+          <Button 
+            onClick={toggleDrawer(anchor, true)} 
+            className="sub-menu" 
+            variant="contained" 
+            color="primary"
+          >
             LỌC THEO NHU CẦU
           </Button>
           <Drawer

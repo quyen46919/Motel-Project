@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import PersonIcon from '@material-ui/icons/Person';
+import LockIcon from '@material-ui/icons/Lock';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import ShopIcon from '@material-ui/icons/Shop';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import './style.css';
+import { makeStyles } from '@material-ui/core';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import PhoneIcon from '@material-ui/icons/Phone';
 
-
+const useStyles = makeStyles((theme) => ({
+    root: {
+      transform: "translate(50%,50%)"
+    },
+}));
 function SignInSignUp(props) {
+    const classes = useStyles();
     const [isRegisterMode, setRegisterMode] = useState('sign-in');
 
     return (
@@ -14,50 +27,50 @@ function SignInSignUp(props) {
                     <form action="#" className="sign-in-form">
                     <h2 className="title">Đăng nhập</h2>
                     <div className="input-field">
-                        <i className="fas fa-user" />
+                        <PersonIcon className={classes.root}/>
                         <input type="text" placeholder="Tài khoản" />
                     </div>
                     <div className="input-field">
-                        <i className="fas fa-lock" />
+                        <LockIcon className={classes.root}/>
                         <input type="password" placeholder="Mật khẩu" />
                     </div>
                     <input type="submit" defaultValue="Đăng nhập" className="btn solid" />
                     <p className="social-text">Hoặc đăng nhập với </p>
                     <div className="social-media">
                         <a href="#" className="social-icon">
-                        <i className="fab fa-facebook-f" />
+                            <FacebookIcon/>
                         </a>
                         <a href="#" className="social-icon">
-                        <i className="fab fa-twitter" />
+                            <ShopIcon/>
                         </a>
-                        <a href="#" className="social-icon">
+                        {/* <a href="#" className="social-icon">
                         <i className="fab fa-google" />
                         </a>
                         <a href="#" className="social-icon">
                         <i className="fab fa-linkedin-in" />
-                        </a>
+                        </a> */}
                     </div>
                     </form>
                     <form action="#" className="sign-up-form">
                     <h2 className="title">Đăng ký</h2>
                     <div className="input-field">
-                        <i className="fas fa-user" />
+                        <PersonIcon className={classes.root}/>
                         <input type="text" placeholder="Tài khoản" />
                     </div>
                     <div className="input-field">
-                        <i className="fas fa-envelope" />
+                        <MailOutlineIcon className={classes.root}/>
                         <input type="email" placeholder="Email" />
                     </div>
                     <div className="input-field">
-                        <i className="fas fa-lock" />
+                        <LockIcon className={classes.root}/>
                         <input type="password" placeholder="Mật khẩu" />
                     </div>
                     <div className="input-field">
-                        <i className="fas fa-lock" />
+                        <LockOpenIcon className={classes.root}/>
                         <input type="password" placeholder="Xác nhận mật khẩu" />
                     </div>
                     <div className="input-field">
-                        <i className="fas fa-phone" />
+                        <PhoneIcon className={classes.root}/>
                         <input type="number" placeholder="Số điện thoại" />
                     </div>
                     <input type="submit" className="btn" defaultValue="Đăng ký" />
@@ -81,16 +94,10 @@ function SignInSignUp(props) {
                     <p className="social-text">Hoặc đăng nhập với</p>
                     <div className="social-media">
                         <a href="#" className="social-icon">
-                        <i className="fab fa-facebook-f" />
+                            <FacebookIcon/>
                         </a>
                         <a href="#" className="social-icon">
-                        <i className="fab fa-twitter" />
-                        </a>
-                        <a href="#" className="social-icon">
-                        <i className="fab fa-google" />
-                        </a>
-                        <a href="#" className="social-icon">
-                        <i className="fab fa-linkedin-in" />
+                            <ShopIcon/>
                         </a>
                     </div>
                     </form>

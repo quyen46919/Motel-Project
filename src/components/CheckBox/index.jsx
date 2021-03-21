@@ -17,12 +17,12 @@ const GreenCheckbox = withStyles({
 })((props) => <Checkbox color="default" {...props} />);
 
 export default function CheckBox({props}) {
-  const [state, setState] = React.useState({
+  const [data1, setData1] = React.useState({
     checkedA: true
   });
 
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+  const handleCheckboxChange = (event) => {
+    setData1({ ...data1, [event.target.name]: event.target.checked });
   };
 
   return (
@@ -30,8 +30,8 @@ export default function CheckBox({props}) {
       <FormControlLabel
         control={
           <GreenCheckbox
-            checked={state.checkedG}
-            onChange={handleChange}
+            checked={data1.checkedG}
+            onChange={handleCheckboxChange}
             name="checkedG"
           />
         }

@@ -9,6 +9,7 @@
         justify-content: flex-start;
         box-sizing: border-box;
         padding-left: 1rem;
+        
         p{
             color: #20274d;
         }
@@ -37,6 +38,12 @@
 
 .custom-input{
     gap: 2rem 1.5rem!important;
+    
+        h1{
+            margin: 0;
+            padding: 0;
+        }
+    
 }
 
 @media (max-width: 1365px){

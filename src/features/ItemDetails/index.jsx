@@ -18,13 +18,39 @@ import CustomButton2 from './components/Button2';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Comment from './components/Comment';
+import ConfirmPopUp from '../ConfirmPopUp';
+import ConfirmPopUp2 from '../ConfirmPopUp2';
+import FeedbackPopUp from '../FeedbackPopUp';
+
+
 
 const useStyles = makeStyles((theme) => ({
     textField: {
         width: "100%"
-    }
+    },
   }));
 
+const loginRequest = {
+    btnTitle: "Liên hệ với chủ trọ",
+    title: "Yêu cầu đăng nhập",
+    description: "Bạn phải đăng nhập để thực hiện chức năng này",
+    btn1: "Đăng nhập",
+    btn2: "Để sau",
+}
+const favoriteRequest = {
+    btnTitle: "Thêm vào yêu thích",
+    title: "Yêu cầu đăng nhập",
+    description: "Bạn phải đăng nhập để thực hiện chức năng này",
+    btn1: "Đăng nhập",
+    btn2: "Để sau",
+}
+const errorsRequest = {
+    btnTitle: "Báo lỗi",
+    title: "Có lỗi xảy ra?",
+    description: "Hãy mô tả lỗi bạn gặp phải phía dưới, chúng tôi sẽ cố gắng khắc phục trong thời gian sớm nhất. Trong một số trường hợp cần thiết, chúng tôi sẽ liên hệ trực tiếp với bạn.",
+    btn1: "Gửi",
+    btn2: "Hủy",
+}
 function ItemDetails(props) {
 
     const classes = useStyles();
@@ -49,9 +75,12 @@ function ItemDetails(props) {
                 </div>
                 <div className="item-details__content-btn item-details__btn-hidden">
                     <h1>2.500.000 VND</h1>
-                    <CustomButton2 title="Liên hệ với chủ trọ"/>
+                    {/* <CustomButton2 title="Liên hệ với chủ trọ"/>
                     <CustomButton title="Thêm vào yêu thích"/>
-                    <CustomButton title="Báo đã có người thuê"/>
+                    <CustomButton title="Báo đã có người thuê"/> */}
+                    <ConfirmPopUp props={loginRequest}/>
+                    <ConfirmPopUp2 props={favoriteRequest}/>
+                    <FeedbackPopUp props={errorsRequest}/>
                 </div>
                 <div className="item-details__utility">
                     <h1>Tiện ích có sẵn</h1>
@@ -193,9 +222,9 @@ function ItemDetails(props) {
                 </div>
                 <div className="item-details__content-btn">
                     <h1>2.500.000 VND</h1>
-                    <CustomButton2 title="Liên hệ với chủ trọ"/>
-                    <CustomButton title="Thêm vào yêu thích"/>
-                    <CustomButton title="Báo đã có người thuê"/>
+                    <ConfirmPopUp props={loginRequest}/>
+                    <ConfirmPopUp2 props={favoriteRequest}/>
+                    <FeedbackPopUp props={errorsRequest}/>
                 </div>
             </div>
 

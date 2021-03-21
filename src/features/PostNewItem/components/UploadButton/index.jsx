@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     display: 'none',
+    // width: "200px",
   },
 
 }));
@@ -17,7 +18,8 @@ const buttonColor = {
   border: "1px solid #5392f9",
   background: "white",
   color: "#5392f9",
-  height: "50px"
+  height: "45px",
+  width: "120px"
 }
 export default function UploadButton({title}) {
   const classes = useStyles();

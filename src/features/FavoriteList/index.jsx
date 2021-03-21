@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import CardItem from '../MainPage/components/CardItem';
+import FavoriteItem from './components/FavoriteItem';
 
 FavoriteList.propTypes = {
     
@@ -11,12 +12,10 @@ function FavoriteList(props) {
     return (
         <div className='favorite-list'>
             <h1 className="favorite-list__p">Danh sách yêu thích</h1>
-            <p className="favorite-list__p">Bạn đã lưu 3 trọ</p>
+            <p className="favorite-list__p">Bạn đã lưu 2 trọ</p>
             <div className="favorite-list__list-item">
-                <CardItem img={imgUrl}/>
-                <CardItem img={imgUrl}/>
-                <CardItem img={imgUrl}/>
-                <CardItem img={imgUrl}/>
+                <FavoriteItem />
+                <FavoriteItem />
             </div>
 
             <h1 className="favorite-list__p">Gợi ý cho bạn</h1>

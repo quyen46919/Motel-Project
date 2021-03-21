@@ -9,19 +9,22 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import ForumIcon from '@material-ui/icons/Forum';
 import BuildIcon from '@material-ui/icons/Build';
+import BookIcon from '@material-ui/icons/Book';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         background: "#de4552",
-        width: "2rem",
-        minWidth: "2rem",
-        margin: "0 1.25rem",
-        fontSize: "25px",
-        padding: "5px 1px",
-        color: "white",
-        borderRadius: "3px",
-        display: "flex",
-        justifyContent: "center",
+        width: "2rem!important",
+        minWidth: "2rem!important",
+        height: "25px",
+        margin: "0 1.25rem!important",
+        fontSize: "30px!important",
+        padding: "5px 1px!important",
+        color: "white!important",
+        borderRadius: "3px!important",
+        display: "flex!important",
+        justifyContent: "center!important",
+        fontSize: "25px!important"
     },
     postIcon: {
         background: "#f19c2d"
@@ -37,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
     },
     buildIcon: {
         background: "#c0c0c0"
+    },
+    bookIcon: {
+        background: "#48a72a"
     }
   }));
 LeftMenu.propTypes = {
@@ -46,8 +52,6 @@ LeftMenu.propTypes = {
 
 function LeftMenu(props) {
     const classes = useStyles();
-    // const match = useRouteMatch();
-    let { path, url } = useRouteMatch();
     
     return (
         <div className="left-menu">
@@ -73,6 +77,13 @@ function LeftMenu(props) {
                             <span className="link-text">Yêu thích</span>
                         </NavLink>
                     </li>
+                    
+                    {/* <li className="nav-item">
+                        <NavLink to="/blog" className="nav-link">
+                            <BookIcon className={`${classes.root} ${classes.bookIcon}`}/>
+                            <span className="link-text">Blog</span>
+                        </NavLink>
+                    </li> */}
 
                     <li className="nav-item">
                         <NavLink to="/contact" className="nav-link">

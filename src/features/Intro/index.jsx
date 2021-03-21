@@ -6,16 +6,21 @@ import {PEOPLE, AREA, PRICES, ACREAGE} from '../../assets/constant';
 import { Button } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import CustomSelect from './components/CustomSelect';
+import { useState } from 'react';
 
 Intro.propTypes = {
     
 };
 
-
 function Intro(props) {
+    const [open, setOpen] = useState(false);
+    const handleClick = () => {
+        setOpen(!open);
+    }
+
     return (
         <div className="intro">
-            <div className="intro__nav">
+            <div className="intro__nav ">
                 <div className="intro__logo">
                     <h2>LOGO</h2>
                 </div>
@@ -50,6 +55,36 @@ function Intro(props) {
                         </NavLink>
                 </div>
             </div>
+            <div className="intro__nav intro__nav--hidden">
+                <div className="intro__logo">
+                    <h2>LOGO</h2>
+                </div>
+                <div className="intro__bars">
+                    <i className="fas fa-bars" onClick={handleClick}/>
+                </div>
+            </div>
+            {open && <div className="intro__sub-menu">
+                <div className="intro__menu intro__menu--hidden">
+                    <NavLink to="/main">
+                        Tìm trọ
+                    </NavLink>
+                    <NavLink to="/post">
+                        Đăng tin
+                    </NavLink>
+                    <NavLink to="/contact">
+                        Cộng tác
+                    </NavLink>
+                    <NavLink to="/about">
+                        Về chúng tôi
+                    </NavLink>
+                    <NavLink to="/sign-in-sign-up">
+                        Đăng nhập
+                    </NavLink>
+                    <NavLink to="/sign-in-sign-up">
+                        Đăng ký
+                    </NavLink>
+                </div>
+            </div>}
             <div className="intro__main">
                 <div className="intro__title">
                     <h1>Bạn muốn thuê trọ - ghép trọ ở đâu?</h1>

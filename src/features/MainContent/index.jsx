@@ -10,6 +10,7 @@ import AboutUs from '../AboutUs';
 import Contact from '../Contact';
 import UserInfo from '../UserInfo';
 import ItemDetails from '../ItemDetails';
+import Blog from '../Blog';
 import Header from '../../components/Header';
 import NotFound from '../NotFound';
 MainContent.propTypes = {
@@ -18,6 +19,9 @@ MainContent.propTypes = {
 
 function MainContent(props) {
     const match = useRouteMatch();
+    // const handleHeaderFormSubmit = (values) => {
+    //     console.log('Form submit: ' ,values);
+    // }
 
     return (
         <div className="main-content">
@@ -37,6 +41,7 @@ function MainContent(props) {
             {/* <Switch>
                 <Route path={match.path} component={MainPage} exact/>
                 <Route path={`${match}/main`} component={MainPage} exact/>
+                <Route path="/details/:ItemId" component={ItemDetails} exact/>
                 <Route path={`${match}/post`} component={PostNewItem} exact/>
                 <Route path={`${match}/favorite`} component={FavoriteList} />
                 <Route path={`${match}/about`} component={AboutUs} exact/>

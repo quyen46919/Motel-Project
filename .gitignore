@@ -11,6 +11,8 @@
 # production
 /build
 
+# new feature
+src/features/Blog
 # misc
 .DS_Store
 .env.local

@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import { Controller } from 'react-hook-form';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,8 +18,13 @@ const useStyles = makeStyles((theme) => ({
         width: "120px"
     }
   }));
+  // CustomSelect.propTypes = {
+  //   formControl: PropTypes.object.isRequired,
+  //   name: PropTypes.string.isRequired,
 
-export default function CustomSelect({props , title}) {
+  //   disabled: PropTypes.bool,
+  // };
+export default function CustomSelect({props , title, form}) {
   const classes = useStyles();
   const [currency, setCurrency] = React.useState(1);
 
@@ -25,22 +32,28 @@ export default function CustomSelect({props , title}) {
     setCurrency(event.target.value);
   };
 
+  // console.log(form.control);
+
   return (
-    <div className={classes.root} noValidate autoComplete="off">
-        <TextField
-          id="standard-select-currency"
-          select
-          label={title}
-          value={currency}
-          onChange={handleChange}
-          className={classes.textField}
-        >
-          {props.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-    </div>
+    // <Controller
+    //   control={form.control}
+    // >
+      <div className={classes.root} noValidate autoComplete="off">
+          <TextField
+            id="standard-select-currency"
+            select
+            label={title}
+            value={currency}
+            onChange={handleChange}
+            className={classes.textField}
+          >
+            {props.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+      </div>
+    // </Controller>
   );
 }

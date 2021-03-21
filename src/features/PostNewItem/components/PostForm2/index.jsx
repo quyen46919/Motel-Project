@@ -1,33 +1,29 @@
 import { Button } from '@material-ui/core';
-import React from 'react';
-import CheckBox from '../../../../components/CheckBox';
-import CustomInput from '../CustomInput';
-import ListCheckbox from '../ListCheckbox';
-
-import CustomCheckbox from '../CustomCheckbox';
-import CreditCardIcon from '@material-ui/icons/CreditCard';
-import WhatshotIcon from '@material-ui/icons/Whatshot';
-import MotorcycleIcon from '@material-ui/icons/Motorcycle';
-import ToysIcon from '@material-ui/icons/Toys';
-import AcUnitIcon from '@material-ui/icons/AcUnit';
-import WifiIcon from '@material-ui/icons/Wifi';
-import OpacityIcon from '@material-ui/icons/Opacity';
-import FormatColorResetIcon from '@material-ui/icons/FormatColorReset';
-import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
-import VideocamIcon from '@material-ui/icons/Videocam';
-import DeleteIcon from '@material-ui/icons/Delete';
-import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import FreeBreakfastIcon from '@material-ui/icons/FreeBreakfast';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
-import InputCheckbox from '../../../../components/Header/components/InputCheckbox';
-import PersonIcon from '@material-ui/icons/Person';
-import WcIcon from '@material-ui/icons/Wc';
 import { makeStyles } from "@material-ui/core/styles";
-import { useForm } from "react-hook-form";
 import TextField from "@material-ui/core/TextField";
+import AcUnitIcon from '@material-ui/icons/AcUnit';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import CreditCardIcon from '@material-ui/icons/CreditCard';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import DeleteIcon from '@material-ui/icons/Delete';
+import FormatColorResetIcon from '@material-ui/icons/FormatColorReset';
+import FreeBreakfastIcon from '@material-ui/icons/FreeBreakfast';
+import MotorcycleIcon from '@material-ui/icons/Motorcycle';
+import OpacityIcon from '@material-ui/icons/Opacity';
+import PersonIcon from '@material-ui/icons/Person';
+import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
+import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
+import ToysIcon from '@material-ui/icons/Toys';
+import VideocamIcon from '@material-ui/icons/Videocam';
+import WcIcon from '@material-ui/icons/Wc';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
+import WifiIcon from '@material-ui/icons/Wifi';
+import React from 'react';
+import { useForm } from "react-hook-form";
+import InputCheckbox from '../../../../components/Header/components/InputCheckbox';
 import UploadButton from '../UploadButton';
 import './styles.scss';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -92,7 +88,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-start",
     },
     titleColor:{
-        color: "#20274d"
+        color: "#20274d",
+        margin: 0,
+        padding: 0,
     },
     ["@media (max-width: 600px)"] : {
         textField: {
@@ -110,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-function PostForm() {
+function PostForm({id}) {
     const {register, handleSubmit, errors, control} = useForm({
         defaultValues: {
             // input
@@ -209,9 +207,9 @@ function PostForm() {
                             id="standard-helperText"
                             defaultValue="Đà Nẵng"
                             className={classes.textField}
-                            // InputProps={{
-                            // readOnly: true,
-                            // }}
+                            InputProps={{
+                            readOnly: true,
+                            }}
                             name="city"
                         />
                 </div>
@@ -288,12 +286,12 @@ function PostForm() {
                             type="number"
                             name="WaterPrices"
                         />
-                        </div>
+                    </div>
                     <div className={classes.wrapDiv}>
                         <TextField
                             control={control}
                             inputRef={register}
-                            label="Số người tối đa"
+                            label="Số người cần ghép"
                             id="standard-number"
                             defaultValue={3}
                             className={classes.textField}
@@ -303,13 +301,13 @@ function PostForm() {
                         <TextField
                             control={control}
                             inputRef={register}
-                            label="Số phòng tương tự"
+                            label="Ngày vào ở"
                             id="standard-number"
-                            defaultValue="0"
+                            defaultValue="2014-02-09"
                             className={classes.textField}
-                            helperText="Trong trường hợp có nhiều phòng tương tự muốn đăng tin cùng lúc"
-                            type="number"
-                            name="sameRoom"
+                            type="date"
+                            value="2021-01-01"
+                            name="numberOfPeople"
                         />
                     </div>
                 </div>
