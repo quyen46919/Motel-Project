@@ -122,8 +122,8 @@ function PostForm({id}) {
             mezzanine: "0",
             elecPrices: 7000,
             waterPrices: 3000,
-            numberOfPeople: 3,
-            sameRoom: 0,
+            neededPeople: 0,
+            date: '',
             titlePost : "",
             generalDescription: "",
             // above options
@@ -155,6 +155,7 @@ function PostForm({id}) {
         },
         mode: "onChange"
        });
+
     
       const onSubmit = (values) => {
         console.log("FORM DATA: ", values);
@@ -232,7 +233,7 @@ function PostForm({id}) {
                             inputRef={register}
                             label="Hình thức"
                             id="standard-helperText"
-                            defaultValue="Không chung chủ"
+                            defaultValue="1"
                             className={classes.textField}
                             helperText="1-Chung chủ / 2-Không chung chủ/ 3-Căn hộ"
                             name="formality"
@@ -296,7 +297,7 @@ function PostForm({id}) {
                             defaultValue={3}
                             className={classes.textField}
                             type="number"
-                            name="numberOfPeople"
+                            name="neededPeople"
                         />
                         <TextField
                             control={control}
@@ -307,7 +308,7 @@ function PostForm({id}) {
                             className={classes.textField}
                             type="date"
                             value="2021-01-01"
-                            name="numberOfPeople"
+                            name="date"
                         />
                     </div>
                 </div>

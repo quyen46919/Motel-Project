@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import React from 'react';
 import './styles.scss';
+import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,12 +24,21 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-Contact.propTypes = {
-    
-};
-
 function Contact(props) {
     const classes = useStyles();
+    const {register, handleSubmit, errors, control} = useForm({
+        defaultValues: {
+            guessName: "",
+            guessMail: "",
+            guessMessage: ""
+        },
+        mode: "onChange"
+       });
+    
+    const onSubmit = (values) => {
+        console.log("FORM DATA: ", values);
+    }
+
     return (
         <div className="contact">
             <div className="contact__content">
@@ -55,18 +65,26 @@ function Contact(props) {
                 </div>
             </div>
             <div className="contact__form-div">
-                <form action="" className="contact__form">
+                <form 
+                    action="" 
+                    className="contact__form"
+                    onSubmit={handleSubmit(onSubmit)}
+                >
                     <p>Tên của bạn</p>
                     <TextField 
                         id="outlined-basic" 
                         variant="outlined"
                         className={classes.root}
+                        name="guessName"
+                        inputRef={register}
                     />
                     <p>Địa chỉ email</p>
                     <TextField 
                         id="outlined-basic" 
                         variant="outlined"
                         className={classes.root}
+                        name="guessMail"
+                        inputRef={register}
                     />
                     <p>Để lại lời nhắn</p>
                     <TextField
@@ -76,9 +94,12 @@ function Contact(props) {
                         defaultValue=""
                         variant="outlined"
                         className={classes.root}
+                        name="guessMessage"
+                        inputRef={register}
                     />
                     <div className="contact__btn-wrapper">
-                        <Button 
+                        <Button
+                            type="submit" 
                             variant="contained" 
                             disableElevation
                             className={classes.btnStyles}

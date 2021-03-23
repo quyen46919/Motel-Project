@@ -57,7 +57,7 @@
             
             *{
                 font-size: 13px;
-                width: 200px;
+                width: 100px!important;
             }
         }
 
@@ -68,11 +68,10 @@
         &__upload{
             // display: flex;
             flex-wrap: wrap!important;
-            flex-direction: column!important;
+            flex-direction: row!important;
             align-items: center!important;
             justify-content: center!important;
             gap: 0 1rem!important;
-            
         }
     }
 }

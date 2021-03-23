@@ -41,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
           justifyContent: "center"
       },
     },
+    uploadRoot: {
+        '& > *': {
+          margin: theme.spacing(1),
+        },
+    },
     wrapper: {
       width: "320px",
       display: "flex",
@@ -107,6 +112,17 @@ const useStyles = makeStyles((theme) => ({
             width: "80vw!important"
         },
     },
+    buttonColor : {
+        border: "1px solid #5392f9",
+        background: "white",
+        color: "#5392f9",
+        height: "45px",
+        width: "120px"
+    },
+    uploadInput: {
+        display: 'none',
+        // width: "200px",
+      },
   }));
 
 
@@ -136,6 +152,11 @@ function PostForm() {
             noDrink: false,
             inviteFriends: false,
             dontMakeNoise: false,
+            // upload button
+            img1: "",
+            img2: "",
+            img3: "",
+            img4: "",
             // below options
             carPark: false,
             fan: false,
@@ -343,12 +364,75 @@ function PostForm() {
 
                 <div className={`${classes.wrapDiv} custom-input__line`} >
                     <div className={`${classes.wrapDiv} custom-input__upload`}>   
-                        <UploadButton 
-                            title="UPLOAD"
-                        />
-                        <UploadButton title="UPLOAD"/>
-                        <UploadButton title="UPLOAD"/>
-                        <UploadButton title="UPLOAD"/>
+                        <div  className={classes.uploadRoot}>
+                            <input
+                                accept="image/*"
+                                className={classes.uploadInput}
+                                id=" file1"
+                                multiple
+                                type="file"
+                                name="img1"
+                                ref={register}
+                                control={control}
+                            />
+                            <label htmlFor=" file1">
+                                <Button variant="contained" className={classes.buttonColor} component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
+                        <div  className={classes.uploadRoot}>
+                            <input
+                                accept="image/*"
+                                className={classes.uploadInput}
+                                id="file2"
+                                multiple
+                                type="file"
+                                name="img2"
+                                ref={register}
+                                control={control}
+                            />
+                            <label htmlFor="file2">
+                                <Button variant="contained" className={classes.buttonColor} component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
+                        <div  className={classes.uploadRoot}>
+                            <input
+                                accept="image/*"
+                                className={classes.uploadInput}
+                                id="file3"
+                                multiple
+                                type="file"
+                                name="img3"
+                                ref={register}
+                                control={control}
+                            />
+                            <label htmlFor="file3">
+                                <Button variant="contained" className={classes.buttonColor} component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
+                        <div  className={classes.uploadRoot}>
+                            <input
+                                accept="image/*"
+                                className={classes.uploadInput}
+                                id="file4"
+                                multiple
+                                type="file"
+                                name="img4"
+                                ref={register}
+                                control={control}
+                            />
+                            <label htmlFor="file4">
+                                <Button variant="contained" className={classes.buttonColor} component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
+                        
                     </div>
                 </div>
 

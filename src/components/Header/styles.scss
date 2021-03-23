@@ -153,7 +153,7 @@
         z-index: 1000!important;
         height: 60px!important;
         margin: 0!important;
-        padding: 20px 0!important;
+        padding: 20px 0;
         display: none;
         
     }
@@ -173,10 +173,7 @@
             display: flex;
             width: 100%;
             margin-top: -1px!important;
-
-            .header__select--wrapper{
-                // box-shadow: 3px 0  15px $gray1;
-            }
+            padding: 0.3rem;
         }
     }
 }
@@ -193,6 +190,7 @@
             display: flex;
             width: 100%;
             margin-top: 15px;
+            padding: 0.2rem!important;
 
 
             .header__select--wrapper{

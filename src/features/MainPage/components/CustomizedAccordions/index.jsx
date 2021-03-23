@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Input from '../../../../components/Header/components/InputCheckbox';
-import ListOption from '../ListOption';
 import './styles.scss';
 
 
@@ -94,8 +93,13 @@ export default function CustomizedAccordions() {
     console.log("FORM DATA: ", values);
   }
 
+
   return (
-    <form className="custom-option" onSubmit={handleSubmit(onSubmit)}>
+    
+    <form 
+      className="custom-option" 
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Accordion square className="custom-option__test">
         <AccordionSummary>
           <Typography component={'span'} style={typoStyles}>Lọc theo yêu cầu</Typography>
