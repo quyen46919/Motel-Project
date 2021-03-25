@@ -1,9 +1,11 @@
+import { MenuItem, Select } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from "@material-ui/core/TextField";
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import CustomSelect from '../CustomSelect';
 import './styles.scss';
 
@@ -25,41 +27,15 @@ const useStyles = makeStyles((theme) => ({
     textFieldStyles: {
         minWidth: "35ch!important",
         width: "35ch!important"
-      }
+    },
+    button: {
+        background: "#1379ff!important",
+        color: "white!important",
+        padding : "0.8rem 2rem!important",
+        marginTop: "1rem!important",
+    }
   }));
 
-  const sex = [
-      {
-          value: 1,
-          label: "Nam"
-      },
-      {
-          value: 2,
-          label: "Nữ"
-      },
-      {
-          value: 3,
-          label: "Không xác định"
-      },
-  ]
-  const job = [
-    {
-        value: 1,
-        label: "Học sinh"
-    },
-    {
-        value: 2,
-        label: "Sinh viên"
-    },
-    {
-        value: 3,
-        label: "Người lao động"
-    },
-    {
-        value: 4,
-        label: "Công nhân viên chức"
-    },
-]
 
 UserForm.propTypes = {
     
@@ -67,8 +43,23 @@ UserForm.propTypes = {
 function UserForm(props) {
     const classes = useStyles();
 
+    const {register, handleSubmit, errors, control} = useForm({
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            address: "",
+            phoneNumber: "",
+            sex: "male",
+            job: "sv"
+        }
+    });
+
+    const onSubmit = (values) => {
+      console.log("FORM DATA: ", values);
+    }
+
     return (
-        <form action="" className="user-form">
+        <form action="" className="user-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="user-form__info--wrapper">
                 <div className="user-form__input">
                 <div className="user-form__avatar user-form__avatar--hidden">
@@ -87,35 +78,77 @@ function UserForm(props) {
                 </div>
                     <TextField
                         required
-                        id="standard-required"
+                        id="outlined-basic"
+                        variant="outlined"
                         label="Họ đệm"
                         defaultValue="Nguyễn Văn"
                         className={classes.textFieldStyles}
+                        name="firstName"
+                        inputRef={register}
                     />
                     <TextField
                         required
-                        id="standard-required"
+                        id="outlined-basic"
+                        variant="outlined"
                         label="Tên"
                         defaultValue="Quyền"
                         className={classes.textFieldStyles}
+                        name="lastName"
+                        inputRef={register}
                     />
                     <TextField
                         required
-                        id="standard-required"
+                        id="outlined-basic"
+                        variant="outlined"
                         label="Địa chỉ"
                         defaultValue="02 Cống Quỳnh, Cẩm Lệ, Đà Nẵng"
                         className={classes.textFieldStyles}
+                        name="address"
+                        inputRef={register}
                     />
                     <TextField
                         required
                         label="Số điện thoại"
-                        id="standard-number"
+                        id="outlined-number"
+                        variant="outlined"
                         defaultValue="0123456789"
                         className={classes.textFieldStyles}
                         type="number"
+                        name="phoneNumber"
+                        inputRef={register}
                     />
-                    <CustomSelect props={sex} title="Giới tính"/>
-                    <CustomSelect props={job} title="Nghề nghiệp"/>
+                    {/* <CustomSelect props={sex} title="Giới tính"/> */}
+                    <Controller 
+                      control={control}
+                      as={Select}
+                      name="sex"
+                      inputRef={register}
+                      id="outlined-basic"
+                      variant="outlined"
+                      className={classes.textFieldStyles}
+                      defaultValue="male"
+                    >
+                      <MenuItem value="male">Nam</MenuItem>
+                      <MenuItem value="female">Nữ</MenuItem>
+                      <MenuItem value="nodefined">Không xác định</MenuItem>
+                    
+                    </Controller>
+                    <Controller 
+                      control={control}
+                      as={Select}
+                      name="job"
+                      inputRef={register}
+                      id="outlined-basic"
+                      variant="outlined"
+                      className={classes.textFieldStyles}
+                      defaultValue="sv"
+                    >
+                      <MenuItem value="sv">Sinh viên</MenuItem>
+                      <MenuItem value="hs">Học sinh</MenuItem>
+                      <MenuItem value="ld">Người lao động</MenuItem>
+                      <MenuItem value="other">Khác</MenuItem>
+                    
+                    </Controller>
                 </div>
                 <div className="user-form__avatar">
                     <div className="user-form__avatar--wrapper">
@@ -133,7 +166,7 @@ function UserForm(props) {
                 </div>
             </div>
             <div className="user-form__submit-btn">
-                <Button variant="outlined" color="primary">
+                <Button type="submit" variant="outlined" color="primary" className={classes.button}>
                     Lưu thay đổi
                 </Button>
             </div>

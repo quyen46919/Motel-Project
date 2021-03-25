@@ -1,6 +1,9 @@
-
-
-
+.MuiOutlinedInput-root{
+    padding: 0!important;
+}
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-formControl{
+    padding: 0!important;
+}
 
 .post-form{
     &__text{
@@ -13,6 +16,8 @@
             color: #20274d;
         }
     }
+    
+
     &__policy{
         display: flex;
         justify-content: center;
@@ -94,3 +99,4 @@
         padding: 0;
     }
 }
+

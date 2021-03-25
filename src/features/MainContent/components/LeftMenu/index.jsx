@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
-import { NavLink, useRouteMatch } from 'react-router-dom';
+import { Link, NavLink, useRouteMatch } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import { makeStyles } from '@material-ui/core/styles';
 import PostAddIcon from '@material-ui/icons/PostAdd';
@@ -10,10 +10,11 @@ import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import ForumIcon from '@material-ui/icons/Forum';
 import BuildIcon from '@material-ui/icons/Build';
 import BookIcon from '@material-ui/icons/Book';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        background: "#de4552",
+        // background: "#de4552",
         width: "2rem!important",
         minWidth: "2rem!important",
         height: "25px",
@@ -24,25 +25,25 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "3px!important",
         display: "flex!important",
         justifyContent: "center!important",
-        fontSize: "25px!important"
+        fontSize: "30px!important",
     },
     postIcon: {
-        background: "#f19c2d"
+        // background: "#f19c2d"
     },
     favoriteIcon: {
-        background: "#ff6a84"
+        // background: "#ff6a84"
     },
     forumIcon: {
-        background: "#2cc6f6"
+        // background: "#2cc6f6"
     },
     recentActorsIcon: {
-        background: "#524f87"
+        // background: "#524f87"
     },
     buildIcon: {
-        background: "#c0c0c0"
+        // background: "#c0c0c0"
     },
     bookIcon: {
-        background: "#48a72a"
+        // background: "#48a72a"
     }
   }));
 LeftMenu.propTypes = {
@@ -57,6 +58,12 @@ function LeftMenu(props) {
         <div className="left-menu">
               <nav className="left-menu__navbar">
                 <ul className="left-menu__navbar-nav">
+                    <li className="nav-item nav-item--hidden">
+                        <Link to="/sign-in-sign-up" className="nav-link">
+                            <ExitToAppIcon className={`${classes.root} ${classes.homeIcon}`}/>
+                            <span className="link-text">Đăng nhập</span>
+                        </Link>
+                    </li>
                     <li className="nav-item">
                         <NavLink to="/" className="nav-link">
                             <HomeIcon className={`${classes.root} ${classes.homeIcon}`}/>

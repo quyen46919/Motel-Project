@@ -97,11 +97,12 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-start",
     },
     titleColor:{
-        color: "#20274d"
+        color: "#20274d",
+        margin: 0
     },
     ["@media (max-width: 600px)"] : {
         textField: {
-            width: '80vw'
+            width: '80vw',
         },
         wrapDiv: {
             flexWrap: "wrap",
@@ -198,7 +199,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Số nhà / Số hẻm"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             className={classes.textField}
                             defaultValue="02"
                             name="homeNumber"
@@ -207,7 +209,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Tên đường"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Xô Viết Nghệ Tĩnh"
                             className={classes.textField}
                             name="streetName"
@@ -218,7 +221,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Quận / Huyện"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Hải Châu"
                             className={classes.textField}
                             name="district"
@@ -227,7 +231,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Thành phố"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Đà Nẵng"
                             className={classes.textField}
                             // InputProps={{
@@ -243,7 +248,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Giá trọ"
-                            id="standard-number"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="2000000"
                             className={classes.textField}
                             helperText="Giá 1 phòng không phụ thuộc số người"
@@ -254,7 +260,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Hình thức"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Không chung chủ"
                             className={classes.textField}
                             helperText="1-Chung chủ / 2-Không chung chủ/ 3-Căn hộ"
@@ -267,7 +274,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Diện tích phòng"
-                            id="standard-helperText"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue="25"
                             className={classes.textField}
                             helperText="Đơn vị: m2"
@@ -277,7 +285,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Diện tích gác lửng"
-                            id="standard-helperText"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue="0"
                             className={classes.textField}
                             helperText="Bỏ trống nếu không có gác lửng (Đơn vị: m2)"
@@ -291,7 +300,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Giá điện"
-                            id="standard-number"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue={3000}
                             className={classes.textField}
                             helperText="Đơn vị: VND/kWh"
@@ -302,7 +312,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Giá nước"
-                            id="standard-number"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue={7000}
                             className={classes.textField}
                             helperText="Đơn vị: VND/Khối (hoặc thỏa thuận)"
@@ -315,7 +326,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Số người tối đa"
-                            id="standard-number"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue={3}
                             className={classes.textField}
                             type="number"
@@ -325,7 +337,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Số phòng tương tự"
-                            id="standard-number"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue="0"
                             className={classes.textField}
                             helperText="Trong trường hợp có nhiều phòng tương tự muốn đăng tin cùng lúc"
@@ -341,7 +354,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Tiêu đề bài đăng"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Cho thuê 1 phòng trọ cho 3 người"
                             className={classes.textField2}
                             helperText="Cho thuê phòng cho mấy người, yêu cầu người thuê phải như thế nào,..."
@@ -353,7 +367,8 @@ function PostForm() {
                             control={control}
                             inputRef={register}
                             label="Mô tả chung"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Trọ có đầy đủ tiện nghi, giờ giấc linh hoạt"
                             className={classes.textField2}
                             helperText="Mô tả về phòng trọ, nhà trọ, ..."
@@ -437,6 +452,7 @@ function PostForm() {
                 </div>
 
             </div>
+
             <div className={classes.titleWrap}>
                 <h1 className={classes.textColor}>2. Yêu cầu của chủ trọ</h1>
             </div>

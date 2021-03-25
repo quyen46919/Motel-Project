@@ -1,10 +1,17 @@
 
 @import '../../../../assets/variables';
 
+
+
 .motel-form{
     display: flex;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 0rem;
+
+    .MuiSelect-iconOutlined{
+        right: 15px!important;
+    }
+    
     h2{
         color: $titleColor!important;
     }
@@ -20,22 +27,31 @@
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
-        gap: 2rem!important;
+        gap: 1rem!important;
     }
     &__friends{
         margin-bottom: 1rem;
     }
     &__submit-btn{
         margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 .MuiSelect-select{
     display: flex!important;
     justify-content: flex-start!important;
 }
+@media (max-width: 1440px){
+    .motel-form{
+        margin-top: 0;
+        padding: 0!important;
+    }
+}
 @media (max-width: 1024px){
     .motel-form{
         margin-top: 0;
-        padding: 0;
+        padding: 0!important;
     }
 }

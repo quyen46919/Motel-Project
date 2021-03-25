@@ -26,7 +26,17 @@ const useStyles = makeStyles((theme) => ({
       flex: "3",
       minWidth: "10px!important",
       height: "90%",
-      paddingLeft: "10px"
+      paddingLeft: "10px",
+      "& > *" : {
+        border: "none!important",
+        padding: 0
+      },
+      "& ~ MuiSelect-iconOutlined" : {
+        marginRight: "-5px!important"
+      }
+  },
+  submitBtn: {
+    background: "#1379ff!important"
   }
 }));
 
@@ -67,7 +77,8 @@ function Header(props) {
                       as={Select}
                       name="location"
                       inputRef={register}
-                      id="standard-select-currency"
+                      id="outlined-basic"
+                      variant="outlined"
                       className={classes.textField}
                       defaultValue="haichau"
                     >
@@ -87,7 +98,8 @@ function Header(props) {
                       as={Select}
                       name="prices"
                       inputRef={register}
-                      id="standard-select-currency"
+                      id="outlined-basic"
+                      variant="outlined"
                       className={classes.textField}
                       defaultValue="1tr"
                     >
@@ -107,7 +119,8 @@ function Header(props) {
                       as={Select}
                       inputRef={register}
                       name="acreage"
-                      id="standard-select-currency"
+                      id="outlined-basic"
+                      variant="outlined"
                       className={classes.textField}
                       defaultValue="15"
                     >
@@ -118,7 +131,7 @@ function Header(props) {
                       <MenuItem value="35">Hơn 30m2</MenuItem>
                     </Controller>
                 </div>
-                <Button type="submit" variant="contained" color="primary" >
+                <Button type="submit" variant="contained" color="primary" className={classes.submitBtn}>
                   Tìm kiếm
                 </Button>
             </form>
@@ -140,7 +153,8 @@ function Header(props) {
                       as={Select}
                       name="location"
                       inputRef={register}
-                      id="standard-select-currency"
+                      id="outlined-basic"
+                      variant="outlined"
                       className={classes.textField}
                       defaultValue="haichau"
                     >
@@ -160,7 +174,8 @@ function Header(props) {
                       as={Select}
                       name="prices"
                       inputRef={register}
-                      id="standard-select-currency"
+                      id="outlined-basic"
+                      variant="outlined"
                       className={classes.textField}
                       defaultValue="1tr"
                     >
@@ -180,7 +195,8 @@ function Header(props) {
                       as={Select}
                       inputRef={register}
                       name="acreage"
-                      id="standard-select-currency"
+                      id="outlined-basic"
+                      variant="outlined"
                       className={classes.textField}
                       defaultValue="15"
                     >
@@ -191,7 +207,7 @@ function Header(props) {
                       <MenuItem value="35">Hơn 30m2</MenuItem>
                     </Controller>
                 </div>
-                <Button type="submit" variant="contained" color="primary" >
+                <Button type="submit" variant="contained" color="primary" className={classes.submitBtn}>
                   Tìm kiếm
                 </Button>
 

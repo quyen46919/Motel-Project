@@ -1,20 +1,26 @@
 
 @import "../../assets/variables";
+@import "../../assets/mixin";
 
 .header{
     margin: 0;
     padding: 0;
-
+    margin-left: $leftMenu;
     height: $headerHeigh;
     width: 100%;
     min-width: 100%;
-    background-color: $backgroundColor;
+    background-color: white;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     position: fixed;
     z-index: 1000;
+    box-shadow: $boxShadow;
+
+    & .MuiSelect-iconOutlined{
+        margin-right: -10px!important;
+    }
 
     &__icon {
         border: none;
@@ -52,10 +58,11 @@
     
     &__search--wrapper{
         width: 450px;
-        height: 90%;
+        height: 80%;
         display: flex;
         justify-content: center;
         align-items: center;
+        @include inputBorder();
 
          div{
             flex: 1;
@@ -73,7 +80,7 @@
     }
 
     &__select--wrapper {
-        height: 90%;
+        height: 80%;
         width: 180px;
         display: flex;
         align-items: center;
@@ -81,7 +88,7 @@
         border-radius: 3px;
         box-sizing: border-box;
         padding: 10px;
-
+        @include inputBorder();
          .header__icon{
             // width: 40px;
             flex: 1;
@@ -120,17 +127,17 @@
     }
 
     button{
-        height: 90%;
+        height: 80%;
         width: 130px;
         outline: none;
         border: none;
         cursor: pointer;
-        background: $color1;
+        background: $color2;
         text-transform: uppercase;
         font-weight: bold;
         color: white;
         border-radius: 3px;
-        font-size: 15px;
+        font-size: 12px;
     }
 
     &__login{
@@ -149,13 +156,19 @@
     }
 
     &__form--sub{
-        background: #20274d!important;
+        background: white;
         z-index: 1000!important;
         height: 60px!important;
         margin: 0!important;
         padding: 20px 0;
         display: none;
+        box-shadow: 1px 4px 5px #e3e3e3;
         
+    }
+}
+@media (max-width: 1240px){
+    .header{
+        margin-left: 0!important;
     }
 }
 
@@ -204,6 +217,9 @@
 
         &__button{
             width: 50px!important;
+        }
+        .header__login svg{
+            color: $color1;
         }
 
     }

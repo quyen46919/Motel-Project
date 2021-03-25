@@ -6,6 +6,7 @@ import PostForm from './components/PostForm';
 import PostForm2 from './components/PostForm2';
 
 
+
 PostNewItem.propTypes = {
     
 };

@@ -21,7 +21,6 @@ import WifiIcon from '@material-ui/icons/Wifi';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import InputCheckbox from '../../../../components/Header/components/InputCheckbox';
-import UploadButton from '../UploadButton';
 import './styles.scss';
 
 
@@ -36,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
       ["@media (max-width:1024px)"]: {
           justifyContent: "center"
       },
+    },
+    uploadRoot: {
+        '& > *': {
+          margin: theme.spacing(1),
+        },
     },
     wrapper: {
       width: "320px",
@@ -88,9 +92,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-start",
     },
     titleColor:{
-        color: "#20274d",
-        margin: 0,
-        padding: 0,
+        color: "#20274d"
     },
     ["@media (max-width: 600px)"] : {
         textField: {
@@ -105,10 +107,21 @@ const useStyles = makeStyles((theme) => ({
             width: "80vw!important"
         },
     },
+    buttonColor : {
+        border: "1px solid #5392f9",
+        background: "white",
+        color: "#5392f9",
+        height: "45px",
+        width: "120px"
+    },
+    uploadInput: {
+        display: 'none',
+        // width: "200px",
+      },
   }));
 
 
-function PostForm({id}) {
+function PostForm2() {
     const {register, handleSubmit, errors, control} = useForm({
         defaultValues: {
             // input
@@ -122,8 +135,7 @@ function PostForm({id}) {
             mezzanine: "0",
             elecPrices: 7000,
             waterPrices: 3000,
-            neededPeople: 0,
-            date: '',
+            neededPeople: 3,
             titlePost : "",
             generalDescription: "",
             // above options
@@ -134,6 +146,11 @@ function PostForm({id}) {
             noDrink: false,
             inviteFriends: false,
             dontMakeNoise: false,
+            // upload button
+            img1: "",
+            img2: "",
+            img3: "",
+            img4: "",
             // below options
             carPark: false,
             fan: false,
@@ -155,7 +172,6 @@ function PostForm({id}) {
         },
         mode: "onChange"
        });
-
     
       const onSubmit = (values) => {
         console.log("FORM DATA: ", values);
@@ -176,7 +192,8 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Số nhà / Số hẻm"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             className={classes.textField}
                             defaultValue="02"
                             name="homeNumber"
@@ -185,7 +202,8 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Tên đường"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Xô Viết Nghệ Tĩnh"
                             className={classes.textField}
                             name="streetName"
@@ -196,7 +214,8 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Quận / Huyện"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Hải Châu"
                             className={classes.textField}
                             name="district"
@@ -205,12 +224,13 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Thành phố"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Đà Nẵng"
                             className={classes.textField}
-                            InputProps={{
-                            readOnly: true,
-                            }}
+                            // InputProps={{
+                            // readOnly: true,
+                            // }}
                             name="city"
                         />
                 </div>
@@ -221,7 +241,8 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Giá trọ"
-                            id="standard-number"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="2000000"
                             className={classes.textField}
                             helperText="Giá 1 phòng không phụ thuộc số người"
@@ -232,8 +253,9 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Hình thức"
-                            id="standard-helperText"
-                            defaultValue="1"
+                            id="outlined-basic"
+                            variant="outlined"
+                            defaultValue="Không chung chủ"
                             className={classes.textField}
                             helperText="1-Chung chủ / 2-Không chung chủ/ 3-Căn hộ"
                             name="formality"
@@ -245,7 +267,8 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Diện tích phòng"
-                            id="standard-helperText"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue="25"
                             className={classes.textField}
                             helperText="Đơn vị: m2"
@@ -255,7 +278,8 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Diện tích gác lửng"
-                            id="standard-helperText"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue="0"
                             className={classes.textField}
                             helperText="Bỏ trống nếu không có gác lửng (Đơn vị: m2)"
@@ -269,7 +293,8 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Giá điện"
-                            id="standard-number"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue={3000}
                             className={classes.textField}
                             helperText="Đơn vị: VND/kWh"
@@ -280,36 +305,39 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Giá nước"
-                            id="standard-number"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue={7000}
                             className={classes.textField}
                             helperText="Đơn vị: VND/Khối (hoặc thỏa thuận)"
                             type="number"
                             name="WaterPrices"
                         />
-                    </div>
+                        </div>
                     <div className={classes.wrapDiv}>
                         <TextField
                             control={control}
                             inputRef={register}
                             label="Số người cần ghép"
-                            id="standard-number"
+                            id="outlined-number"
+                            variant="outlined"
                             defaultValue={3}
                             className={classes.textField}
                             type="number"
                             name="neededPeople"
                         />
-                        <TextField
+                        {/* <TextField
                             control={control}
                             inputRef={register}
-                            label="Ngày vào ở"
-                            id="standard-number"
-                            defaultValue="2014-02-09"
+                            label="Số phòng tương tự"
+                            id="outlined-number"
+                            variant="outlined"
+                            defaultValue="0"
                             className={classes.textField}
-                            type="date"
-                            value="2021-01-01"
-                            name="date"
-                        />
+                            helperText="Trong trường hợp có nhiều phòng tương tự muốn đăng tin cùng lúc"
+                            type="number"
+                            name="sameRoom"
+                        /> */}
                     </div>
                 </div>
 
@@ -319,7 +347,8 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Tiêu đề bài đăng"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Cho thuê 1 phòng trọ cho 3 người"
                             className={classes.textField2}
                             helperText="Cho thuê phòng cho mấy người, yêu cầu người thuê phải như thế nào,..."
@@ -331,7 +360,8 @@ function PostForm({id}) {
                             control={control}
                             inputRef={register}
                             label="Mô tả chung"
-                            id="standard-helperText"
+                            id="outlined-basic"
+                            variant="outlined"
                             defaultValue="Trọ có đầy đủ tiện nghi, giờ giấc linh hoạt"
                             className={classes.textField2}
                             helperText="Mô tả về phòng trọ, nhà trọ, ..."
@@ -342,16 +372,80 @@ function PostForm({id}) {
 
                 <div className={`${classes.wrapDiv} custom-input__line`} >
                     <div className={`${classes.wrapDiv} custom-input__upload`}>   
-                        <UploadButton 
-                            title="UPLOAD"
-                        />
-                        <UploadButton title="UPLOAD"/>
-                        <UploadButton title="UPLOAD"/>
-                        <UploadButton title="UPLOAD"/>
+                        <div  className={classes.uploadRoot}>
+                            <input
+                                accept="image/*"
+                                className={classes.uploadInput}
+                                id=" file1"
+                                multiple
+                                type="file"
+                                name="img1"
+                                ref={register}
+                                control={control}
+                            />
+                            <label htmlFor=" file1">
+                                <Button variant="contained" className={classes.buttonColor} component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
+                        <div  className={classes.uploadRoot}>
+                            <input
+                                accept="image/*"
+                                className={classes.uploadInput}
+                                id="file2"
+                                multiple
+                                type="file"
+                                name="img2"
+                                ref={register}
+                                control={control}
+                            />
+                            <label htmlFor="file2">
+                                <Button variant="contained" className={classes.buttonColor} component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
+                        <div  className={classes.uploadRoot}>
+                            <input
+                                accept="image/*"
+                                className={classes.uploadInput}
+                                id="file3"
+                                multiple
+                                type="file"
+                                name="img3"
+                                ref={register}
+                                control={control}
+                            />
+                            <label htmlFor="file3">
+                                <Button variant="contained" className={classes.buttonColor} component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
+                        <div  className={classes.uploadRoot}>
+                            <input
+                                accept="image/*"
+                                className={classes.uploadInput}
+                                id="file4"
+                                multiple
+                                type="file"
+                                name="img4"
+                                ref={register}
+                                control={control}
+                            />
+                            <label htmlFor="file4">
+                                <Button variant="contained" className={classes.buttonColor} component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                        </div>
+                        
                     </div>
                 </div>
 
             </div>
+
             <div className={classes.titleWrap}>
                 <h1 className={classes.textColor}>2. Yêu cầu của chủ trọ</h1>
             </div>
@@ -559,4 +653,4 @@ function PostForm({id}) {
     );
 }
 
-export default PostForm;
+export default PostForm2;

@@ -1,8 +1,15 @@
+
+
+
 .user-form{
     display: flex;
     justify-content: space-around;
     margin-top: 3rem;
     flex-direction: column;
+
+    .MuiSelect-iconOutlined{
+        right: 15px!important;
+    }
 
     &__info--wrapper{
         display: flex;
@@ -29,7 +36,6 @@
         height: 12rem;
         width: 12rem;
         border-radius: 50%;
-        background: red;
         background-image: url("../../../../assets/images/genshin_12_4K.jpg");
         background-size: cover;
     }

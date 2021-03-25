@@ -10,18 +10,18 @@
 
   .left-menu{
     &__navbar {
-      margin-top: $headerHeigh!important ;
-      height: calc(100vh - #{$headerHeigh})!important;
+      // margin-top: $headerHeigh!important ;
+      height: 100vh!important;
       position: fixed;
       z-index: 1000;
-      background-color: $bgPrimary;
-      transition: width 400ms ease;
+      background-color: $backgroundColor;
+      transition: width 300ms ease;
       overflow: hidden;
       box-shadow: 1px 0 3px rgb(199, 199, 199);
     }
 
     &__navbar:hover{
-      background: white;
+      background: $backgroundColor;
     }
 
     &__navbar-nav {
@@ -37,8 +37,17 @@
     a {
       text-decoration: none;
     }
+    li.nav-item:hover svg{
+      color: $backgroundColor!important;
+    }
     .nav-item {
       width: 100%;
+    }
+    span.link-text{
+      color: rgb(240, 240, 240);
+    }
+    .nav-item:hover span.link-text{
+      color: $backgroundColor;
     }
     
     .nav-item:last-child {
@@ -61,7 +70,7 @@
     .nav-link:hover {
       // filter: grayscale(0%) opacity(1);
       background: $bgSecondary;
-      color: $black;
+      color: $backgroundColor;
     }
     
     .link-text {
@@ -192,15 +201,26 @@
   @media (max-width: 479px){
     .left-menu__navbar-nav{
       height: 60px;
+      overflow: hidden;
+      overflow-x: scroll;
+
+      &::-webkit-scrollbar{
+        display: none!important;
+      }
     }
     li.nav-item{
       flex: 1;
     }
-    #nav-item--hidden{
-      display: none!important;
-    }
+    // #nav-item--hidden{
+    //   display: none!important;
+    // }
 
     .left-menu .nav-item:last-child{
       margin-top: 0;
     }
   }
+@media (max-width: 767px){
+  .nav-item--hidden{
+    display: none;
+  }
+}
