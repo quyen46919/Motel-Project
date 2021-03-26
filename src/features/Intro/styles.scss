@@ -79,6 +79,7 @@ $bg-img: url('../../assets/images/genshin_12_4K.jpg');
         align-items: center;
         justify-content: center;
         gap: 0 2rem;
+        text-transform: uppercase;
     }
 
     &__auth{
@@ -88,6 +89,7 @@ $bg-img: url('../../assets/images/genshin_12_4K.jpg');
         justify-content: center;
         align-items: center;
         gap: 0 3rem;
+        text-transform: uppercase;
     }
 
     &__main {
