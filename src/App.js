@@ -10,10 +10,11 @@ function App() {
   return (
     <div className="App">
       <Switch>
+        <Route path="/" component={Intro} exact/>
         <Route path="/intro" component={Intro} />
         <Route path="/sign-in-sign-up" component={SignInSignUp} />
         <Route path="/main" component={MainContent}/>
-        <Route path="/" component={MainContent}/>   
+        {/* <Route path="/" component={MainContent}/>    */}
       </Switch>
 
       {/* <Intro/> */}

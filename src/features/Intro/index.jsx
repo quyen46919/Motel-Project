@@ -108,7 +108,7 @@ function Intro(props) {
                             <p className="title">Số người</p>  
                             <CustomSelect props={PEOPLE} />
                         </div>
-                        <NavLink to="/" className="intro__redirect-btn">
+                        <NavLink to="/main/" className="intro__redirect-btn">
                             <Button variant="contained" className="intro__button">
                                     Tìm kiếm
                             </Button>

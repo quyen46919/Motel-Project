@@ -65,21 +65,21 @@ function LeftMenu(props) {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/" className="nav-link">
+                        <NavLink to="/main/" className="nav-link">
                             <HomeIcon className={`${classes.root} ${classes.homeIcon}`}/>
                             <span className="link-text">Thuê trọ</span>
                         </NavLink>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink to="/post" className="nav-link">
+                        <NavLink to="/main/post" className="nav-link">
                             <PostAddIcon className={`${classes.root} ${classes.postIcon}`}/>
                             <span className="link-text">Đăng tin</span>
                         </NavLink>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink to="/favorite" className="nav-link">
+                        <NavLink to="/main/favorite" className="nav-link">
                             <FavoriteIcon className={`${classes.root} ${classes.favoriteIcon}`}/>
                             <span className="link-text">Yêu thích</span>
                         </NavLink>
@@ -93,21 +93,21 @@ function LeftMenu(props) {
                     </li> */}
 
                     <li className="nav-item">
-                        <NavLink to="/contact" className="nav-link">
+                        <NavLink to="/main/contact" className="nav-link">
                             <ForumIcon className={`${classes.root} ${classes.forumIcon}`}/>
                             <span className="link-text">Liên hệ</span>
                         </NavLink>
                     </li>
 
                     <li className="nav-item" id="nav-item--hidden">
-                        <NavLink to="/about" className="nav-link">
+                        <NavLink to="/main/about" className="nav-link">
                             <RecentActorsIcon className={`${classes.root} ${classes.recentActorsIcon}`}/>
                             <span className="link-text">Về chúng tôi</span>
                         </NavLink>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink to="/setting" className="nav-link">
+                        <NavLink to="/main/setting" className="nav-link">
                             <BuildIcon className={`${classes.root} ${classes.buildIcon}`}/>
                             <span className="link-text">Cài đặt</span>
                         </NavLink>

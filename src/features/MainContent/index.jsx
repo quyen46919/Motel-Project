@@ -28,14 +28,14 @@ function MainContent(props) {
             <Header/>
             <LeftMenu/>
             <Switch>
-                <Route path="/" component={MainPage} exact/>
-                <Route path="/main" component={MainPage} />
-                <Route path="/details/:ItemId" component={ItemDetails} exact/>
-                <Route path="/post" component={PostNewItem} />
-                <Route path="/favorite" component={FavoriteList} />
-                <Route path="/about" component={AboutUs} />
-                <Route path="/contact" component={Contact} />
-                <Route path="/setting" component={UserInfo} />
+                {/* <Route path="/" component={MainPage} exact/> */}
+                <Route path="/main" component={MainPage} exact/>
+                <Route path="/main/details/:ItemId" component={ItemDetails} exact/>
+                <Route path="/main/post" component={PostNewItem} exact/>
+                <Route path="/main/favorite" component={FavoriteList} exact/>
+                <Route path="/main/about" component={AboutUs} exact/>
+                <Route path="/main/contact" component={Contact} exact/>
+                <Route path="/main/setting" component={UserInfo} exact/>
                 <Route component={NotFound}/>
             </Switch>
             {/* <Switch>

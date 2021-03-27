@@ -9,6 +9,11 @@
     > *{
         color: $titleColor!important;
     }
+
+    .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-formControl.MuiInputBase-multiline.MuiOutlinedInput-multiline{
+        padding: 1rem!important;
+    }
+
     &__h1{
         color: $titleColor;
         font-size: 50px!important;
