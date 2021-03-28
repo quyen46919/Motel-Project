@@ -82,6 +82,42 @@ function ItemDetails(props) {
                     <ConfirmPopUp2 props={favoriteRequest}/>
                     <FeedbackPopUp props={errorsRequest}/>
                 </div>
+                <div className="item-details__info">
+                    <h1>Thông tin phòng trọ</h1>
+                    <div className="item-details__info-content">
+                        <div className="item-details__1-info">
+                            <p>Địa chỉ: </p>
+                            <p>02 Cống Quỳnh, Cẩm Lệ, Đà Nẵng</p>
+                        </div>
+                        <div className="item-details__1-info">
+                            <p>Tiền điện: </p>
+                            <p>3000 / kWh</p>
+                        </div>
+                        <div className="item-details__1-info">
+                            <p>Hình thức: </p>
+                            <p>Không chung chủ</p>
+                        </div>
+                        
+                        <div className="item-details__1-info">
+                            <p>Tiền nước: </p>
+                            <p>7000 / Khối</p>
+                        </div>
+                        <div className="item-details__1-info">
+                            <p>Diện tích phòng: </p>
+                            <p>25m2</p>
+                        </div>
+                        
+                        <div className="item-details__1-info">
+                            <p>Số người tối đa: </p>
+                            <p>3 người</p>
+                        </div>
+                        <div className="item-details__1-info">
+                            <p>Diện tích gác lửng: </p>
+                            <p>12m2</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="item-details__utility">
                     <h1>Tiện ích có sẵn</h1>
                     <div className="item-details__utility-content">
@@ -153,40 +189,7 @@ function ItemDetails(props) {
                     </div>
                 </div>
 
-                <div className="item-details__info">
-                    <h1>Thông tin phòng trọ</h1>
-                    <div className="item-details__info-content">
-                        <div className="item-details__1-info">
-                            <p>Địa chỉ: </p>
-                            <p>02 Cống Quỳnh, Cẩm Lệ, Đà Nẵng</p>
-                        </div>
-                        <div className="item-details__1-info">
-                            <p>Hình thức: </p>
-                            <p>Không chung chủ</p>
-                        </div>
-                        <div className="item-details__1-info">
-                            <p>Tiền điện: </p>
-                            <p>3000 / kWh</p>
-                        </div>
-                        <div className="item-details__1-info">
-                            <p>Tiền nước: </p>
-                            <p>7000 / Khối</p>
-                        </div>
-                        <div className="item-details__1-info">
-                            <p>Diện tích phòng: </p>
-                            <p>25m2</p>
-                        </div>
-                        <div className="item-details__1-info">
-                            <p>Diện tích gác lửng: </p>
-                            <p>12m2</p>
-                        </div>
-                        <div className="item-details__1-info">
-                            <p>Số người tối đa: </p>
-                            <p>3 người</p>
-                        </div>
-                    </div>
-                </div>
-
+                
                 <div className="item-details__comments">
                     <div className="item-details__user-comment--block">
                         <form autoComplete="off">

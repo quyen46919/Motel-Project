@@ -65,9 +65,10 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
         justifyContent: "flex-start",
     },
-    textColor:{
+    textStyles:{
         color: "#20274d",
-        transform: "translateY(-2px)"
+        transform: "translateY(-2px)",
+        textTransform: "uppercase"
     },
     root2: {
         display: "flex",
@@ -96,9 +97,10 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "flex-start",
     },
-    titleColor:{
+    titleStyles:{
         color: "#20274d",
-        margin: 0
+        // margin: 0,
+        textTransform: "uppercase"
     },
     ["@media (max-width: 600px)"] : {
         textField: {
@@ -189,7 +191,7 @@ function PostForm() {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className={`${classes.root2} custom-input`}>
                 <div className={classes.titleWrap}>
-                    <h1 className={classes.titleColor}>
+                    <h1 className={classes.titleStyles}>
                     1. Thông tin về nhà trọ 
                     </h1>
                 </div>
@@ -217,6 +219,35 @@ function PostForm() {
                         />
                     </div>
                     <div className={classes.wrapDiv}>
+                    <TextField
+                            control={control}
+                            inputRef={register}
+                            label="Giá trọ"
+                            id="outlined-basic"
+                            variant="outlined"
+                            defaultValue="2000000"
+                            className={classes.textField}
+                            helperText="Giá 1 phòng không phụ thuộc số người"
+                            name="motelPrices"
+                            type="number"
+                        />
+                        <TextField
+                            control={control}
+                            inputRef={register}
+                            label="Hình thức"
+                            id="outlined-basic"
+                            variant="outlined"
+                            defaultValue="Không chung chủ"
+                            className={classes.textField}
+                            helperText="1-Chung chủ / 2-Không chung chủ"
+                            name="formality"
+                            type="number"
+                        />
+                </div>
+                </div>
+                <div className={`${classes.wrapDiv} custom-input__line`}>
+                    <div className={classes.wrapDiv}>
+
                         <TextField
                             control={control}
                             inputRef={register}
@@ -239,34 +270,6 @@ function PostForm() {
                             // readOnly: true,
                             // }}
                             name="city"
-                        />
-                </div>
-                </div>
-                <div className={`${classes.wrapDiv} custom-input__line`}>
-                    <div className={classes.wrapDiv}>
-                        <TextField
-                            control={control}
-                            inputRef={register}
-                            label="Giá trọ"
-                            id="outlined-basic"
-                            variant="outlined"
-                            defaultValue="2000000"
-                            className={classes.textField}
-                            helperText="Giá 1 phòng không phụ thuộc số người"
-                            name="motelPrices"
-                            type="number"
-                        />
-                        <TextField
-                            control={control}
-                            inputRef={register}
-                            label="Hình thức"
-                            id="outlined-basic"
-                            variant="outlined"
-                            defaultValue="Không chung chủ"
-                            className={classes.textField}
-                            helperText="1-Chung chủ / 2-Không chung chủ/ 3-Căn hộ"
-                            name="formality"
-                            type="number"
                         />
                     </div>
                     <div className={classes.wrapDiv}>
@@ -454,11 +457,11 @@ function PostForm() {
             </div>
 
             <div className={classes.titleWrap}>
-                <h1 className={classes.textColor}>2. Yêu cầu của chủ trọ</h1>
+                <h1 className={`${classes.textStyles}`}>2. Yêu cầu của chủ trọ</h1>
             </div>
             <div className={classes.root}>
                     <div className={classes.wrapper}>
-                        <PersonIcon fontSize="large" className={classes.textColor}/>
+                        <PersonIcon fontSize="large" className={classes.textStyles}/>
                         <div className="post-form__text">
                             <p>Chỉ cho nữ thuê</p>
                         </div>
@@ -468,7 +471,7 @@ function PostForm() {
                         />
                     </div>
                     <div className={classes.wrapper}>
-                        <WcIcon fontSize="large"  className={classes.textColor}/>
+                        <WcIcon fontSize="large"  className={classes.textStyles}/>
                         <div className="post-form__text">
                             <p>Nam nữ ở riêng</p>
                         </div>
@@ -478,7 +481,7 @@ function PostForm() {
                         />
                     </div>
                     <div className={classes.wrapper}>
-                        <CreditCardIcon fontSize="large" className={classes.textColor}/>
+                        <CreditCardIcon fontSize="large" className={classes.textStyles}/>
                         <div className="post-form__text">
                             <p>Đặt cọc trước</p>
                         </div>
@@ -488,7 +491,7 @@ function PostForm() {
                         />
                     </div>
                     <div className={classes.wrapper}>
-                        <WhatshotIcon fontSize="large"  className={classes.textColor}/>
+                        <WhatshotIcon fontSize="large"  className={classes.textStyles}/>
                         <div className="post-form__text">
                             <p>Nấu ăn trong phòng</p>
                         </div>
@@ -498,7 +501,7 @@ function PostForm() {
                         />
                     </div>
                     <div className={classes.wrapper}>
-                        <FormatColorResetIcon fontSize="large"  className={classes.textColor}/>
+                        <FormatColorResetIcon fontSize="large"  className={classes.textStyles}/>
                         <div className="post-form__text">
                             <p>Không nhậu nhẹt</p>
                         </div>
@@ -508,7 +511,7 @@ function PostForm() {
                         />
                     </div>
                     <div className={classes.wrapper}>
-                        <PersonAddDisabledIcon fontSize="large"  className={classes.textColor}/>
+                        <PersonAddDisabledIcon fontSize="large"  className={classes.textStyles}/>
                         <div className="post-form__text">
                             <p>Không mời bạn bè qua đêm</p>
                         </div>
@@ -518,7 +521,7 @@ function PostForm() {
                         />
                     </div>
                     <div className={classes.wrapper}>
-                    <RecordVoiceOverIcon fontSize="large"  className={classes.textColor}/>
+                    <RecordVoiceOverIcon fontSize="large"  className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Cấm làm ồn sau 22h</p>
                     </div>
@@ -531,11 +534,11 @@ function PostForm() {
 
 
             <div className={classes.titleWrap}>
-                <h1 className={classes.titleColor}>3. Tiện ích trong phòng trọ</h1>
+                <h1 className={classes.titleStyles}>3. Tiện ích trong phòng trọ</h1>
             </div>
             <div className={classes.root}>
                 <div className={classes.wrapper}>
-                    <MotorcycleIcon fontSize="large" className={classes.textColor}/>
+                    <MotorcycleIcon fontSize="large" className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Chỗ để xe</p>
                     </div>
@@ -545,7 +548,7 @@ function PostForm() {
                     />
                 </div>
                 <div className={classes.wrapper}>
-                    <ToysIcon fontSize="large"  className={classes.textColor}/>
+                    <ToysIcon fontSize="large"  className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Quạt</p>
                     </div>
@@ -555,7 +558,7 @@ function PostForm() {
                     />
                 </div>
                 <div className={classes.wrapper}>
-                    <AcUnitIcon fontSize="large" className={classes.textColor}/>
+                    <AcUnitIcon fontSize="large" className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Điều hòa</p>
                     </div>
@@ -565,7 +568,7 @@ function PostForm() {
                     />
                 </div>
                 <div className={classes.wrapper}>
-                    <WifiIcon fontSize="large"  className={classes.textColor}/>
+                    <WifiIcon fontSize="large"  className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Wifi</p>
                     </div>
@@ -575,7 +578,7 @@ function PostForm() {
                     />
                 </div>
                 <div className={classes.wrapper}>
-                    <WcIcon fontSize="large"  className={classes.textColor}/>
+                    <WcIcon fontSize="large"  className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Toilet riêng</p>
                     </div>
@@ -585,7 +588,7 @@ function PostForm() {
                     />
                 </div>
                 <div className={classes.wrapper}>
-                    <OpacityIcon fontSize="large"  className={classes.textColor}/>
+                    <OpacityIcon fontSize="large"  className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Máy nước nóng</p>
                     </div>
@@ -595,7 +598,7 @@ function PostForm() {
                     />
                 </div>
                 <div className={classes.wrapper}>
-                    <VideocamIcon fontSize="large"  className={classes.textColor}/>
+                    <VideocamIcon fontSize="large"  className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Camera</p>
                     </div>
@@ -605,7 +608,7 @@ function PostForm() {
                     />
                 </div>
                 <div className={classes.wrapper}>
-                    <DeleteIcon fontSize="large"  className={classes.textColor}/>
+                    <DeleteIcon fontSize="large"  className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Chỗ đổ rác</p>
                     </div>
@@ -615,7 +618,7 @@ function PostForm() {
                     />
                 </div>
                 <div className={classes.wrapper}>
-                    <DashboardIcon fontSize="large"  className={classes.textColor}/>
+                    <DashboardIcon fontSize="large"  className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Tủ chứa đồ</p>
                     </div>
@@ -625,7 +628,7 @@ function PostForm() {
                     />
                 </div>
                 <div className={classes.wrapper}>
-                    <FreeBreakfastIcon fontSize="large"  className={classes.textColor}/>
+                    <FreeBreakfastIcon fontSize="large"  className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Bếp / Chỗ nấu ăn</p>
                     </div>
@@ -635,7 +638,7 @@ function PostForm() {
                     />
                 </div>
                 <div className={classes.wrapper}>
-                    <Brightness4Icon fontSize="large"  className={classes.textColor}/>
+                    <Brightness4Icon fontSize="large"  className={classes.textStyles}/>
                     <div className="post-form__text">
                         <p>Chỗ phơi đồ</p>
                     </div>

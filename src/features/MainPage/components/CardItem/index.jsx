@@ -48,7 +48,7 @@ export default function CardItem({img}) {
   return (
 
     <Card className={`${classes.root} card-item`} >
-      <NavLink to="/details/12312" className={classes.navLink}>
+      <NavLink to="/main/details/12312" className={classes.navLink}>
         <CardMedia
           className={classes.media}
           image={img}

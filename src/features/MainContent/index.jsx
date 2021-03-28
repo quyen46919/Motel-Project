@@ -30,7 +30,7 @@ function MainContent(props) {
             <Switch>
                 {/* <Route path="/" component={MainPage} exact/> */}
                 <Route path="/main" component={MainPage} exact/>
-                <Route path="/main/details/:ItemId" component={ItemDetails} exact/>
+                <Route path="/main/details/:ItemId" component={ItemDetails}/>
                 <Route path="/main/post" component={PostNewItem} exact/>
                 <Route path="/main/favorite" component={FavoriteList} exact/>
                 <Route path="/main/about" component={AboutUs} exact/>
