@@ -1,6 +1,6 @@
 
 @import '../../assets/variables';
-
+@import '../../assets/mixin';
 $paddingTop: 1rem;
 $distance: 0.1rem;
 $boxShadow: 1px 1px 7px rgb(199, 199, 199);
@@ -62,6 +62,11 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
         align-items: center;
         flex-wrap: wrap;
         padding: 0 1rem;
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 1rem;
+        margin-right: 10px;
+        @include glassmorphism;
     }
     &__1-ultility,
     &__1-request{
@@ -142,7 +147,6 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
         margin-top: 2rem;
         width: 100%;
         height: auto;
-        background: white;
         box-sizing: border-box;
 
     }
@@ -150,7 +154,9 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
     &__user-comment--block{
         box-shadow: $boxShadow;
         padding: 1rem;
-        border-radius: 10px;
+        border-radius: 5px;
+        margin-right: 10px;
+        @include glassmorphism;
 
         h3 {
             margin: 0;
@@ -176,8 +182,11 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
 
     &__another-comments{
         margin-top: 1.5rem;
-        padding: 0 1rem;
+        padding: 1rem 2rem;
         margin-bottom: 5rem;
+        border-radius: 5px;
+        margin-right: 10px;
+        @include glassmorphism;
     }
 }
 

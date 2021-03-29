@@ -2,6 +2,21 @@
 
 @mixin inputBorder() {
     border: 1px solid #1379ff;
-    // border: 1px solid silver;
     border-radius: 3px;
+}
+
+@mixin glassmorphism {
+    background: rgba(255,255,255, 0.8);
+    box-shadow: 0 15px 35px rgba(0,0,0, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255, 0.25);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+@mixin displayFlexColumnCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

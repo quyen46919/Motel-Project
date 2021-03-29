@@ -1,12 +1,18 @@
 
 @import '../../assets/variables';
-
+@import '../../assets/mixin';
 .user-info{
     margin-left: $leftMenu;
     padding: 0 7rem;
-    margin-top: calc(#{$headerHeigh} + 30px);
+    margin-top: $headerHeigh;
     margin-bottom: 3rem;
     text-align: center;
+    @include displayFlexColumnCenter;
+    
+    h1{
+        text-transform: uppercase;
+        margin: 2rem;
+    }
 }
 @media (max-width: 1240px){
     .user-info{

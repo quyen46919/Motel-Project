@@ -1,5 +1,6 @@
 
 @import '../../assets/variables';
+@import '../../assets/mixin';
 .about-us{
     margin-left: $leftMenu;
     margin-top: calc(#{$headerHeigh} + 30px);
@@ -7,9 +8,10 @@
     margin-bottom: 3rem;
     &__title{
         text-align: center;
-        margin: 3rem 0;
+        margin: 2rem 0;
         font-size: 40px;
         color: $titleColor;
+        text-transform: uppercase;
     }
 
     &__details-wrapper{
@@ -17,6 +19,9 @@
         justify-content: space-around;
         align-items: center;
         height: 300px;
+        // background: white;
+        border-radius: 5px;
+        @include glassmorphism;
     }
     &__img,
     &__details{

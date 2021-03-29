@@ -14,7 +14,13 @@ const useStyles = makeStyles((theme) => ({
     padding: "3rem 1rem",
     boxShadow: "1px 0 5px silver",
     borderRadius: "10px",
-    marginBottom: "4rem"
+    marginBottom: "4rem",
+    background: "rgba(255,255,255, 1)",
+    boxShadow: " 0 15px 35px rgba(0,0,0, 0.05)",
+    backdropFilter: "blur(10px)",
+    border: "1px solid rgba(255,255,255, 0.25)",
+    borderTop: "1px solid rgba(255,255,255,0.5)",
+    borderBottom: "1px solid rgba(255,255,255,0.5)",
   },
   button: {
     marginRight: theme.spacing(1),
@@ -181,7 +187,7 @@ export default function CustomStepper() {
         ) : (
           <div>
             <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-            <div>
+            <div style={{marginTop: "3rem"}}>
               <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                 Trở lại
               </Button>

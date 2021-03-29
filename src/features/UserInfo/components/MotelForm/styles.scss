@@ -28,15 +28,17 @@
         align-items: center;
         flex-wrap: wrap;
         gap: 1rem!important;
+        padding: 0 4rem;
     }
     &__friends{
         margin-bottom: 1rem;
     }
     &__submit-btn{
-        margin-top: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 0 auto;
+        margin-top: 1rem;
     }
 }
 .MuiSelect-select{

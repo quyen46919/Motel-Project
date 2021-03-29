@@ -12,7 +12,7 @@ function FavoriteList(props) {
     return (
         <div className='favorite-list'>
             <h1 className="favorite-list__p favorite-list__p--title">Danh sách yêu thích</h1>
-            <p className="favorite-list__p">Bạn đã lưu 2 trọ</p>
+            <p>Bạn đã lưu 2 trọ</p>
             <div className="favorite-list__list-item">
                 <FavoriteItem />
                 <FavoriteItem />

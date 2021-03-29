@@ -1,14 +1,19 @@
 @import '../../../../assets/variables';
-
+@import '../../../../assets/mixin';
 .paper-tabs{
     margin-left: $leftMenu;
     box-sizing: border-box;
     text-align: center;
-    margin-left: 0;
     border-radius: 10px;
     box-shadow: 1px 0 5px silver;
-    width: 100%;
+    width: 90%;
     height: auto;
+    margin-left: 0;
+    // padding: 0 7rem;
+    height: auto;
+    margin-bottom: 3rem;
+
+    // @include glassmorphism;
 
     &__tabs{
         background: white;
@@ -39,14 +44,6 @@
 // .PrivateTabIndicator-colorSecondary-9,
 .MuiTabs-indicator {
     background-color: $color1!important;
-}
-.paper-tabs {
-    margin-left: 0;
-    box-sizing: border-box;
-    padding: 0 7rem;
-    text-align: center;
-    width: 100%;
-    height: auto;
 }
 
 @media screen and (max-width: 1680px){

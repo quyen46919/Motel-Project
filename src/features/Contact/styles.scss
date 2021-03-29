@@ -1,5 +1,6 @@
 
 @import '../../assets/variables';
+@import '../../assets/mixin';
 .contact {
     display: flex;
     margin-top: $headerHeigh;
@@ -95,6 +96,7 @@
         width: 450px;
         padding: 1rem 2rem;
         border-radius: 10px;
+        @include glassmorphism;
     }
     &__btn-wrapper{
         display: flex;

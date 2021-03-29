@@ -9,7 +9,6 @@
     height: $headerHeigh;
     width: 100%;
     min-width: 100%;
-    background-color: white;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -17,6 +16,9 @@
     position: fixed;
     z-index: 1000;
     box-shadow: $boxShadow;
+
+    @include glassmorphism();
+    border-top: none!important;
 
     & .MuiSelect-iconOutlined{
         margin-right: -10px!important;

@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './styles.scss';
 
+
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -46,6 +48,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
+    background: "rgba(255,255,255, 1)",
+    boxShadow: " 0 15px 35px rgba(0,0,0, 0.05)",
+    backdropFilter: "blur(10px)",
+    border: "1px solid rgba(255,255,255, 0.25)",
+    borderTop: "1px solid rgba(255,255,255,0.5)",
+    borderBottom: "1px solid rgba(255,255,255,0.5)",
   },
 }));
 
