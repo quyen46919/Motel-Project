@@ -9,7 +9,8 @@
     overflow-y: hidden;
     text-align: center;
     margin-left: $leftMenu;
-    margin-top: $headerHeigh;
+    margin-top: $menuHeight;
+    font-family: Roboto;
 
     h1{
         margin: 0;
@@ -19,15 +20,8 @@
 @media (max-width: 1024px){
     .main-page{
         margin-left: 0;
-        margin-top: 200px;
     }
 }
-// @media (max-width: 1023px){
-//     .main-page{
-//         margin-left: 0;
-//         margin-top: 80px;
-//     }
-// }
 @media (max-width: 767px){
     .main-page{
         margin: 0;

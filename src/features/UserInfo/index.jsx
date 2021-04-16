@@ -19,7 +19,8 @@ function UserInfo(props) {
     return (
         <div className="user-info">
             <h1>Thông tin cá nhân & cài đặt</h1>
-            <PaperTabs component={'span'} list={data}/>
+            <UserForm/>
+            <MotelForm/>
         </div>
     );
 }

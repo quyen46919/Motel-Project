@@ -3,7 +3,7 @@
 @import '../../assets/mixin';
 .about-us{
     margin-left: $leftMenu;
-    margin-top: calc(#{$headerHeigh} + 30px);
+    margin-top: calc(#{$headerHeigh} + #{$menuHeight});
     padding: $basePadding;
     margin-bottom: 3rem;
     &__title{
@@ -12,6 +12,7 @@
         font-size: 40px;
         color: $titleColor;
         text-transform: uppercase;
+        padding-top: 3rem;
     }
 
     &__details-wrapper{

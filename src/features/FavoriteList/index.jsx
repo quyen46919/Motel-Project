@@ -18,13 +18,13 @@ function FavoriteList(props) {
                 <FavoriteItem />
             </div>
 
-            <h1 className="favorite-list__p">Gợi ý cho bạn</h1>
-            <div className="favorite-list__suggestions">
+            {/* <h1 className="favorite-list__p">Gợi ý cho bạn</h1> */}
+            {/* <div className="favorite-list__suggestions">
                 <CardItem img={imgUrl}/>
                 <CardItem img={imgUrl}/>
                 <CardItem img={imgUrl}/>
                 <CardItem img={imgUrl}/>
-            </div>
+            </div> */}
         </div>
     );
 }

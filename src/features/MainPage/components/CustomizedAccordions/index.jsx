@@ -1,12 +1,13 @@
 
-import { Button } from '@material-ui/core';
+import { Button, MenuItem, Select, TextField } from '@material-ui/core';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+import CustomSelect from '../../../../components/Header/components/CustomSelect';
 import Input from '../../../../components/Header/components/InputCheckbox';
 import './styles.scss';
 
@@ -93,9 +94,7 @@ export default function CustomizedAccordions() {
     console.log("FORM DATA: ", values);
   }
 
-
   return (
-    
     <form 
       className="custom-option" 
       onSubmit={handleSubmit(onSubmit)}
@@ -105,92 +104,136 @@ export default function CustomizedAccordions() {
           <Typography component={'span'} style={typoStyles}>Lọc theo yêu cầu</Typography>
         </AccordionSummary>
       </Accordion>
-      
       <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography component={'span'}>Tiện ích</Typography>
+          <Typography component={'span'}>Thông tin cơ bản</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography component={'span'} className="custom-option__option--wrapper">
-          <Input 
-            control={control} 
-            name="carPark" 
-            props="Chỗ để xe"
-          />
-          <Input 
-            control={control} 
-            name="fan" 
-            props="Quạt"
-          />
-          <Input 
-            control={control} 
-            name="airCondition" 
-            props="Điều hòa"
-          />
-          <Input 
-            control={control} 
-            name="wifi" 
-            props="Wifi"
-          />
-          <Input 
-            control={control} 
-            name="toilet" 
-            props="Toilet riêng"
-          />
-          <Input 
-            control={control} 
-            name="waterHeater" 
-            props="Điều hòa"
-          />
-          <Input 
-            control={control} 
-            name="camera" 
-            props="Camera an ninh"
-          />
-          <Input 
-            control={control} 
-            name="trashCan" 
-            props="Chỗ đổ rác"
-          />
-          <Input 
-            control={control} 
-            name="board" 
-            props="Tủ chứa đồ"
-          />
-          <Input 
-            control={control} 
-            name="kitchen" 
-            props="Bếp / Chỗ nấu ăn"
-          />
-          <Input 
-            control={control} 
-            name="dryingGround" 
-            props="Chỗ phơi đồ"
-          />
+          <Typography component={'span'} className="custom-option__option--basic">
+            <TextField 
+              id="outlined-basic" 
+              label="Nhập từ khóa tìm kiếm" 
+              variant="outlined" 
+              className="custom-option__search"
+            />
+            <div className="custom-option__controller">
+              <Controller 
+                control={control}
+                as={Select}
+                name="location"
+                inputRef={register}
+                id="outlined-basic"
+                variant="outlined"
+                // className={classes.textField}
+                defaultValue="haichau"
+              >
+                <MenuItem value="haichau">Hải Châu</MenuItem>
+                <MenuItem value="camle">Cẩm Lệ</MenuItem>
+                <MenuItem value="lienchieu">Liên Chiểu</MenuItem>
+                <MenuItem value="sontra">Sơn Trà</MenuItem>
+                <MenuItem value="nguhanhson">Ngũ Hành Sơn</MenuItem>
+              </Controller>
+              <Controller 
+                control={control}
+                as={Select}
+                name="prices"
+                inputRef={register}
+                id="outlined-basic"
+                variant="outlined"
+                // className={classes.textField}
+                defaultValue="1tr"
+              >
+                <MenuItem value="1tr">Dưới 1 triệu</MenuItem>
+                <MenuItem value="1tr5-2tr">1.5 - 2 triệu</MenuItem>
+                <MenuItem value="2tr-2.5tr">2 - 2.5 triệu</MenuItem>
+                <MenuItem value="2.5tr-3tr">2.5 - 3 triệu</MenuItem>
+                <MenuItem value="3tr">Hơn 3 triệu</MenuItem>
+              </Controller>
+              <Controller 
+                control={control}
+                as={Select}
+                inputRef={register}
+                name="acreage"
+                id="outlined-basic"
+                variant="outlined"
+                // className={classes.textField}
+                defaultValue="15"
+              >
+                <MenuItem value="15">Dưới 15m2</MenuItem>
+                <MenuItem value="20">15-20m2</MenuItem>
+                <MenuItem value="25">20-25m2</MenuItem>
+                <MenuItem value="30">25-30m2</MenuItem>
+                <MenuItem value="35">Hơn 30m2</MenuItem>
+              </Controller>
+            </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography component={'span'}>Loại nhà trọ</Typography>
+          <Typography component={'span'}>Tiện ích</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography component={'span'}>
-          <Input 
-            control={control} 
-            name="coOwner" 
-            props="Chung chủ"
-          />
-          <Input 
-            control={control} 
-            name="noCoOwner" 
-            props="Không chung chủ"
-          />
-          <Input 
-            control={control} 
-            name="apartment" 
-            props="Căn hộ"
-          />
+          <Typography component={'span'} className="custom-option__option--wrapper">
+            <div className="custom-option__column">
+              <Input 
+                control={control} 
+                name="carPark" 
+                props="Chỗ để xe"
+              />
+              <Input 
+                control={control} 
+                name="fan" 
+                props="Quạt"
+              />
+              <Input 
+                control={control} 
+                name="airCondition" 
+                props="Điều hòa"
+              />
+              <Input 
+                control={control} 
+                name="wifi" 
+                props="Wifi"
+              />
+              <Input 
+                control={control} 
+                name="toilet" 
+                props="Toilet riêng"
+              />
+              <Input 
+                control={control} 
+                name="waterHeater" 
+                props="Điều hòa"
+              />
+            </div>
+            <div className="custom-option__column">
+              <Input 
+                control={control} 
+                name="camera" 
+                props="Camera an ninh"
+              />
+              <Input 
+                control={control} 
+                name="trashCan" 
+                props="Chỗ đổ rác"
+              />
+              <Input 
+                control={control} 
+                name="board" 
+                props="Tủ chứa đồ"
+              />
+              <Input 
+                control={control} 
+                name="kitchen" 
+                props="Bếp / Chỗ nấu ăn"
+              />
+              <Input 
+                control={control} 
+                name="dryingGround" 
+                props="Chỗ phơi đồ"
+              />
+            </div>
           </Typography>
         </AccordionDetails>
       </Accordion>

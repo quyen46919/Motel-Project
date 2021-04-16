@@ -1,6 +1,4 @@
 
-
-
 .user-form{
     display: flex;
     justify-content: space-around;
@@ -15,12 +13,13 @@
         display: flex;
     }
     &__input{
-        flex: 3;
+        flex: 2 1;
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
         align-items: center;
-        gap: 2rem 1rem; 
+        gap: 2rem 1rem;
+        padding: 0 3rem;
     }
     &__avatar--hidden{
         display: none!important;
@@ -63,3 +62,5 @@
         }
     }
 }
+
+

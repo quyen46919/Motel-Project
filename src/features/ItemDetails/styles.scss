@@ -11,20 +11,31 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
     position: relative;
     display: flex;
     padding-bottom: 1rem;
-    margin-top: $headerHeigh;
+    margin-top: $menuHeight;
 
     &::after{
         content: '';
         position: absolute;
         top: 0;
         left: 0;
-        height: 280px;
+        height: 535px;
         width: 100%;
         background-color: $backgroundColor;
         z-index: 0;
         transition: .25s;
     }
 
+    &__slideshow{
+        // width: 100%;
+        height: 500px;
+        box-sizing: border-box;
+        margin-right: 1rem!important;
+        background: white;
+        overflow: hidden;
+        margin-top: 0!important;
+        border-radius: 10px;
+        margin-bottom: 3rem!important;
+    }
     &__img-hidden{
         display: none;
     }
@@ -38,14 +49,14 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
     }
     &__header{
         padding-top: $paddingTop;
-        > * {
-            margin: 0.8rem 0rem;
-            padding: 0;
-            color: $textColor2;
+        & > *{
+            margin: 0.5rem 0;
+            color: $backgroundColor;
         }
-
-        h3, p{
-            color: $textColor3;
+        h2 {
+            margin: 0.3rem 0rem;
+            padding: 0;
+            text-transform: uppercase;
         }
     }
     &__utility,
@@ -91,7 +102,7 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
     &__img-block{
         flex: 2;
         z-index: 1;
-        height: 700px;
+        height: 650px;
         background-color: white;
         box-sizing: border-box;
         margin-top: $paddingTop;
@@ -124,7 +135,7 @@ $boxShadow: 1px 1px 7px rgb(199, 199, 199);
         cursor: pointer;
     }
     &__img--2{
-        background-image: url("../../assets/images/grass.jpg");
+        background-image: url("../../assets/images/trees-in-park.jpg");
     }
     &__img--3{
         background-image: url("../../assets/images/blosom.jpg");;

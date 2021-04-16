@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LeftMenu from './components/LeftMenu';
 import './styles.scss';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import MainPage from '../MainPage';
@@ -13,6 +12,8 @@ import ItemDetails from '../ItemDetails';
 import Blog from '../Blog';
 import Header from '../../components/Header';
 import NotFound from '../NotFound';
+import Footer from '../../components/Footer';
+import DefaultFooter from '../../components/DefaultFooter';
 MainContent.propTypes = {
     
 };
@@ -26,7 +27,6 @@ function MainContent(props) {
     return (
         <div className="main-content">
             <Header/>
-            <LeftMenu/>
             <Switch>
                 {/* <Route path="/" component={MainPage} exact/> */}
                 <Route path="/main" component={MainPage} exact/>
@@ -38,6 +38,7 @@ function MainContent(props) {
                 <Route path="/main/setting" component={UserInfo} exact/>
                 <Route component={NotFound}/>
             </Switch>
+            <DefaultFooter/>
             {/* <Switch>
                 <Route path={match.path} component={MainPage} exact/>
                 <Route path={`${match}/main`} component={MainPage} exact/>

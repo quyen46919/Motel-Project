@@ -1,0 +1,51 @@
+.card-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  .img{
+    max-width: 300px!important;
+    width: 300px!important;
+  }
+  .arrow{
+      z-index: 10;
+      cursor: pointer;
+      user-select: none;
+      transform: scale(1.1);
+      background: transparent;
+      transition:.25s;
+  }
+  .right-arrow {
+      color: rgb(156, 156, 156)!important;
+      position: absolute;
+      top: 50%;
+      right: 10px!important;
+      font-size: 3rem;
+  }
+    .left-arrow {
+      color: rgb(156, 156, 156)!important;
+      position: absolute;
+      top: 50%;
+      left: 10px!important;
+      font-size: 3rem;
+    }
+    
+    .slide {
+      opacity: 1;
+      position: absolute;
+      width: 100%;
+      transition-duration: .25s ease;
+      transform: scale(0.9);
+    }
+    
+    .slide.active {
+      opacity: 1;
+      transition-duration: .25s;
+      transform: scale(1);
+    }
+    
+}

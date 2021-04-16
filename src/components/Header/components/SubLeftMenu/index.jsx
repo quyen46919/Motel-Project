@@ -1,18 +1,15 @@
-import { Checkbox, FormControlLabel, FormGroup, MenuItem, Select, Typography } from '@material-ui/core';
+import { MenuItem, Select, Typography } from '@material-ui/core';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import Button from "@material-ui/core/Button";
-import { green } from '@material-ui/core/colors';
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import { Label } from '@material-ui/icons';
 import clsx from "clsx";
 import React from "react";
 import { Controller, useForm } from 'react-hook-form';
-import CheckBox from '../../../CheckBox';
 import Input from '../InputCheckbox';
 import './styles.scss';
 
@@ -21,13 +18,21 @@ const useStyles = makeStyles({
     width: '80vw'
   },
   ["@media (max-width: 2200px) and (min-width: 600px)"] : {
-
     list: {
       width: '50vw'
     } 
   },
   fullList: {
     width: "auto"
+  },
+  textField: {
+    minWidth: "90%!important",
+    gap: "0 2rem",
+    justifyContent: "center",
+    alignItems: "center",
+    "& i input ": {
+      minWidth: "90%!important",
+    }
   }
 });
 const Accordion = withStyles({
@@ -141,19 +146,20 @@ export default function SubLeftMenu() {
           <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
             <Typography component={'span'}>Tìm kiếm theo</Typography>
           </AccordionSummary>
+
           <AccordionDetails className="accor-details">
             <TextField 
-              id="standard-basic" 
-              label="Tên đường" 
+              id="outlined-basic"
+              variant="outlined"
+              className={classes.textField}
             />
-          </AccordionDetails>
-          <AccordionDetails className="accor-details">
             <Controller 
               control={control}
               as={Select}
               name="location"
               inputRef={register}
-              id="standard-select-currency"
+              id="outlined-basic"
+              variant="outlined"
               className={classes.textField}
               defaultValue="haichau"
             >
@@ -168,7 +174,8 @@ export default function SubLeftMenu() {
               as={Select}
               name="prices"
               inputRef={register}
-              id="standard-select-currency"
+              id="outlined-basic"
+              variant="outlined"
               className={classes.textField}
               defaultValue="1tr"
             >
@@ -178,14 +185,13 @@ export default function SubLeftMenu() {
               <MenuItem value="2.5tr-3tr">2.5 - 3 triệu</MenuItem>
               <MenuItem value="3tr">Hơn 3 triệu</MenuItem>
             </Controller>
-          </AccordionDetails>
-          <AccordionDetails className="accor-details">
-              <Controller 
+            <Controller 
                 control={control}
                 as={Select}
                 inputRef={register}
                 name="acreage"
-                id="standard-select-currency"
+                id="outlined-basic"
+                variant="outlined"
                 className={classes.textField}
                 defaultValue="15"
               >

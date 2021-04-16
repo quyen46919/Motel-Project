@@ -5,13 +5,13 @@
     text-align: center;
     margin-left: $leftMenu;
     padding : 0 7rem;
-    margin-top: calc(#{$headerHeigh} + 30px);
+    margin-top: calc(#{$headerHeigh} + #{$menuHeight});
     .paper-tabs{
         padding: 0!important;
     }
     
     h1{
-        margin: 2rem 0!important;
+        margin: 2rem 0;
         color: #20274d;
         text-transform: uppercase;
     }

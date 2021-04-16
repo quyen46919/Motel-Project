@@ -13,11 +13,12 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
-    z-index: 1000;
+    // position: fixed;
+    // z-index: 1000;
+    // top: 0;
     box-shadow: $boxShadow;
 
-    @include glassmorphism();
+    background: white;
     border-top: none!important;
 
     & .MuiSelect-iconOutlined{
@@ -39,6 +40,7 @@
     }
     &__logo{
         height: 100%;
+        flex: 1;
         color: $color1;
         font-weight: bold;
         margin-left: 25px;
@@ -46,6 +48,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        a{
+            text-decoration: none!important;
+            color: unset;
+            font-size: 30px;
+            font-family: "Poppins","Roboto";
+        }
     }
 
     &__form , &__form--sub{
@@ -53,7 +62,7 @@
         justify-content: center;
         align-items: center;
         height: 80%;
-        width: 80%;
+        width: 70%;
         gap: 10px;
      
     }
@@ -78,6 +87,7 @@
             font-size: 17px;
             border-radius: 0 3px 3px 0;
             padding: 0;
+            cursor: unset!important;
         }
     }
 
@@ -116,15 +126,11 @@
             border: none;
             margin: 0;
         }
-
-        p{
-            transform: translateX(3px);
-        }
-
+        p{  transform: translateX(3px);  }
         select {
             font-size: 15px;
             cursor: pointer;
-            width: 100%;   
+            width: 100%;
         }
     }
 
@@ -141,45 +147,57 @@
         border-radius: 3px;
         font-size: 12px;
     }
-
+    &__menu-search{
+        height: 100%;
+        flex: 1;
+        @include displayFlex(row);
+    }
+    &__menu,
+    &__search,
     &__login{
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-right: 15px;
         cursor: pointer;
+        margin: 0!important;
 
-        i{
-            color: white;
+        svg{
+            color: #5392f9;
             font-size: 30px;
         }
-    }
 
-    &__form--sub{
-        background: white;
-        z-index: 1000!important;
-        height: 60px!important;
-        margin: 0!important;
-        padding: 20px 0;
-        display: none;
-        box-shadow: 1px 4px 5px #e3e3e3;
-        
     }
 }
 @media (max-width: 1240px){
     .header{
         margin-left: 0!important;
+
+        &__form{
+            width: 60%;
+        }
+        &__search--wrapper{
+            display: none;
+        }
+        &__search ,
+        &__menu {
+            pointer-events: all;
+            width: 50px;
+            svg{
+                color: $color1;
+            }
+        }
     }
 }
 
-@media screen and (max-width: 1024px){
+@media (max-width: 1024px){
     .header{
         flex-wrap: wrap;
+
         &__form {
             width: 50%;
-
+            
             .header__select--wrapper,button{
                 display: none;
             }
@@ -190,28 +208,36 @@
             margin-top: -1px!important;
             padding: 0.3rem;
         }
+        &__search ,
+        &__menu {
+            pointer-events: all;
+            width: 50px;
+            svg{
+                color: $color1;
+            }
+        }
     }
+    
 }
-@media screen and (max-width: 767px){
+@media (max-width: 767px){
     .header{
         flex-wrap: wrap;
 
         &__search--wrapper{
             display: none!important;
         }
-
+        &__form{
+            display: none;
+        }
         &__form--sub{
             display: none!important;
             display: flex;
             width: 100%;
             margin-top: 15px;
             padding: 0.2rem!important;
-
-
-            .header__select--wrapper{
-                box-shadow: 3px 0  15px $gray1;
-            }
-
+        }
+        &__select--wrapper{
+            box-shadow: 3px 0  15px $gray1;
         }
         &__icon{
             border-radius: 3px;
@@ -220,19 +246,26 @@
         &__button{
             width: 50px!important;
         }
-        .header__login svg{
+        &__menu-search{
+            justify-content: flex-end;
+        }
+        &__search svg,
+        &__menu svg{
             color: $color1;
         }
-
+        &__logo{
+            justify-content: flex-start;
+        }
     }
 }
 
-@media screen and (max-width: 550px){
+@media (max-width: 550px){
     .header{
         // flex-wrap: wrap;
         height: 70px;
 
         &__form{
+            display: none;
             justify-content: flex-end;
             width: 50px;
         }
@@ -249,6 +282,7 @@
             }
             ::placeholder{
                 font-size: 13px;
+                color:#64707c;
             }
         }
         &__icon{
@@ -259,7 +293,7 @@
         }
     }
 }
-@media screen and (max-width: 450px){
+@media (max-width: 450px){
     .header{
         &__search--wrapper{
             width: 50px;
@@ -271,6 +305,20 @@
         &__icon{
             border-radius: 3px;
             transform: translateX(120%);
+        }
+    }
+}
+@media (max-width: 350px){
+    .header{
+        &__logo{
+            margin-left: 10px;
+            a{
+                font-size: 25px!important;
+            }
+        }
+        &__menu-search div svg,
+        &__menu-search a svg{
+            font-size: 25px;
         }
     }
 }

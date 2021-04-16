@@ -1,9 +1,20 @@
 
 
 .sub-menu{
-    opacity: 0;
-    pointer-events: none;
+    // opacity: 0;
+    // pointer-events: none;
     background: #5392f9!important;
+}
+input.MuiInputBase-input.MuiOutlinedInput-input{
+    width: 90%!important;
+}
+
+.accor-details{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 1024px){

@@ -3,11 +3,11 @@
     width: auto;
     height: 150px;
     background: white;
-    box-shadow: 1px 0 7px silver;
     border-radius: 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 1px 0 5px #ececec;
 
     &__img-block{
         width: 200px;

@@ -10,6 +10,8 @@ import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import ForumIcon from '@material-ui/icons/Forum';
 import BuildIcon from '@material-ui/icons/Build';
 import BookIcon from '@material-ui/icons/Book';
+import PeopleIcon from '@material-ui/icons/People';
+import HomeWorkIcon from '@material-ui/icons/HomeWork';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles((theme) => ({
@@ -19,71 +21,62 @@ const useStyles = makeStyles((theme) => ({
         minWidth: "2rem!important",
         height: "25px",
         margin: "0 1.25rem!important",
+        marginRight: "0!important",
         fontSize: "30px!important",
         padding: "5px 1px!important",
-        color: "white!important",
+        color: "#a1b1c1!important",
         borderRadius: "3px!important",
         display: "flex!important",
         justifyContent: "center!important",
         fontSize: "30px!important",
+        "@media (max-width: 1240px)": {
+            color: "#5392f9!important"
+        }
     },
-    postIcon: {
-        // background: "#f19c2d"
-    },
-    favoriteIcon: {
-        // background: "#ff6a84"
-    },
-    forumIcon: {
-        // background: "#2cc6f6"
-    },
-    recentActorsIcon: {
-        // background: "#524f87"
-    },
-    buildIcon: {
-        // background: "#c0c0c0"
-    },
-    bookIcon: {
-        // background: "#48a72a"
-    }
   }));
-LeftMenu.propTypes = {
-    
-};
 
 
-function LeftMenu(props) {
+function Menu(props) {
     const classes = useStyles();
     
     return (
         <div className="left-menu">
               <nav className="left-menu__navbar">
                 <ul className="left-menu__navbar-nav">
-                    <li className="nav-item nav-item--hidden">
-                        <Link to="/sign-in-sign-up" className="nav-link">
-                            <ExitToAppIcon className={`${classes.root} ${classes.homeIcon}`}/>
-                            <span className="link-text">Đăng nhập</span>
-                        </Link>
-                    </li>
                     <li className="nav-item">
                         <NavLink to="/main/" className="nav-link">
-                            <HomeIcon className={`${classes.root} ${classes.homeIcon}`}/>
+                            <HomeIcon className={classes.root}/>
                             <span className="link-text">Thuê trọ</span>
                         </NavLink>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink to="/main/post" className="nav-link">
-                            <PostAddIcon className={`${classes.root} ${classes.postIcon}`}/>
-                            <span className="link-text">Đăng tin</span>
+                        <NavLink to="/main/" className="nav-link">
+                            <PeopleIcon className={classes.root}/>
+                            <span className="link-text">Ghép trọ</span>
                         </NavLink>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink to="/main/favorite" className="nav-link">
-                            <FavoriteIcon className={`${classes.root} ${classes.favoriteIcon}`}/>
-                            <span className="link-text">Yêu thích</span>
+                        <NavLink to="/main/" className="nav-link">
+                            <HomeWorkIcon className={classes.root}/>
+                            <span className="link-text">Căn hộ</span>
                         </NavLink>
                     </li>
+
+                    <li className="nav-item">
+                        <NavLink to="/main/post" className="nav-link">
+                            <PostAddIcon className={classes.root}/>
+                            <span className="link-text">Đăng tin</span>
+                        </NavLink>
+                    </li>
+
+                    {/* <li className="nav-item">
+                        <NavLink to="/main/favorite" className="nav-link">
+                            <FavoriteIcon className={classes.root}/>
+                            <span className="link-text">Yêu thích</span>
+                        </NavLink>
+                    </li> */}
                     
                     {/* <li className="nav-item">
                         <NavLink to="/blog" className="nav-link">
@@ -94,28 +87,35 @@ function LeftMenu(props) {
 
                     <li className="nav-item">
                         <NavLink to="/main/contact" className="nav-link">
-                            <ForumIcon className={`${classes.root} ${classes.forumIcon}`}/>
+                            <ForumIcon className={classes.root}/>
                             <span className="link-text">Liên hệ</span>
                         </NavLink>
                     </li>
 
-                    <li className="nav-item" id="nav-item--hidden">
+                    {/* <li className="nav-item" id="nav-item--hidden">
                         <NavLink to="/main/about" className="nav-link">
-                            <RecentActorsIcon className={`${classes.root} ${classes.recentActorsIcon}`}/>
+                            <RecentActorsIcon className={classes.root}/>
                             <span className="link-text">Về chúng tôi</span>
                         </NavLink>
-                    </li>
+                    </li> */}
 
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <NavLink to="/main/setting" className="nav-link">
-                            <BuildIcon className={`${classes.root} ${classes.buildIcon}`}/>
+                            <BuildIcon className={classes.root}/>
                             <span className="link-text">Cài đặt</span>
                         </NavLink>
-                    </li>
+                    </li> */}
+{/* 
+                    <li className="nav-item nav-item--hidden">
+                        <Link to="/sign-in-sign-up" className="nav-link">
+                            <ExitToAppIcon className={classes.root}/>
+                            <span className="link-text">Đăng nhập</span>
+                        </Link>
+                    </li> */}
                 </ul>
             </nav>
         </div>
     );
 }
 
-export default LeftMenu;
+export default Menu;

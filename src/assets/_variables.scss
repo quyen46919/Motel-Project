@@ -3,8 +3,9 @@
 $backgroundColor: #20274d;
 $color1: #5392f9;
 $color2: #1379ff;
-$gray1: #828b8d;
+$gray1: #b0b4b4;
 $textColor: #2a2a2e;
+$textColor1: #a1b1c1;
 $textColor2: #f3f3f3;
 $textColor3: #8ed1dc;
 
@@ -17,11 +18,13 @@ $titleColor: #20274d;
 
 $basePadding: 0 7rem;
 $avatarSize: 60px;
-$boxShadow: 1px 0 5px silver;
+$boxShadow: 1px 0 5px rgb(228, 228, 228);
 $border: 1px solid silver;
 
 $headerHeigh : 70px;
-$leftMenu : 5rem;
+// $leftMenu : 5rem;
+$leftMenu : 0rem;
+$menuHeight: 60px;
 $optionDropdownWidth: 350px;
 
 $img01-about-us: url('https://f20-zpc.zdn.vn/1865820435547557402/b561c819dffb2ca575ea.jpg');
