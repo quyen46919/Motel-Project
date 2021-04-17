@@ -6,7 +6,6 @@ import img3 from '../../../../assets/images/big-icon-1.png';
 import './styles.scss';
 
 function Step1(props) {
-
     const [choose, setChoose] = useState(0);
     const handleClick1 = () => {
         setChoose(1);

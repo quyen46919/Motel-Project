@@ -1,8 +1,26 @@
+
+@import '../../../../assets/mixin';
 .step3{
-    background-color: beige;
-    background-image: url("../../../../assets/images/form3.png");
-    background-size: cover;
-    height: 500px;
+    height: auto;
     width: 100%;
-    background-position-y: -50px;
+    @include displayFlex(row, wrap, center, center);
+    margin-bottom: 3rem;
+
+    p{
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+
+    span{
+        color: red;
+        font-weight: 500;
+    }
+
+    &__block{
+        width: 100%;
+        height: auto;
+        @include displayFlex(row, wrap);
+        gap:2rem;
+    }
+    
 }

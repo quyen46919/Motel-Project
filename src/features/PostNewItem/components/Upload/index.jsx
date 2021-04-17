@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import ImageUploading from "react-images-uploading";
 import "./styles.scss";
 
-export default function Upload() {
+export default function Upload(props) {
   const [images, setImages] = React.useState([]);
-  const maxNumber = 3;
+  const maxNumber = 1;
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
     console.log(imageList, addUpdateIndex);
@@ -24,7 +24,6 @@ export default function Upload() {
         {({
           imageList,
           onImageUpload,
-          onImageRemoveAll,
           onImageUpdate,
           onImageRemove,
           isDragging,
@@ -36,8 +35,9 @@ export default function Upload() {
               style={isDragging ? { color: "unset" } : null}
               onClick={onImageUpload}
               {...dragProps}
+              className="upload__btn"
             >
-              Nhấn hoặc kéo thả ảnh vào đây
+              {props.title}
             </button>
             &nbsp;
             <div className="image-item__wrapper">

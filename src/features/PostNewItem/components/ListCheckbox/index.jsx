@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexWrap: "wrap",
       alignItems: "center",
-      justifyContent: "flex-start",
+      justifyContent: "space-between",
       gap: "0 1rem",
       ["@media (max-width:1024px)"]: {
           justifyContent: "center"
@@ -59,10 +59,10 @@ function ListCheckbox(props) {
     const classes = useStyles();
     return (
         <>
-            <div className={classes.titleWrap}>
+            {/* <div className={classes.titleWrap}>
                 <h1 className={classes.textColor}>2. Yêu cầu của chủ trọ</h1>
-            </div>
-            <div className={classes.root}>
+            </div> */}
+            {/* <div className={classes.root}>
                 <div className={classes.wrapper}>
                     <PersonIcon fontSize="large" className={classes.textColor}/>
                     <CustomCheckbox props="Chỉ cho nữ thuê" className={classes.IconStyles}/>
@@ -91,11 +91,11 @@ function ListCheckbox(props) {
                     <RecordVoiceOverIcon fontSize="large"  className={classes.textColor}/>
                     <CustomCheckbox props="Cấm làm ồn sau 22h"/>
                 </div>
-            </div>
+            </div> */}
 
 
             <div className={classes.titleWrap}>
-                <h1 className={classes.titleColor}>3. Tiện ích trong phòng trọ</h1>
+                <h3 className={classes.titleColor}>Tiện ích trong phòng trọ</h3>
             </div>
             <div className={classes.root}>
                 <div className={classes.wrapper}>

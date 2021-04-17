@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import Step1 from '../Step1';
 import Step2 from '../Step2';
 import Step3 from '../Step3';
+import LastStep from '../LastStep';
+import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,33 +29,54 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
 function getSteps() {
-  return ['Loại hình trọ', 'Thông tin về phòng trọ', 'Upload ảnh'];
+  return ['Loại hình trọ', 'Thông tin về phòng trọ', 'Upload ảnh và mô tả tiện ích','Xác thực'];
 }
 
-const handleStep1 = (value) => {
-  console.log(value);
-}
-const handleStep2 = (value) => {
-  console.log(value);
-}
-const handleStep3 = (value) => {
-  console.log(value);
-}
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return <Step1 handleStep1={handleStep1}/>;
-    case 1:
-      return <Step2 handleStep1={handleStep2}/>;
-    case 2:
-      return <Step3 handleStep1={handleStep3}/>;
-    default:
-      return 'Unknown stepIndex';
+export default function CustomStepper() {
+  const {register, handleSubmit, errors, control} = useForm({
+    defaultValues: {
+      option: 1,
+    },
+    mode: "onChange"
+   });
+  
+  const onSubmit = (values) => {
+    console.log("FORM DATA: ", values);
   }
-}
 
-export default function HorizontalLabelPositionBelowStepper() {
+  const handleStep1 = (value) => {
+    console.log(value);
+  }
+  const handleStep2 = (value) => {
+    console.log(value);
+  }
+  const handleStep3 = (value) => {
+    console.log(value);
+  }
+  function getStepContent(stepIndex) {
+    switch (stepIndex) {
+      case 0:
+        return <Step1 handleStep1={handleStep1}/>;
+      case 1:
+        return <Step2 handleStep1={handleStep2}/>;
+      case 2:
+        return <Step3 handleStep1={handleStep3}/>;
+      case 3:
+        return <LastStep handleStep1={handleStep3}/>;
+      default:
+        return 'Unknown stepIndex';
+    }
+  }
+
+
+
+
+
+
+
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -71,7 +94,7 @@ export default function HorizontalLabelPositionBelowStepper() {
   };
 
   return (
-    <form className={classes.root}>
+    <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
@@ -83,7 +106,7 @@ export default function HorizontalLabelPositionBelowStepper() {
         {activeStep === steps.length ? (
           <div>
             <Typography className={classes.instructions}>Yêu cầu của bạn đã được gửi đi. Chúng tôi sẽ xử lí trong thời gian sớm nhất!</Typography>
-            <Button onClick={handleReset}>Reset</Button>
+            <Button onClick={handleReset}>Tạo yêu cầu mới</Button>
           </div>
         ) : (
           <div>
