@@ -1,5 +1,6 @@
 .card-item {
     cursor: pointer;
+    transform: all .25s;
     &__card--action{
         padding: 0px 8px!important;
     }
@@ -15,21 +16,19 @@
 }
 @media (max-width: 1239px){
     .card-item {
-        max-width: 350px!important;
-    }
-}
-@media (max-width: 1024px){
-    .card-item {
-        max-width: 300px!important;
+        max-width: 320px!important;
+        height: 370px!important;
     }
 }
 @media (max-width: 767px){
     .card-item {
-        max-width: 340px!important;
+        max-width: 300px!important;
+        height: 370px!important;
     }
 }
-@media (max-width: 600px){
+@media (max-width: 400px){
     .card-item {
-        max-width: 350px!important;
+        max-width: 300px!important;
+        height: 370px!important;
     }
 }

@@ -7,10 +7,11 @@ import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
 import NearMeIcon from '@material-ui/icons/NearMe';
 import SearchIcon from '@material-ui/icons/Search';
-import React from 'react';
+import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
 import Filter from '../../features/Filter';
+import SideMenu from './components/SideMenu';
 import Menu from './components/Menu';
 import './styles.scss';
 
@@ -34,19 +35,25 @@ const useStyles = makeStyles((theme) => ({
       }
   },
   submitBtn: {
-    background: "#1379ff!important"
+    background: "#1379ff!important",
+    height: "45px!important"
   },
   iconStyles: {
     color: "#a1b1c1!important"
+  },
+  loginBtn: {
+    border: "1px solid #1379ff!important",
+    color: "#1379ff!important",
   }
 }));
 
 function Header(props) {
     const classes = useStyles();
-    const [openMenu, setOpenMenu] = React.useState(true);
-
     const {register, handleSubmit, errors, control} = useForm();
-
+    const [open, setOpen] = useState(false);
+    const handleOpenMenu = () => {
+      setOpen(!open);
+    }
 
     const onSubmit = (values) => {
       console.log("FORM DATA: ", values);
@@ -67,7 +74,7 @@ function Header(props) {
                     <input type="text"
                       name="search" 
                       className="header__search" 
-                      placeholder="Nhập tên đường bạn muốn tìm..." 
+                      placeholder="Tìm kiếm" 
                       ref={register}
                      />
                 </div>
@@ -85,11 +92,11 @@ function Header(props) {
                       className={classes.textField}
                       defaultValue="haichau"
                     >
-                      <MenuItem value="haichau">Hải Châu</MenuItem>
-                      <MenuItem value="camle">Cẩm Lệ</MenuItem>
-                      <MenuItem value="lienchieu">Liên Chiểu</MenuItem>
-                      <MenuItem value="sontra">Sơn Trà</MenuItem>
-                      <MenuItem value="nguhanhson">Ngũ Hành Sơn</MenuItem>
+                      <MenuItem value="haichau" className="header__menu-item">Hải Châu</MenuItem>
+                      <MenuItem value="camle" className="header__menu-item">Cẩm Lệ</MenuItem>
+                      <MenuItem value="lienchieu" className="header__menu-item">Liên Chiểu</MenuItem>
+                      <MenuItem value="sontra" className="header__menu-item">Sơn Trà</MenuItem>
+                      <MenuItem value="nguhanhson" className="header__menu-item">Ngũ Hành Sơn</MenuItem>
                     </Controller>
                 </div>
                 <div className="header__select--wrapper">
@@ -106,11 +113,11 @@ function Header(props) {
                       className={classes.textField}
                       defaultValue="1tr"
                     >
-                      <MenuItem value="1tr">Dưới 1 triệu</MenuItem>
-                      <MenuItem value="1tr5-2tr">1.5 - 2 triệu</MenuItem>
-                      <MenuItem value="2tr-2.5tr">2 - 2.5 triệu</MenuItem>
-                      <MenuItem value="2.5tr-3tr">2.5 - 3 triệu</MenuItem>
-                      <MenuItem value="3tr">Hơn 3 triệu</MenuItem>
+                      <MenuItem value="1tr" className="header__menu-item">Dưới 1 triệu</MenuItem>
+                      <MenuItem value="1tr5-2tr" className="header__menu-item">1.5 - 2 triệu</MenuItem>
+                      <MenuItem value="2tr-2.5tr" className="header__menu-item">2 - 2.5 triệu</MenuItem>
+                      <MenuItem value="2.5tr-3tr" className="header__menu-item">2.5 - 3 triệu</MenuItem>
+                      <MenuItem value="3tr" className="header__menu-item">Hơn 3 triệu</MenuItem>
                     </Controller>
                 </div>
                 <div className="header__select--wrapper">
@@ -127,11 +134,11 @@ function Header(props) {
                       className={classes.textField}
                       defaultValue="15"
                     >
-                      <MenuItem value="15">Dưới 15m2</MenuItem>
-                      <MenuItem value="20">15-20m2</MenuItem>
-                      <MenuItem value="25">20-25m2</MenuItem>
-                      <MenuItem value="30">25-30m2</MenuItem>
-                      <MenuItem value="35">Hơn 30m2</MenuItem>
+                      <MenuItem value="15" className="header__menu-item">Dưới 15m2</MenuItem>
+                      <MenuItem value="20" className="header__menu-item">15-20m2</MenuItem>
+                      <MenuItem value="25" className="header__menu-item">20-25m2</MenuItem>
+                      <MenuItem value="30" className="header__menu-item">25-30m2</MenuItem>
+                      <MenuItem value="35" className="header__menu-item">Hơn 30m2</MenuItem>
                     </Controller>
                 </div>
                 <Button type="submit" variant="contained" color="primary" className={classes.submitBtn}>
@@ -140,18 +147,38 @@ function Header(props) {
             </form>
             {/* <div className="header__login"> */}
             <div className="header__menu-search">
-              <div to="/sign-in-sign-up" className="header__search">
+              <div className="header__filter">
                   <Filter/>
               </div>
+              {/* <div className="header__menu">
+                  <MenuIcon className={classes.logIn} />
+              </div> */}
+              <NavLink to="/login" className="header__login">
+                <Button type="submit" color="primary" className={classes.loginBtn}>
+                  Đăng nhập
+                </Button>
+              </NavLink>
+              <NavLink to="/register" className="header__login">
+                <Button type="submit" color="primary" className={classes.loginBtn}>
+                  Đăng ký
+                </Button>
+              </NavLink>    
+            </div>
+            <div className="header__side-menu">
+              <SideMenu/>
+            </div>
+            {/* <div className="header__menu-search header__menu-search--hidden">
+              <div to="/sign-in-sign-up" className="header__search">
+                  
+              </div>
               <div className="header__menu">
-                  <MenuIcon className={classes.logIn} onClick={() => setOpenMenu(!openMenu)}/>
+                  <MenuIcon className={classes.logIn}/>
               </div>
               <NavLink to="/sign-in-sign-up" className="header__login">
                   <ExitToAppIcon className={classes.logIn}/>
               </NavLink>
-            </div>
-
-          {openMenu && <Menu/>}
+            </div> */}
+            <Menu/>
         </div>
     );
 }

@@ -47,10 +47,10 @@ function Intro(props) {
                     </p>
                 </div>
                 <div className="intro__auth">
-                        <NavLink to="/sign-in-sign-up">
+                        <NavLink to="/login">
                             Đăng nhập
                         </NavLink>
-                        <NavLink to="/sign-in-sign-up">
+                        <NavLink to="/register">
                             Đăng ký
                         </NavLink>
                 </div>

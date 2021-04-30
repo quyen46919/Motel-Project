@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
-
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
 
 DefaultFooter.propTypes = {
     
@@ -36,9 +38,12 @@ function DefaultFooter(props) {
                         <p>Theo dõi chúng tôi</p>
                     </div>
                     <div className="box__content--element box__icons">
-                        <i className="fab fa-facebook-square box__fb"></i>
+                        {/* <i className="fab fa-facebook-square box__fb"></i>
                         <i className="fab fa-twitter box__twitter"></i>
-                        <i className="fab fa-instagram box__ins"></i>
+                        <i className="fab fa-instagram box__ins"></i> */}
+                        <FacebookIcon/>
+                        <TwitterIcon/>
+                        <InstagramIcon/>
                     </div>
                 </div>
             </div>

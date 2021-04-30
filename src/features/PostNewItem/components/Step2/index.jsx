@@ -20,30 +20,29 @@ function Step2(props) {
 
     return (
         <div className="step2">
-            {/* <h2>Điền thông tin về trọ</h2> */}
-            <div className="step2__line">
-                <h3>Thông tin chủ nhà trọ</h3>
-                <TextField
-                    id="standard"
-                    label="Họ và tên"
-                    className="step2__input"       
-                    margin="normal"
-                    InputLabelProps={{
-                        shrink: true
-                    }}
-                />
-                <TextField
-                    id="standard-number"
-                    type="number"
-                    label="Số điện thoại"
-                    className="step2__input"                  
-                    margin="normal"
-                    InputLabelProps={{
-                        shrink: true
-                    }}
-                />
-            </div>
-            <div className="step2__line">
+                <div className="step2__line">
+                    <h3>Thông tin chủ nhà trọ</h3>
+                    <TextField
+                        id="standard"
+                        label="Họ và tên"
+                        className="step2__input"       
+                        margin="normal"
+                        InputLabelProps={{
+                            shrink: true
+                        }}
+                    />
+                    <TextField
+                        id="standard-number"
+                        type="number"
+                        label="Số điện thoại"
+                        className="step2__input"                  
+                        margin="normal"
+                        InputLabelProps={{
+                            shrink: true
+                        }}
+                    />
+                </div>
+                <div className="step2__line">
                 <h3>Thông tin phòng trọ</h3>
                 <div className="step2__title">
                     <label>1. Địa chỉ</label>
@@ -134,6 +133,27 @@ function Step2(props) {
                     <TextField
                         id="standard-number"
                         type="number"
+                        label="Tiền điện"
+                        className="step2__small-input"
+                        margin="normal"
+                        InputLabelProps={{
+                            shrink: true
+                        }}
+                    />
+                    <TextField
+                        id="standard-number"
+                        type="number"
+                        label="Tiền nước"
+                        className="step2__small-input"
+                        margin="normal"
+                        InputLabelProps={{
+                            shrink: true
+                        }}
+                    />
+                    
+                    <TextField
+                        id="standard-number"
+                        type="number"
                         label="Số phòng tương tự"
                         className="step2__small-input"
                         defaultValue={0}
@@ -146,15 +166,15 @@ function Step2(props) {
                 <TextField
                     id="standard"
                     label="Mô tả"
-                    className="step2__input"
-                    placeholder="Bạn muốn cho thuê như thế nào?"           
+                    className="step2__input step2__details"
+                    placeholder="Bạn muốn người thuê / người ghép trọ là người như thế nào?"           
                     margin="normal"
                     InputLabelProps={{
                         shrink: true
                     }}
                 />
             </div>
-            <ListCheckbox/>
+                <ListCheckbox/>
         </div>
     );
 }

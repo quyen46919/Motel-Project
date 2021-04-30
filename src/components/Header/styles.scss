@@ -4,7 +4,7 @@
 
 .header{
     margin: 0;
-    padding: 0;
+    padding: 0!important;
     margin-left: $leftMenu;
     height: $headerHeigh;
     width: 100%;
@@ -13,18 +13,25 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    // position: fixed;
-    // z-index: 1000;
-    // top: 0;
-    box-shadow: $boxShadow;
+    // overflow: hidden;
 
     background: white;
     border-top: none!important;
+    border-bottom: 1px solid rgb(223, 223, 223);
 
+    *, &__menu-item{
+        font-family: "Segoe UI"!important;
+    }
+    &::-webkit-scrollbar{
+        display: none!important;
+    }
     & .MuiSelect-iconOutlined{
         margin-right: -10px!important;
     }
 
+    &__side-menu{
+        display: none;
+    }
     &__icon {
         border: none;
         outline: none;
@@ -53,23 +60,22 @@
             text-decoration: none!important;
             color: unset;
             font-size: 30px;
-            font-family: "Poppins","Roboto";
+            // font-family: "Poppins","Roboto";
         }
     }
-
     &__form , &__form--sub{
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 80%;
+        height: 64%;
         width: 70%;
         gap: 10px;
      
     }
     
     &__search--wrapper{
-        width: 450px;
-        height: 80%;
+        width: 350px;
+        height: 75%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -87,6 +93,7 @@
             font-size: 17px;
             border-radius: 0 3px 3px 0;
             padding: 0;
+            padding-right: 0.5rem;
             cursor: unset!important;
         }
     }
@@ -135,12 +142,12 @@
     }
 
     button{
-        height: 80%;
-        width: 130px;
+        height: 45px;
+        width: 110px;
         outline: none;
         border: none;
         cursor: pointer;
-        background: $color2;
+        // background: $color2;
         text-transform: uppercase;
         font-weight: bold;
         color: white;
@@ -151,31 +158,48 @@
         height: 100%;
         flex: 1;
         @include displayFlex(row);
+        gap: 5px;
     }
     &__menu,
     &__search,
     &__login{
         height: 50px;
-        width: 50px;
+        width: auto;
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
         margin: 0!important;
+        text-decoration: none;
 
         svg{
             color: #5392f9;
             font-size: 30px;
         }
-
+    }
+    // &__login button{
+    //     border: 1px solid $color2!important;
+    // }
+    &__filter{
+        display: none;
+        // border: 1px solid $color2!important;
+        margin-right: 1rem;
+        border-radius: 3px;
+    }
+    &__menu{
+        display: none;
     }
 }
-@media (max-width: 1240px){
+@media (max-width: 1440px){
     .header{
         margin-left: 0!important;
 
         &__form{
             width: 60%;
+            display: none;
+        }
+        &__filter{
+            display: block;
         }
         &__search--wrapper{
             display: none;
@@ -221,10 +245,28 @@
 }
 @media (max-width: 767px){
     .header{
+        padding: 0 2rem;
+        box-sizing: border-box;
         flex-wrap: wrap;
 
+        &__logo{
+            margin-left: 10px;
+            justify-content: flex-start;
+            
+            a{
+                font-size: 25px!important;
+            }
+        }
+        &__side-menu{
+            display: block;
+            flex: 0.5;
+            height: 100%;
+        }
         &__search--wrapper{
             display: none!important;
+        }
+        &__login{
+            display: none;
         }
         &__form{
             display: none;
@@ -249,6 +291,12 @@
         &__menu-search{
             justify-content: flex-end;
         }
+        &__menu{
+            display: flex;
+        }
+        &__side-menu{
+            flex: 0.25;
+        }
         &__search svg,
         &__menu svg{
             color: $color1;
@@ -261,9 +309,10 @@
 
 @media (max-width: 550px){
     .header{
-        // flex-wrap: wrap;
         height: 70px;
-
+        &__login{
+            display: none;
+        }
         &__form{
             display: none;
             justify-content: flex-end;
@@ -272,7 +321,10 @@
         &__form--sub{
             display: none;
         }
-
+        &__menu-search{
+            justify-content: flex-end;
+            // padding-right: 1rem;
+        }
         &__search--wrapper{
             width: 50px;
             height: 40px;
@@ -288,7 +340,6 @@
         &__icon{
             width: 50px!important;
             border-radius: 3px;
-            // transform: translateX(120%);
             display: none;
         }
     }
@@ -305,6 +356,9 @@
         &__icon{
             border-radius: 3px;
             transform: translateX(120%);
+        }
+        &__side-menu{
+            flex: 0.35;
         }
     }
 }

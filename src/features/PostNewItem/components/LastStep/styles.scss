@@ -13,9 +13,10 @@
         color: $titleColor;
     }
     &__line{
+        width: 100%;
         @include displayFlex(row,nowrap,center,center);
         
-        h1{
+        h1,input{
             flex: 2;
         }
         p{
@@ -27,6 +28,10 @@
         height: 20px;
         width: 20px;
         margin-right: 30px;
+    }
+    &__last-line{
+        @include displayFlex(row)
+
     }
 }
 @media (max-width: 768px){

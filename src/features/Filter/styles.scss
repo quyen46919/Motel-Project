@@ -1,7 +1,24 @@
-.dialog{
+
+.MuiDialog-paperWidthSm{
+    overflow: hidden!important;
+}
+.dialog__block{
     width: 500px;
+    padding: 0!important;
+
     
     &::-webkit-scrollbar {
         display: none;
+    }
+}
+@media (max-width: 650px){
+    .dialog__block{
+        width: 90vw;
+        padding: 0!important;
+    }
+}
+@media (max-width: 400px){
+    .dialog__block{
+        padding: 0!important;
     }
 }

@@ -22,8 +22,8 @@ import ConfirmPopUp from '../ConfirmPopUp';
 import ConfirmPopUp2 from '../ConfirmPopUp2';
 import FeedbackPopUp from '../FeedbackPopUp';
 import ImageSlider from './components/SlideShow';
-
-
+import ImageGallery from './components/ImageGallery'
+import {useInView} from 'react-intersection-observer';
 
 const useStyles = makeStyles((theme) => ({
     textField: {
@@ -53,49 +53,17 @@ const errorsRequest = {
     btn2: "Hủy",
 }
 
-const SliderData = [
-    {
-      image:
-        'https://znews-photo.zadn.vn/w860/Uploaded/qhj_pwqvdvicbu/2021_04_04/166320085_199181068300854_7313116616100769567_n.jpg'
-    },
-    {
-      image:
-        'https://znews-photo.zadn.vn/w860/Uploaded/qhj_pwqvdvicbu/2021_04_04/167683956_457429042349226_7035121503263563488_n.jpg'
-    },
-    {
-      image:
-        'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80'
-    },
-    {
-      image:
-        'https://images.unsplash.com/photo-1475189778702-5ec9941484ae?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1351&q=80'
-    },
-    {
-      image:
-        'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80'
-    }
-  ];
-
 function ItemDetails(props) {
-
     const classes = useStyles();
-
+    const {ref, inView} = useInView();
 
     return (
         <div className="item-details">
             
             <div className="item-details__content">
-                {/* <div className="item-details__img-wrapper item-details__img-hidden">
-                    <div className="item-details__img--1"/>
-                    <div className="item-details__sub-imgs">
-                        <div className="item-details__img item-details__img--2"/>
-                        <div className="item-details__img item-details__img--3"/>
-                        <div className="item-details__img item-details__img--4"/>
-                    </div>
-                </div> */}
                 <div className="item-details__header">
                     <div className="item-details__slideshow">
-                        <ImageSlider SliderData={SliderData}/>
+                        <ImageGallery/>
                     </div>
                     <h2>Cho thuê 1 phòng trọ tại K544/10 đường 2-9 quận Hải Châu thành phố Đà Nẵng</h2>
                     <h3>Trọ thoáng mát, gần đại học Đông Á, Kiến Trúc (khoảng 3 phút đi bộ), gần chợ, bệnh viện,giờ giấc thoải mái</h3>
@@ -147,7 +115,7 @@ function ItemDetails(props) {
                     </div>
                 </div>
 
-                <div className="item-details__utility">
+                <div className="item-details__utility" ref={ref}>
                     <h1>Tiện ích có sẵn</h1>
                     <div className="item-details__utility-content">
                         <div className="item-details__1-ultility">
@@ -184,7 +152,7 @@ function ItemDetails(props) {
                         </div>
                     </div>
                 </div>
-                <div className="item-details__request">
+                {/* <div className="item-details__request">
                     <h1>Yêu cầu của chủ trọ</h1>
                     <div className="item-details__request-content">
                         <div className="item-details__1-request">
@@ -216,8 +184,10 @@ function ItemDetails(props) {
                             <p>Cấm làm ồn sau 22h</p>
                         </div>
                     </div>
+                </div> */}
+                <div className="item-details__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.6441590447503!2d108.21911381485802!3d16.03202888890396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218389cf02c2b%3A0xbdc63233587e2d88!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyDEkMO0bmcgw4E!5e0!3m2!1sen!2s!4v1617630068492!5m2!1sen!2s"   allowFullScreen="" loading="lazy"></iframe>
                 </div>
-
                 
                 <div className="item-details__comments">
                     <div className="item-details__user-comment--block">
@@ -243,16 +213,18 @@ function ItemDetails(props) {
                 </div>
 
             </div>
-            <div className="item-details__img-block">
+            <div className="item-details__img-block" 
+            style={ inView ? {marginTop: '37rem', transition: "all .5s"} : {marginTop: '1rem', transition: "all .5s"}}
+            >
                 <div className="item-details__img-wrapper">
-                    <div className="item-details__img--1"/>
-                    {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.6441590447503!2d108.21911381485802!3d16.03202888890396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218389cf02c2b%3A0xbdc63233587e2d88!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyDEkMO0bmcgw4E!5e0!3m2!1sen!2s!4v1617630068492!5m2!1sen!2s" className="item-details__img--1"  allowfullscreen="" loading="lazy"></iframe> */}
-
+                    <div className="item-details__img--1">
+                    {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.6441590447503!2d108.21911381485802!3d16.03202888890396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218389cf02c2b%3A0xbdc63233587e2d88!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyDEkMO0bmcgw4E!5e0!3m2!1sen!2s!4v1617630068492!5m2!1sen!2s"   allowfullscreen="" loading="lazy"></iframe> */}
                     {/* <div className="item-details__sub-imgs">
                         <div className="item-details__img item-details__img--2"/>
                         <div className="item-details__img item-details__img--3"/>
                         <div className="item-details__img item-details__img--4"/>
                     </div> */}
+                    </div>
                 </div>
                 <div className="item-details__content-btn">
                     <h1>2.500.000 VND</h1>

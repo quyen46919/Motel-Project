@@ -10,6 +10,7 @@ import Step2 from '../Step2';
 import Step3 from '../Step3';
 import LastStep from '../LastStep';
 import { useForm } from 'react-hook-form';
+import './styles.scss';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -94,8 +95,8 @@ export default function CustomStepper() {
   };
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+    <form className={classes.root} onSubmit={handleSubmit(onSubmit)} className="stepper-form">
+      <Stepper activeStep={activeStep} alternativeLabel className="stepper">
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>

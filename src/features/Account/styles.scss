@@ -1,0 +1,23 @@
+
+@import '../../assets/mixin';
+@import '../../assets/variables';
+.account{
+    width: 100%;
+    height: auto;
+    padding: 2rem 0;
+    margin-top: $menuHeight;
+    @include displayFlex();
+}
+
+.button-box{
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+
+    button{
+        height: 45px;
+        width: 250px;
+        color: white!important;
+        background: #1379ff!important;
+    }
+}

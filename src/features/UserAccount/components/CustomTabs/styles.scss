@@ -1,0 +1,44 @@
+@import "../../../../assets/mixin";
+@import "../../../../assets/variables";
+
+.custom-tabs{
+    // width: 1500px;
+
+    button{
+        min-width: 300px;
+        width: auto;
+        justify-content: center;
+    }
+    .MuiTab-wrapper{
+        align-items: flex-start;
+    }
+    .MuiBox-root-18 {
+        padding: 0 24px;
+    }
+}
+@media (max-width: 768px){
+    .custom-tabs{
+        flex-direction: column;
+    }
+}
+@media (max-width: 400px){
+   .custom-tabs{
+       button{
+           min-width: 200px;
+           width: 200px;
+       }
+
+       input{
+            width: 100vw!important;
+       }
+       input[type="password"]{
+            width: 60vw!important;
+       }
+       .MuiCardContent-root{
+           padding: 0;
+       }
+       .MuiTabs-vertical{
+           width: 90%;
+       }
+   } 
+}

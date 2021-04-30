@@ -3,12 +3,13 @@
 .step3{
     height: auto;
     width: 100%;
-    @include displayFlex(row, wrap, center, center);
+    @include displayFlex(column,wrap, center, center);
     margin-bottom: 3rem;
 
     p{
         text-transform: uppercase;
         font-weight: 400;
+        width: unset;
     }
 
     span{
@@ -17,10 +18,33 @@
     }
 
     &__block{
-        width: 100%;
+        width: 1300px;
         height: auto;
-        @include displayFlex(row, wrap);
+        @include displayFlex(row, wrap,flex-start);
         gap:2rem;
+        margin-bottom: 1rem;
     }
-    
+}
+@media (max-width: 1240px){
+    .step3{
+        &__block{
+            width: 900px;
+        }
+    }
+}
+@media (max-width: 850px){
+    .step3{
+        &__block{
+            width: 400px;
+        }
+    }
+}
+@media (max-width: 400px){
+    .step3{
+        align-items: flex-start;
+        margin: 0 auto;
+        p{
+            width: 300px;
+        }
+    }
 }

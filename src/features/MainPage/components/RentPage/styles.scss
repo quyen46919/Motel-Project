@@ -2,6 +2,15 @@
 @import '../../../../assets/mixin';
 
 
+.MuiPaginationItem-page.Mui-selected:hover, .MuiPaginationItem-page.Mui-selected.Mui-focusVisible {
+    background-color: #1379ff!important;
+    color: white;
+}
+.MuiPaginationItem-page.Mui-selected {
+    background-color: #1379ff!important;
+    color: white;
+}
+
 .rent-page{
     display: flex;
     flex-direction: column;
@@ -30,12 +39,13 @@
     }
     &__bg1{
         width: 100%;
-        height: 500px;
+        height: 450px;
         background-color: beige;
         // background-image:url("../../../../assets/images/1.png") ;
         background-image:url("../../../../assets/images/genshin_12_4K.jpg") ;
         background-size: cover;
         background-position-y: -200px;
+        transition: all .25s;
         
         @include displayFlex();
         color: $backgroundColor;
@@ -63,7 +73,48 @@
             background: $color2!important;
         }
     }
-    
+    &__bg-wrapper{
+        background: rgba(222, 242, 255, 0.5);
+    }
+    &__bg--details{
+        width: 80%;
+        height: auto;
+        padding: 2rem 0;
+        margin: 0 auto;
+        @include displayFlex(row);
+        gap: 0 5rem;
+    }
+    &__bg-block{
+        flex: 1;
+        height: 100%;
+        @include displayFlex(row);
+        gap: 0 2rem;
+        transition: all .25s;
+    }
+    &__bg-icon{
+        @include displayFlex();
+
+        svg{
+            font-size: 60px;
+            color: rgb(144, 228, 253);
+        }
+    }
+    &__icon-details{
+        @include displayFlex();
+        text-align: left;
+        align-items: flex-start;
+        color: $titleColor;
+        
+        h3{
+            margin: 0;
+            text-transform: uppercase;
+        }
+        p{
+            margin-top: 5px;
+            font-size: 16px;
+        }
+    }
+
     &__bg3{
         background-image: url("../../../../assets/images/langque.jpg");
     }
@@ -174,7 +225,7 @@
         flex-wrap: wrap;
         justify-content: center;
         flex-direction: column;
-        gap: 20px;
+        // gap: 20px;
         text-align: left;
 
         h1{
@@ -202,7 +253,7 @@
             height: 2px;
             background: $color2;
             position: absolute;
-            bottom: 0;
+            bottom: 10px;
         }
     }
     &__list{ 
@@ -213,15 +264,19 @@
         justify-content: center;
         gap: 0 2rem;
         padding: 0 4rem;
+        margin: 1rem 0;
     }
     &__bg-text{
         margin: 1rem 0!important;
+    }
+    .toTop{
+        display: block;
     }
 }
 @media (max-width: 1240px){
     .rent-page{
         &__bg1{
-            height: 300px;
+            height: 400px;
             background-position: 0!important;
         }
         &__selfie{
@@ -241,11 +296,34 @@
         &__bg-text{
             width: 600px;
         }
+        &__bg--details{
+            flex-direction: column;
+        }
+        &__bg--details{
+            padding: 1rem 0;
+        }
+        &__bg-block{
+            width: 80vw;
+            justify-content: flex-start;
+        }
+        &__bg-icon svg{
+            font-size: 50px;
+        }
+        &__icon-details{
+            padding: 1rem 0;
+            p{
+                margin: 0;
+            }
+        }
+        &__list{
+            padding: 0!important;
+            // margin-bottom: 0;
+        }
     }
 }
 @media (max-width: 768px){
     .rent-page{
-        margin-top: 40px;
+        // margin-top: 40px;
         &__selfie{
             height: 700px;
             display: none;
@@ -263,7 +341,7 @@
             }
         }
         &__bg1{
-            height: 200px;
+            height: 300px;
             h1,p{
                 margin: 0!important;
             }
@@ -279,8 +357,15 @@
         &__bg2{
             padding-left: 5rem;
         }
+        &__list{
+            padding: 0!important;
+        }
+        .toTop{
+            display: none;
+        }
     }
 }
+
 @media (max-width: 500px){
     .rent-page{
         &__list-title{
@@ -292,6 +377,27 @@
         &__bg2{
             padding-left: 2rem;
             
+        }
+
+    }
+}
+@media (max-width: 400px){
+    .rent-page{
+        &__list{
+            // gap: 0 1rem;
+        }
+        &__icon-details{
+            p{
+                font-size: 15px;
+            }
+            h3{
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+        }
+        &__bg-block{
+            gap: 0 1rem;
+            padding: 0 3rem;
         }
     }
 }

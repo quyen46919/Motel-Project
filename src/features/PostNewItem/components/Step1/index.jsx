@@ -15,10 +15,6 @@ function Step1(props) {
         setChoose(2);
         props.handleStep1(2);
     }
-    const handleClick3 = () => {
-        setChoose(3);
-        props.handleStep1(3);
-    }
     return (
         <div className="step1">
             <h2>Chọn hình thức của trọ</h2>
@@ -36,13 +32,6 @@ function Step1(props) {
                 >
                     <img src={img2} alt="sadsa"/>
                     <h3>Ghép trọ</h3>
-                </div>
-                <div
-                    className={choose === 3 ? 'step1__block active' : 'step1__block'} 
-                    onClick={handleClick3}
-                >
-                    <img src={img3} alt="sadsa"/>
-                    <h3>Căn hộ</h3>
                 </div>
             </div>
         </div>

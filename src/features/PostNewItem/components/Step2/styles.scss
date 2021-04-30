@@ -10,12 +10,16 @@
     // background-position-y: -50px;
     transition: all .25s ease-in-out;
     @include displayFlex();
-    // border: 1px solid $color2;
-    padding: 1rem 4.5rem;
+    gap: 0 1rem;
+    // padding: 1rem 4.5rem;
     padding-bottom: 2rem;
     margin: 0 auto;
-    // border-radius: 10px;
 
+    // &__wrapper{
+    //     width: 50%;
+    //     height: 100%;
+    //     @include displayFlex(column,wrap,flex-start,flex-start)
+    // }
     h3{
         text-transform: uppercase;
         color: $titleColor;
@@ -39,6 +43,9 @@
     &__input{
         width: 100%!important;
     }
+    // &__multiline-input{
+    //     height:auto;
+    // }
     .MuiInputBase-input{
         height: 2em;
     }
@@ -59,12 +66,21 @@
         padding: 0;
     }
 }
-@media (max-width: 650px){
+@media (max-width: 700px){
     .step2{
         padding: 0 2rem;
         padding-bottom: 2rem;
-        width: 380px!important;
+        width: 450px!important;
         flex-wrap: wrap;
+
+        &__details input::placeholder{
+            font-size: 16px;
+        }
+    }
+}
+@media (max-width: 500px){
+    .step2__details input::placeholder{
+        font-size: 13px;
     }
 }
 @media (max-width: 450px){
@@ -87,15 +103,11 @@
 @media (max-width: 380px){
     .step2{
         width: 280px!important;
-        margin: 0;
+        // margin: 0 auto;
         padding: 0!important;
+
+        &__details input::placeholder{
+            font-size: 10px;
+        }
     }
 }
-// @media (max-width: 320px){
-//     .step2{
-//         border: none;
-//         padding: 0.5rem;
-//         width: 240px!important;
-
-//     }
-// }

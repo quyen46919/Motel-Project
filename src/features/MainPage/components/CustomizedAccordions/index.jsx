@@ -54,7 +54,7 @@ const AccordionDetails = withStyles((theme) => ({
 }))(MuiAccordionDetails);
 
 export default function CustomizedAccordions() {
-  const [expanded, setExpanded] = React.useState('panel1');
+  const [expanded, setExpanded] = React.useState();
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -65,7 +65,8 @@ export default function CustomizedAccordions() {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%,-50%)',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    padding: "0!important"
   }
 
   const {register, handleSubmit, errors, control} = useForm({
@@ -99,17 +100,17 @@ export default function CustomizedAccordions() {
       className="custom-option" 
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Accordion square className="custom-option__test">
+      {/* <Accordion square className="custom-option__test">
         <AccordionSummary>
-          <Typography component={'span'} style={typoStyles}>Lọc theo yêu cầu</Typography>
+          <Typography component={'div'} style={typoStyles}>Lọc</Typography>
         </AccordionSummary>
-      </Accordion>
+      </Accordion> */}
       <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography component={'span'}>Thông tin cơ bản</Typography>
+        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" >
+          <Typography component={'div'} className="custom-option__title">Thông tin cơ bản</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography component={'span'} className="custom-option__option--basic">
+          <Typography component={'div'} className="custom-option__option--basic">
             <TextField 
               id="outlined-basic" 
               label="Nhập từ khóa tìm kiếm" 
@@ -171,7 +172,7 @@ export default function CustomizedAccordions() {
       </Accordion>
       <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography component={'span'}>Tiện ích</Typography>
+          <Typography component={'span'} className="custom-option__title">Tiện ích</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography component={'span'} className="custom-option__option--wrapper">
@@ -239,7 +240,7 @@ export default function CustomizedAccordions() {
       </Accordion>
       <Accordion square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography component={'span'}>Sắp xếp theo</Typography>
+          <Typography component={'span'} className="custom-option__title">Sắp xếp theo</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography component={'span'}>
@@ -257,7 +258,7 @@ export default function CustomizedAccordions() {
         </AccordionDetails>
       </Accordion>
       <Accordion>
-        <AccordionSummary>
+        <AccordionSummary className="custom-option__btn-wrapper">
           <Button type="reset" variant="outlined" color="primary" className="custom-option__btn">
             Đặt lại
           </Button>

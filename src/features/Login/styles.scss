@@ -1,0 +1,20 @@
+@import '../../assets/mixin';
+.login{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    @include displayFlex();
+
+    &__form{
+        @include displayFlex();
+        gap: 1rem;
+    }
+    &__button{
+        width: 250px!important;
+    }
+}
+@media (max-width: 900px){
+    .login__button{
+        width: unset!important;
+    }
+}

@@ -4,6 +4,8 @@ import './App.css';
 import Intro from './features/Intro';
 import SignInSignUp from './features/SignIn-SignUp';
 import MainContent from './features/MainContent';
+import Login from './features/Login';
+import Register from './features/Register';
 
 
 function App() {
@@ -14,7 +16,8 @@ function App() {
         <Route path="/intro" component={Intro} />
         <Route path="/sign-in-sign-up" component={SignInSignUp} />
         <Route path="/main" component={MainContent}/>
-        {/* <Route path="/" component={MainContent}/>    */}
+        <Route path="/login" component={Login} exact/>
+        <Route path="/register" component={Register} exact/>
       </Switch>
 
       {/* <Intro/> */}

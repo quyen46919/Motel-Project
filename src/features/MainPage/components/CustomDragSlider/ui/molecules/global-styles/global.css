@@ -1,0 +1,15 @@
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto;
+  font-weight: 200;
+  background-color: #fff;
+  color: #545469;
+  overflow-x: hidden;
+  line-height: 1.5;
+} */

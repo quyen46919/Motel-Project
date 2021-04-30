@@ -9,8 +9,10 @@ NotFound.propTypes = {
 function NotFound(props) {
     return (
         <div className="not-found">
-            <div className="not-found__img--block">
-            </div>
+            {/* <div className="not-found__img--block">
+            </div> */}
+            <p>ლ(ﾟдﾟლ)</p>
+            <p>Page not found</p>
         </div>
     );
 }

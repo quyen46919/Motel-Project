@@ -12,7 +12,11 @@
     // background: rgb(250, 250, 250);
     background: white;
     overflow-y: scroll;
+    overflow-x: hidden;
 
+    & *{
+        font-family: "Segoe UI"!important;
+    }
 }
 .main-content::-webkit-scrollbar{
     position: absolute;
@@ -26,4 +30,9 @@
     background: rgb(175, 175, 175);
     border-radius: 10px;
     max-width: 1px;
+}
+@media (max-width: 768px){
+    .main-content::-webkit-scrollbar{
+        display: none;
+    }
 }

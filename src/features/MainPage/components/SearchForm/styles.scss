@@ -1,0 +1,174 @@
+@import '../../../../assets/variables';
+
+.search-form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    overflow: hidden;
+    
+    &__form--wrapper {
+        // flex: 6;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__search--form {
+        height: 10rem;
+        width: 70rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 5px;
+        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.2));
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        // background: white;
+        /* backdrop-filter: blur(4px); */
+    }
+
+    &__wrapper{
+        flex: 1;
+        padding-left: 50px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+
+        p{
+            margin: 0px 7px!important;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 20px;
+        }
+    }
+
+    &__redirect-btn {
+        height: 100%;
+        text-decoration: none;
+    }
+    &__button{
+        height: 100%;
+        width: 150px;
+        background-color: orange!important;
+        text-transform: uppercase;
+        border-radius: 0 3px 3px 0!important;
+
+        > * {
+            color: white!important;
+        }
+    }
+}
+.search-form__nav--hidden{
+    display: none;
+}
+@media (max-width: 768px){
+    .search-form{
+        position: relative;
+        height: auto;
+        &__nav{
+            display: none;
+            
+        }
+        &__nav--hidden{
+            display: flex;
+            justify-content: space-around;
+            height: 60px;
+            
+        }
+        &__menu--hidden{
+            flex-direction: column;
+            text-align: center;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            
+            a{
+                height: 50px!important;
+                padding: 0!important;
+                margin: 0!important;
+                line-height: 45px;
+                width: 100%!important;
+                background: transparent;
+                border-radius: 0!important;
+                text-transform: uppercase;
+                transition: .25s;
+                // animation: showOn .25s forwards;
+            }
+            a:hover{
+                background: white!important;
+                color: $textColor!important;
+            }
+        }
+        @keyframes showOn {
+            from {transform: translateX(-100%);}
+            to {transform: translateX(0);}
+        }
+        &__logo{
+            flex: 1;
+            justify-content: flex-start;
+            padding-left: 3rem;
+        }
+        &__bars{
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 3rem;
+            color: white;
+            font-size: 30px;
+            i.fas.fa-bars{
+                cursor: pointer;
+            }
+        }
+        &__main{
+            height: 800px;
+            overflow: hidden;
+        }
+        &__title{
+            flex: 1;
+            text-align: center;
+            padding: 0 1rem;
+            h1{
+                font-size: 30px;
+            }
+        }
+        &__search--form{
+            flex-direction: column;
+            width: 80vw;
+            height: auto;
+            padding: 1rem 0;
+        }
+        &__wrapper{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            height: 150px;
+            margin: 0.5rem 0;
+        }
+        &__button{
+            height: 50px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+

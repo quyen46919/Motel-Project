@@ -1,0 +1,15 @@
+
+
+// .stepper{
+//     width: 1000px;
+//     margin: 0 auto;
+// }
+@media (max-width: 400px){
+    .stepper{
+        padding: 0!important;
+        // width: 325px;
+    }
+    form.stepper-form{
+        padding: 0!important;
+    }
+}
