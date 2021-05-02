@@ -7,10 +7,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Step1 from '../Step1';
 import Step2 from '../Step2';
-import Step3 from '../Step3';
+import Step4 from '../Step4';
 import LastStep from '../LastStep';
 import { useForm } from 'react-hook-form';
 import './styles.scss';
+import Step3 from '../Step3';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,13 +33,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 function getSteps() {
-  return ['Loại hình trọ', 'Thông tin về phòng trọ', 'Upload ảnh và mô tả tiện ích','Xác thực'];
+  return ['Loại hình trọ', 'Thông tin về phòng trọ','Mô tả tiện ích', 'Upload ảnh','Xác thực'];
 }
 
 export default function CustomStepper() {
-  const {register, handleSubmit, errors, control} = useForm({
+  const form = useForm({
     defaultValues: {
-      option: 1,
+      step1: 1,
+      step2: '',
     },
     mode: "onChange"
    });
@@ -47,10 +49,10 @@ export default function CustomStepper() {
     console.log("FORM DATA: ", values);
   }
 
-  const handleStep1 = (value) => {
-    console.log(value);
+  const getStep2Values = (values) => {
+      console.log(values);
   }
-  const handleStep2 = (value) => {
+  const getStep3Values = (value) => {
     console.log(value);
   }
   const handleStep3 = (value) => {
@@ -59,23 +61,19 @@ export default function CustomStepper() {
   function getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return <Step1 handleStep1={handleStep1}/>;
-      case 1:
-        return <Step2 handleStep1={handleStep2}/>;
+        return <Step1 handleNext={handleNext} name="step1" form={form}/>;
       case 2:
-        return <Step3 handleStep1={handleStep3}/>;
+        return <Step2 handleNext={handleNext} handleBack={handleBack} name="step2" form={form} getStep2Values={getStep2Values}/>;
+      case 1:
+        return <Step3 handleNext={handleNext} handleBack={handleBack} form={form} getStep3Values={getStep3Values}/>;
       case 3:
-        return <LastStep handleStep1={handleStep3}/>;
+        return <Step4 handleNext={handleNext} handleBack={handleBack} form={form}/>;
+      case 4:
+        return <LastStep handleNext={handleNext} handleBack={handleBack} form={form}/>;
       default:
         return 'Unknown stepIndex';
     }
   }
-
-
-
-
-
-
 
 
   const classes = useStyles();
@@ -95,7 +93,7 @@ export default function CustomStepper() {
   };
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit(onSubmit)} className="stepper-form">
+    <div className={classes.root} onSubmit={form.handleSubmit(onSubmit)} className="stepper-form">
       <Stepper activeStep={activeStep} alternativeLabel className="stepper">
         {steps.map((label) => (
           <Step key={label}>
@@ -112,7 +110,7 @@ export default function CustomStepper() {
         ) : (
           <div>
             <div className={classes.instructions}>{getStepContent(activeStep)}</div>
-            <div>
+            {/* <div>
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
@@ -121,17 +119,17 @@ export default function CustomStepper() {
                 Quay lại
               </Button>
               <Button 
-                variant="contained" 
+                variant="contained"   
                 color="primary" 
                 onClick={handleNext} 
                 className={classes.buttonStyles}
               >
                 {activeStep === steps.length - 1 ? 'Hoàn tất' : 'Bước tiếp theo'}
               </Button>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
-    </form>
+    </div>
   );
 }

@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core';
 import React from 'react';
 import CheckBox from '../../../../components/CheckBox';
 import CustomInput from '../CustomInput';
-import ListCheckbox from '../ListCheckbox';
+import Step3 from '../Step3';
 
 import CustomCheckbox from '../CustomCheckbox';
 import CreditCardIcon from '@material-ui/icons/CreditCard';

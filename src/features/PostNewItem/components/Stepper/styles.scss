@@ -1,9 +1,24 @@
 
-
-// .stepper{
-//     width: 1000px;
-//     margin: 0 auto;
-// }
+@import '../../../../assets/variables';
+@import '../../../../assets/mixin';
+.step-btn--1{
+    height: 50px;
+    width: auto;
+    background: $color2!important;
+    color: white!important;
+}
+.step-btn--2{
+    height: 50px;
+    width: auto;
+    color: $color2!important;
+    background: white!important;
+    border: 1px solid $color2!important;
+}
+.step__btn-block{
+    width: 100%;
+    @include displayFlex(row);
+    gap: 1rem;
+}
 @media (max-width: 400px){
     .stepper{
         padding: 0!important;

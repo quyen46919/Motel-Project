@@ -43,15 +43,13 @@
     &__input{
         width: 100%!important;
     }
-    // &__multiline-input{
-    //     height:auto;
-    // }
     .MuiInputBase-input{
         height: 2em;
     }
     &__multi-line{
         @include displayFlex(row,wrap,space-between,center);
         gap: 0 1rem;
+        width: 100%;
     }
     &__small-input{
         width: calc(50% - 1rem);
@@ -59,6 +57,10 @@
         label{
             font-size: 19px!important;
         }
+    }
+    .MuiSelect-select.MuiSelect-selectMenu{
+        width: 100%!important;
+        margin-top: 0.4rem;
     }
 }
 @media (max-width: 992px){
@@ -100,10 +102,10 @@
         }
     }
 }
-@media (max-width: 380px){
+@media (max-width: 330px){
     .step2{
         width: 280px!important;
-        // margin: 0 auto;
+        margin: 0;
         padding: 0!important;
 
         &__details input::placeholder{
