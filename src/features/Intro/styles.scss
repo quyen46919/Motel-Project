@@ -70,6 +70,10 @@ $bg-img: url('../../assets/images/genshin_12_4K.jpg');
         justify-content: center;
         align-items: center;
         background: transparent;
+
+        img{
+            height: 40px;
+        }
     }
 
     &__menu{

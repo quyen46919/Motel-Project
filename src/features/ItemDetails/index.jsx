@@ -1,33 +1,32 @@
-import React from 'react';
-import './styles.scss';
-import CreditCardIcon from '@material-ui/icons/CreditCard';
-import WhatshotIcon from '@material-ui/icons/Whatshot';
-import MotorcycleIcon from '@material-ui/icons/Motorcycle';
-import ToysIcon from '@material-ui/icons/Toys';
-import AcUnitIcon from '@material-ui/icons/AcUnit';
-import WifiIcon from '@material-ui/icons/Wifi';
-import OpacityIcon from '@material-ui/icons/Opacity';
-import FormatColorResetIcon from '@material-ui/icons/FormatColorReset';
-import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
-import VideocamIcon from '@material-ui/icons/Videocam';
-import DeleteIcon from '@material-ui/icons/Delete';
-import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
-import WcIcon from '@material-ui/icons/Wc';
-import CustomButton from './components/Button';
-import CustomButton2 from './components/Button2';
+import { Button } from '@material-ui/core';
+import Box from "@material-ui/core/Box";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Comment from './components/Comment';
+import AcUnitIcon from '@material-ui/icons/AcUnit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import MotorcycleIcon from '@material-ui/icons/Motorcycle';
+import OpacityIcon from '@material-ui/icons/Opacity';
+import ToysIcon from '@material-ui/icons/Toys';
+import VideocamIcon from '@material-ui/icons/Videocam';
+import WcIcon from '@material-ui/icons/Wc';
+import WifiIcon from '@material-ui/icons/Wifi';
+import Rating from "@material-ui/lab/Rating";
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import motelApi from '../../api/motelApi';
 import ConfirmPopUp from '../ConfirmPopUp';
 import ConfirmPopUp2 from '../ConfirmPopUp2';
 import FeedbackPopUp from '../FeedbackPopUp';
-import ImageSlider from './components/SlideShow';
-import ImageGallery from './components/ImageGallery'
-import {useInView} from 'react-intersection-observer';
+import Comment from './components/Comment';
+import ImageGallery from './components/ImageGallery';
+import './styles.scss';
 
 const useStyles = makeStyles((theme) => ({
     textField: {
-        width: "calc(100% - 60px);"
+        width: "calc(100% - 60px)",
+        ["@media (max-width: 600px)"]: {
+            width: "calc(100%)",
+        }
     },
   }));
 
@@ -52,26 +51,53 @@ const errorsRequest = {
     btn1: "Gửi",
     btn2: "Hủy",
 }
-
-function ItemDetails(props) {
+const labels = {
+    1: "Quá tệ",
+    2: "Tệ",
+    3: "Tạm được",
+    4: "Tốt",
+    5: "Rất tốt"
+  };
+  
+function ItemDetails({match}) {
     const classes = useStyles();
     const {ref, inView} = useInView();
+    const [value, setValue] = React.useState(2);
+    const [hover, setHover] = React.useState(-1);
+    const [data, setData] = React.useState();
+
+    useEffect(()=>{
+        const fetchMotelDetails = async () => {
+            try {
+                const response = await motelApi.getById(match.params.ItemId);
+                setData(response.data);
+            } catch (error) {
+                console.log('Failed to fetch motel details: ' + error);
+            }
+        }
+        fetchMotelDetails();
+    },[]);
 
     return (
         <div className="item-details">
-            
             <div className="item-details__content">
                 <div className="item-details__header">
                     <div className="item-details__slideshow">
-                        <ImageGallery/>
+                            <ImageGallery imageList={data?.homeImages}/> : 
                     </div>
-                    <h2>Cho thuê 1 phòng trọ tại K544/10 đường 2-9 quận Hải Châu thành phố Đà Nẵng</h2>
-                    <h3>Trọ thoáng mát, gần đại học Đông Á, Kiến Trúc (khoảng 3 phút đi bộ), gần chợ, bệnh viện,giờ giấc thoải mái</h3>
-                    <h4>Chủ trọ : Nguyễn Quang Vinh</h4>
-                    <p>Cập nhật vào 20/2/2021</p>
+                    <div className="item-details__description">
+                        <h2>
+                            {'cho thuê ' + (data?.homeDetails?.sameRoom + 1) + ' phòng tại ' + data?.homeDetails?.homeNumber + ' đường ' + data?.homeDetails?.streetName + ', quận ' + data?.homeDetails?.district + ', thành phố ' + data?.homeDetails?.city}
+                        </h2>
+                        <p>{data?.homeDetails?.description}</p>
+                        <h4>Chủ trọ : {data?.homeDetails?.bossName}</h4>
+                        <p>Cập nhật vào {data?.dateCreate}</p>
+                    </div>
                 </div>
                 <div className="item-details__content-btn item-details__btn-hidden">
-                    <h1>2.500.000 VND</h1>
+                    <h1>
+                        {String(data?.homeDetails?.prices).replace(/(.)(?=(\d{3})+$)/g,'$1,') + " VND"} 
+                    </h1>
                     {/* <CustomButton2 title="Liên hệ với chủ trọ"/>
                     <CustomButton title="Thêm vào yêu thích"/>
                     <CustomButton title="Báo đã có người thuê"/> */}
@@ -84,11 +110,11 @@ function ItemDetails(props) {
                     <div className="item-details__info-content">
                         <div className="item-details__1-info">
                             <p>Địa chỉ: </p>
-                            <p>02 Cống Quỳnh, Cẩm Lệ, Đà Nẵng</p>
+                            <p>{data?.homeDetails?.homeNumber + ' ' + data?.homeDetails?.streetName + ', ' + data?.homeDetails?.district + ', ' + data?.homeDetails?.city}</p>
                         </div>
                         <div className="item-details__1-info">
                             <p>Tiền điện: </p>
-                            <p>3000 / kWh</p>
+                            <p>{data?.homeDetails?.elecPrices} / kWh</p>
                         </div>
                         <div className="item-details__1-info">
                             <p>Hình thức: </p>
@@ -97,20 +123,26 @@ function ItemDetails(props) {
                         
                         <div className="item-details__1-info">
                             <p>Tiền nước: </p>
-                            <p>7000 / Khối</p>
+                            <p>
+                            {
+                               data?.homeDetails?.waterPrices < 10000 ?
+                                    data?.homeDetails?.waterPrices + ' / khối':
+                                    data?.homeDetails?.waterPrices + ' / tháng'
+                            }
+                            </p>
                         </div>
                         <div className="item-details__1-info">
                             <p>Diện tích phòng: </p>
-                            <p>25m2</p>
+                            <p>{data?.homeDetails?.acreage}m2</p>
                         </div>
                         
                         <div className="item-details__1-info">
                             <p>Số người tối đa: </p>
-                            <p>3 người</p>
+                            <p>{data?.homeDetails?.maxPeople} người</p>
                         </div>
                         <div className="item-details__1-info">
                             <p>Diện tích gác lửng: </p>
-                            <p>12m2</p>
+                            <p>{data?.homeDetails?.mezzanine}</p>
                         </div>
                     </div>
                 </div>
@@ -118,38 +150,54 @@ function ItemDetails(props) {
                 <div className="item-details__utility" ref={ref}>
                     <h1>Tiện ích có sẵn</h1>
                     <div className="item-details__utility-content">
-                        <div className="item-details__1-ultility">
-                            <MotorcycleIcon/>
-                            <p>Chỗ để xe</p>
-                        </div>
-                        <div className="item-details__1-ultility">
-                            <ToysIcon/>
-                            <p>Quạt</p>
-                        </div>
-                        <div className="item-details__1-ultility">
-                            <AcUnitIcon/>
-                            <p>Điều hòa</p>
-                        </div>
-                        <div className="item-details__1-ultility">
-                            <WifiIcon/>
-                            <p>Wifi</p>
-                        </div>
-                        <div className="item-details__1-ultility">
-                            <WcIcon/>
-                            <p>Toilet riêng</p>
-                        </div>
-                        <div className="item-details__1-ultility">
-                            <OpacityIcon/>
-                            <p>Máy nước nóng</p>
-                        </div>
-                        <div className="item-details__1-ultility">
-                            <VideocamIcon/>
-                            <p>Camera an ninh</p>
-                        </div>
-                        <div className="item-details__1-ultility">
-                            <DeleteIcon/>
-                            <p>Chỗ đổ rác</p>
-                        </div>
+                        {data?.homeUtilities?.checkedCarPark &&  
+                            <div className="item-details__1-ultility">
+                                <MotorcycleIcon/>
+                                <p>Chỗ để xe</p>
+                            </div>
+                        }
+                        {data?.homeUtilities?.checkFan && 
+                            <div className="item-details__1-ultility">
+                                <ToysIcon/>
+                                <p>Quạt</p>
+                            </div>
+                        }
+                        {data?.homeUtilities?.checkedCarPark &&  
+                            <div className="item-details__1-ultility">
+                                <AcUnitIcon/>
+                                <p>Điều hòa</p>
+                            </div>
+                        }
+                        {data?.homeUtilities?.checkedCarPark && 
+                            <div className="item-details__1-ultility">
+                                <WifiIcon/>
+                                <p>Wifi</p>
+                            </div> 
+                        }
+                        {data?.homeUtilities?.checkedCarPark && 
+                            <div className="item-details__1-ultility">
+                                <WcIcon/>
+                                <p>Toilet riêng</p>
+                            </div> 
+                        }
+                        {data?.homeUtilities?.checkedCarPark &&  
+                            <div className="item-details__1-ultility">
+                                <OpacityIcon/>
+                                <p>Máy nước nóng</p>
+                            </div>
+                        }
+                        {data?.homeUtilities?.checkedCarPark &&  
+                            <div className="item-details__1-ultility">
+                                <VideocamIcon/>
+                                <p>Camera an ninh</p>
+                            </div>
+                        }
+                        {data?.homeUtilities?.checkedCarPark &&  
+                            <div className="item-details__1-ultility">
+                                <DeleteIcon/>
+                                <p>Chỗ đổ rác</p>
+                            </div>
+                        }   
                     </div>
                 </div>
                 {/* <div className="item-details__request">
@@ -202,6 +250,32 @@ function ItemDetails(props) {
                                     className={classes.textField}
                                 />
                             </div>
+                            <div className="item-details__rating">
+                                <div className="item-details__rating-div">
+                                    <h3>Bình chọn: </h3>
+                                    <div className="item-details__rating--small">
+                                        <Rating
+                                            name="hover-feedback"
+                                            value={value}
+                                            precision={1}
+                                            onChange={(event, newValue) => {
+                                            setValue(newValue);
+                                            }}
+                                            size="large"
+                                            onChangeActive={(event, newHover) => {
+                                            setHover(newHover);
+                                            }}
+                                        />
+                                        {value !== null && (
+                                            <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>
+                                        )}
+                                    </div>
+                                </div>
+                                <Button variant="outlined" color="primary" className="item-details__comment-btn">
+                                    Gửi bình luận
+                                </Button>
+                            </div>
+
                         </form>
                     </div>
                     <div className="item-details__another-comments">
@@ -214,7 +288,7 @@ function ItemDetails(props) {
 
             </div>
             <div className="item-details__img-block" 
-            style={ inView ? {marginTop: '37rem', transition: "all .5s"} : {marginTop: '1rem', transition: "all .5s"}}
+            style={ inView ? {marginTop: '32rem', transition: "all .5s"} : {marginTop: '1rem', transition: "all .5s"}}
             >
                 <div className="item-details__img-wrapper">
                     <div className="item-details__img--1">
@@ -227,10 +301,11 @@ function ItemDetails(props) {
                     </div>
                 </div>
                 <div className="item-details__content-btn">
-                    <h1>2.500.000 VND</h1>
+                    <h1>{String(data?.homeDetails?.prices).replace(/(.)(?=(\d{3})+$)/g,'$1,') + " VND"} </h1>
                     <ConfirmPopUp props={loginRequest}/>
                     <ConfirmPopUp2 props={favoriteRequest}/>
                     <FeedbackPopUp props={errorsRequest}/>
+
                 </div>
             </div>
 

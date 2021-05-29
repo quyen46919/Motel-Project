@@ -6,6 +6,8 @@ import './styles.scss';
 import { Formik } from "formik";
 import * as Yup from 'yup';
 import { Button, MenuItem } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { insertStep2Values } from "../../PostNewItemSlice";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -159,12 +161,15 @@ const streetName = [
 
 function Step2(props) {
     const classes = useStyles();
+    const dispatch = useDispatch();
+
 
     const [streetNameChoose, setStreetNameChoose] = React.useState('1');
     const handleStreetHomeChange = (event) => {
         setStreetNameChoose(event.target.value);
     };
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         props.handleNext();
     }
     const handleBack = () => {
@@ -202,8 +207,12 @@ function Step2(props) {
                 details: Yup.string().max(255),
             })}
             onSubmit={(values) => {
-                props.getStep2Values(values);
+                console.log('step2 submitted');
+                const action = insertStep2Values(values);
+                dispatch(action);
                 props.handleNext();
+                // props.getStep2Values(values);
+                // props.handleNext();
             }}
 
             // {() => {
@@ -470,7 +479,8 @@ function Step2(props) {
                 <Button variant="contained" onClick={handleBack} className="step-btn--2">
                     Quay lại
                 </Button>
-                <Button variant="contained" onClick={handleSubmit} className="step-btn--1">
+                <Button variant="contained" onClick={(e)=>handleSubmit(e)}  className="step-btn--1">
+                    {/* onClick={handleSubmit} */}
                     Bước tiếp theo
                 </Button>
             </div>

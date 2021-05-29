@@ -1,22 +1,21 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import ImageUploading from "react-images-uploading";
-import {motion, transform} from 'framer-motion';
+import {motion} from 'framer-motion';
 import "./styles.scss";
 
 export default function Upload(props) {
   const [images, setImages] = React.useState([]);
-  const maxNumber = 1;
+
+  const maxNumber = 10;
   const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
-    console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
+
 
   return (
     <div className="upload">
       <ImageUploading
-        multiple
         value={images}
         onChange={onChange}
         maxNumber={maxNumber}

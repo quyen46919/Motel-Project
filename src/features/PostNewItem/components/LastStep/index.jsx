@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
-import { Button } from '@material-ui/core';
+import { Button, Checkbox, FormControlLabel } from '@material-ui/core';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
 
 
 LastStep.propTypes = {
@@ -13,8 +15,41 @@ function LastStep(props) {
     const handleBtnClick = () => {
         setOpen(!open);
     }
+    const handleSubmit = () => {
+        // props.getStep3Values(state);
+    }
+    const handleBack = () => {
+        props.handleBack();
+    }
     return (
-        <div className="last-step">
+        <Formik
+        initialValues={{
+          check: false,
+        }}
+        
+        onSubmit={(values) => {
+            if(values.check === false) {
+                alert('Bạn phải chấp nhận chính sách của chúng tôi!');
+                return false;
+            }
+            handleSubmit();
+            
+        }}
+        // {() => {
+        //     navigate('/app/dashboard', { replace: true });
+        //       console.log(values);
+        //   }}
+      >
+          {({
+          errors,
+          handleBlur,
+          handleChange,
+          handleSubmit,
+          isSubmitting,
+          touched,
+          values
+        }) => (
+        <form className="last-step">
             {/* <h3>Điều khoản và chính sách</h3> */}
             {open ? (
                 <Button variant="contained" onClick={handleBtnClick}>
@@ -44,10 +79,26 @@ function LastStep(props) {
 
             ) : ''}
             <div className="last-step__last-line">
-                <input type="checkbox" name="read" id=""/>
-                <p>Tôi đã đọc và chấp nhận thực hiện chính sách này</p>
+                <FormControlLabel
+                    name="check"
+                    control={
+                        <Checkbox required onChange={handleChange}/>
+                    }
+                    label="Tôi đã xem và đồng ý với điều khoản sử dụng"
+                    labelPlacement="end"
+                />
             </div>
-        </div>
+            <div className="step__btn-block">
+                    <Button variant="contained" onClick={handleBack} className="step-btn--2">
+                        Quay lại
+                    </Button>
+                    <Button variant="contained" onClick={handleSubmit} className="step-btn--1">
+                        Gửi yêu cầu
+                    </Button>
+                </div>
+        </form>
+        )}
+        </Formik>
     );
 }
 

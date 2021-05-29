@@ -2,17 +2,17 @@ import { MenuItem, Select } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
-import MenuIcon from '@material-ui/icons/Menu';
 import NearMeIcon from '@material-ui/icons/NearMe';
 import SearchIcon from '@material-ui/icons/Search';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
+import logo from '../../assets/images/logo-1.png';
 import Filter from '../../features/Filter';
-import SideMenu from './components/SideMenu';
+import LeftBars from './components/LeftBars';
 import Menu from './components/Menu';
+
 import './styles.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
   },
   submitBtn: {
     background: "#1379ff!important",
-    height: "45px!important"
+    height: "40px!important",
+    width: "40px!important"
   },
   iconStyles: {
     color: "#a1b1c1!important"
@@ -61,9 +62,12 @@ function Header(props) {
 
     return (
         <div className="header">
+            <div className="header__side-menu">
+              <LeftBars/>
+            </div>
             <div className="header__logo">
                   <NavLink to="/main"> 
-                    ChiaSeTro
+                    <img src={logo} alt="logo" />
                   </NavLink>
             </div>
             <form action="" className="header__form" onSubmit={handleSubmit(onSubmit)}>
@@ -142,7 +146,7 @@ function Header(props) {
                     </Controller>
                 </div>
                 <Button type="submit" variant="contained" color="primary" className={classes.submitBtn}>
-                  Tìm kiếm
+                  <SearchIcon/>
                 </Button>
             </form>
             {/* <div className="header__login"> */}
@@ -164,9 +168,7 @@ function Header(props) {
                 </Button>
               </NavLink>    
             </div>
-            <div className="header__side-menu">
-              <SideMenu/>
-            </div>
+
             {/* <div className="header__menu-search header__menu-search--hidden">
               <div to="/sign-in-sign-up" className="header__search">
                   

@@ -36,8 +36,8 @@ const Login = () => {
               password: ''
             }}
             validationSchema={Yup.object().shape({
-              email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-              password: Yup.string().max(255).required('Password is required')
+              email: Yup.string().max(255).required('Tài khoản là thông tin bắt buộc!'),
+              password: Yup.string().max(255).required('Mật khẩu là thông tin bắt buộc!')
             })}
             // onSubmit={() => {
             //   navigate('/app/dashboard', { replace: true });
@@ -56,7 +56,7 @@ const Login = () => {
                 <Box sx={{ mb: 3 }}>
                   <Typography
                     color="textPrimary"
-                    variant="h2"
+                    variant="h3"
                   >
                     Đăng nhập
                   </Typography>

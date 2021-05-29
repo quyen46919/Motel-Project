@@ -6,6 +6,7 @@ import SignInSignUp from './features/SignIn-SignUp';
 import MainContent from './features/MainContent';
 import Login from './features/Login';
 import Register from './features/Register';
+import CustomGoogleMap from './features/CustomGoogleMap';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/main" component={MainContent}/>
         <Route path="/login" component={Login} exact/>
         <Route path="/register" component={Register} exact/>
+        <Route path="/map" component={CustomGoogleMap} exact/>
       </Switch>
 
       {/* <Intro/> */}

@@ -1,32 +1,30 @@
 
+import { Chip } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import IconButton from "@material-ui/core/IconButton";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import React from "react";
-import ShareIcon from '@material-ui/icons/Share';
-import { NavLink } from "react-router-dom";
 import Popover from '@material-ui/core/Popover';
-import Box from "@material-ui/core/Box";
+import { makeStyles } from "@material-ui/core/styles";
+import ShareIcon from '@material-ui/icons/Share';
 import Rating from "@material-ui/lab/Rating";
-import './styles.scss';
-import { Chip } from "@material-ui/core";
 import { motion } from "framer-motion";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import './styles.scss';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 400,
-    width: 350,
-    height: 390,
+    maxWidth: 380,
+    width: 300,
+    height: 380,
     position :"relative",
     border: "none",
     outline: "none",
     boxShadow: "none!important",
-    borderRadius: "1px!important"
+    borderRadius: "3px!important"
   },
   media: {
     height: 0,
@@ -59,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
   },
   titleStyles: {
     textTransform: "uppercase",
-    margin: "0"
+    margin: "0",
+    fontWeight: '500'
   },
   textStyles: {
     margin: "0.1rem 0",
@@ -84,7 +83,6 @@ const useStyles = makeStyles((theme) => ({
       padding : "0",
       margin : "0",
       marginRight: "0.3rem",
-      transform: "translateY(3px)"
     }
   },
   chip: {
@@ -120,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function CardItem({img, delay}) {
+export default function CardItem(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -135,16 +133,12 @@ export default function CardItem({img, delay}) {
 
   
   return (
-    <motion.div
-      // initial={{ opacity: 0, y: 50 }}
-      // animate={{ opacity: 1, y: 0}}
-      // transition={{duration: 0.3, delay: delay}}
-    >
+    <motion.div>
       <Card className={`${classes.root} card-item`} >
-      <NavLink to="/main/details/12312" className={classes.navLink}>
+      <NavLink to={`/main/details/${props.id}`} className={classes.navLink}>
         <CardMedia
           className={classes.media}
-          image={img}
+          image={props.img}
           onMouseEnter={handlePopoverOpen}
           onMouseLeave={handlePopoverClose}
         />
@@ -167,19 +161,50 @@ export default function CardItem({img, delay}) {
             onClose={handlePopoverClose}
             disableRestoreFocus
           >
-            <h4 className={classes.titleStyles}>
-              Cho thuê 5 phòng tại K544/16 đường 2-9
-            </h4>
+            <h3 className={classes.titleStyles}>
+              {
+                props.category == 'merge_motel' ? 
+                `Cần ghép ${props.sameRoom + 1} phòng tại ${props.address}` : 
+                `Cho thuê ${props.sameRoom + 1} phòng tại ${props.address}`
+              }
+            </h3>
             <Box component="fieldset" borderColor="transparent" className={classes.rating}>
-              <p className="rating-p">3.6</p>
-              <Rating name="read-only" value={3} readOnly style={{fontSize: "20px"}}/>
+              <p className="rating-p">4.1</p>
+              <Rating name="read-only" value={4} readOnly style={{fontSize: "20px"}}/>
             </Box>
             <p className={classes.prices}>
-              2.500.000 VND
+              {props.prices}
             </p>
-            <p className={classes.textStyles}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto eveniet aperiam quae obcaecati. Consequuntur eius sit rerum voluptatum soluta. Amet commodi, animi maiores exercitationem eius tempora. Mollitia modi dicta quae.
-            </p>
+            <div className="item-details__info">
+                <div className="item-details__info-content card-item__popover">
+                    <div className="card-item__address card-item__details-p">
+                        <p>Địa chỉ: {props.address} </p>
+                    </div>
+                    <div className="card-item__details-p">
+                        <p>Tiền điện: {props.elecPrices} / kWh</p>
+                    </div>
+                    <div className="card-item__details-p">
+                        <p>Hình thức: Không chung chủ</p>
+                    </div>
+                    
+                    <div className="card-item__details-p">
+                        <p>Tiền nước: {props.waterPrices} / Khối</p>
+                    </div>
+                    <div className="card-item__details-p">
+                        <p>Diện tích phòng: {props.acreage}m2</p>
+                    </div>
+                    
+                    <div className="card-item__details-p">
+                        <p>Số người tối đa: {props.maxPeople} người</p>
+                    </div>
+                    <div className="card-item__details-p">
+                        <p>Diện tích gác lửng: {props.mezzanine}m2</p>
+                    </div>
+                </div>
+              </div>
+              <p className="card-item__request">
+                {props.description}
+              </p>
             <div className={classes.chips}>
               <Chip variant="outlined" label="Cần gấp" className={`${classes.popoverChip} ${classes.chip}`}/>
               <Chip variant="outlined" label="Trọ tốt" className={`${classes.popoverChip} ${classes.chip}`}/>
@@ -188,17 +213,17 @@ export default function CardItem({img, delay}) {
         </NavLink>
         <CardContent className={classes.cardContent}>
           <h4 className={classes.titleStyles}>
-            Cho thuê 5 phòng tại K544/16 đường 2-9
+          {`cho thuê ${props.sameRoom + 1} phòng tại ${props.address}`}
           </h4>
           <p className={classes.textStyles2}>
-            Hải Châu
+            {/* {details.district} */}
           </p>
           <Box component="fieldset" borderColor="transparent" className={classes.rating}>
-            <p className="rating-p">3.6</p>
-            <Rating name="read-only" value={3} readOnly style={{fontSize: "20px"}}/>
+            <p className="rating-p">4.1</p>
+            <Rating name="read-only" value={4} readOnly style={{fontSize: "20px"}}/>
           </Box>
           <p className={classes.prices}>
-            2.500.000 VND
+            {String(props.prices).replace(/(.)(?=(\d{3})+$)/g,'$1,') + " VND"}  
           </p>
           <div className={classes.chipWrapper}>
             <Chip variant="outlined" label="Cần gấp" className={classes.chip}/>

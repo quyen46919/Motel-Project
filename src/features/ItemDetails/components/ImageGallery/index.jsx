@@ -3,10 +3,10 @@ import { Example } from "./Example";
 
 import "./styles.scss";
 
-export default function ImageGallery () {
+export default function ImageGallery (props) {
   return (
     <div className="example-container">
-      <Example />
+      <Example imageList={props?.imageList}/>
     </div>
   )
 };

@@ -3,12 +3,10 @@ import { Route, Switch } from 'react-router-dom';
 import DefaultFooter from '../../components/DefaultFooter';
 import Header from '../../components/Header';
 import AboutUs from '../AboutUs';
-import Account from '../Account';
 import Contact from '../Contact';
 import FavoriteList from '../FavoriteList';
 import ItemDetails from '../ItemDetails';
 import MainPage from '../MainPage';
-import MergeMotel from '../MainPage/index2';
 import NotFound from '../NotFound';
 import PostNewItem from '../PostNewItem';
 import UserAccount from '../UserAccount';
@@ -27,7 +25,6 @@ function MainContent(props) {
             <Switch>
                 {/* <Route path="/" component={MainPage} exact/> */}
                 <Route path="/main" component={MainPage} exact/>
-                <Route path="/main/merge" component={MergeMotel} exact/>
                 <Route path="/main/details/:ItemId" component={ItemDetails}/>
                 <Route path="/main/post" component={PostNewItem} exact/>
                 <Route path="/main/favorite" component={FavoriteList} exact/>

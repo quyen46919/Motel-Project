@@ -4,12 +4,26 @@ import './styles.scss';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
+import { MenuItem, Select, TextField } from '@material-ui/core';
 
-DefaultFooter.propTypes = {
-    
-};
+
 
 function DefaultFooter(props) {
+    const [display, setDisplay] = React.useState(10);
+    const [open, setOpen] = React.useState(false);
+  
+    const handleChange = (event) => {
+      setDisplay(event.target.value);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+  
+    const handleOpen = () => {
+      setOpen(true);
+    };
+
     return (
         <div className="footer">
             <div className="box">
@@ -78,10 +92,22 @@ function DefaultFooter(props) {
                         <p>Giao diện</p>
                     </div>
                     <div className="box__content--element box__drop">
-                    <select className="box__select">
+                    {/* <select className="box__select">
                         <option value="light">Sáng</option>
                         <option value="dark">Tối</option>
-                    </select>
+                    </select> */}
+                        <Select
+                            id="demo-controlled-open-select"
+                            open={open}
+                            onClose={handleClose}
+                            onOpen={handleOpen}
+                            value={display}
+                            onChange={handleChange}
+                            className="box__display"
+                        >
+                            <MenuItem value={10}>Sáng</MenuItem>
+                            <MenuItem value={20} disabled>Tối</MenuItem>
+                        </Select>
                     </div>
                 </div>
             </div>

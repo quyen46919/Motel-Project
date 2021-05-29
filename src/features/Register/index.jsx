@@ -16,12 +16,10 @@ import {
 
 const Register = () => {
 //   const navigate = useNavigate();
+  const phoneRegex = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   return (
     <div className="register">
-      <Helmet>
-        <title>Register | Material Kit</title>
-      </Helmet>
       <Box
         sx={{
           backgroundColor: 'background.default',
@@ -35,18 +33,20 @@ const Register = () => {
           <Formik
             initialValues={{
               email: '',
-              firstName: '',
-              lastName: '',
+              name: '',
+              userName: '',
               password: '',
+              phone: '',
               policy: false
             }}
             validationSchema={
               Yup.object().shape({
-                email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-                firstName: Yup.string().max(255).required('First name is required'),
-                lastName: Yup.string().max(255).required('Last name is required'),
-                password: Yup.string().max(255).required('password is required'),
-                policy: Yup.boolean().oneOf([true], 'This field must be checked')
+                email: Yup.string().email('Không đúng định dạng email').max(255).required('Đây là thông tin bắt buộc!'),
+                name: Yup.string().max(255).required('Đây là thông tin bắt buộc!'),
+                userName: Yup.string().max(255).required('Đây là thông tin bắt buộc!'),
+                password: Yup.string().max(255).required('Đây là thông tin bắt buộc!'),
+                phone: Yup.string().max(10, 'Số điện thoại quá dài').min(9, 'Số điện thoại quá ngắn!').matches(phoneRegex, 'Số điện thoại sai!').required('Đây là thông tin bắt buộc!'),
+                policy: Yup.boolean().oneOf([true], 'Đây là yêu cầu bắt buộc!'),
               })
             }
             // onSubmit={() => {
@@ -66,40 +66,53 @@ const Register = () => {
                 <Box sx={{ mb: 3 }}>
                   <Typography
                     color="textPrimary"
-                    variant="h2"
+                    variant="h3"
                   >
                     Tạo tài khoản mới
                   </Typography>
-                  <Typography
+                  {/* <Typography
                     color="textSecondary"
                     gutterBottom
                     variant="body2"
                   >
                     Điền các thông tin bên dưới để tiến hành tạo mới tài khoản
-                  </Typography>
+                  </Typography> */}
                 </Box>
                 <TextField
-                  error={Boolean(touched.firstName && errors.firstName)}
+                  error={Boolean(touched.name && errors.name)}
                   fullWidth
-                  helperText={touched.firstName && errors.firstName}
-                  label="Tài khoản"
+                  helperText={touched.name && errors.name}
+                  label="Tên của bạn"
                   margin="normal"
-                  name="firstName"
+                  name="name"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.firstName}
+                  value={values.name}
                   variant="outlined"
                 />
                 <TextField
-                  error={Boolean(touched.lastName && errors.lastName)}
+                  error={Boolean(touched.userName && errors.userName)}
                   fullWidth
-                  helperText={touched.lastName && errors.lastName}
-                  label="Mật khẩu"
+                  helperText={touched.userName && errors.userName}
+                  label="Tên đăng nhập"
                   margin="normal"
-                  name="lastName"
+                  name="userName"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.lastName}
+                  value={values.userName}
+                  variant="outlined"
+                />
+                <TextField
+                  error={Boolean(touched.password && errors.password)}
+                  fullWidth
+                  helperText={touched.password && errors.password}
+                  label="Mật khẩu"
+                  margin="normal"
+                  name="password"
+                  type="password"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.password}
                   variant="outlined"
                 />
                 <TextField
@@ -116,16 +129,16 @@ const Register = () => {
                   variant="outlined"
                 />
                 <TextField
-                  error={Boolean(touched.password && errors.password)}
+                  error={Boolean(touched.phone && errors.phone)}
                   fullWidth
-                  helperText={touched.password && errors.password}
-                  label="Mật khẩu"
+                  helperText={touched.phone && errors.phone}
+                  label="Số điện thoại"
                   margin="normal"
-                  name="password"
+                  name="phone"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  type="password"
-                  value={values.password}
+                  type="number"
+                  value={values.phone}
                   variant="outlined"
                 />
                 <Box
@@ -145,7 +158,7 @@ const Register = () => {
                       color="textSecondary"
                       variant="body1"
                       component={"div"}
-                      className="register__checkbox"
+                     
                     >
                       Tôi đã đọc
                       {' '}
@@ -154,9 +167,10 @@ const Register = () => {
                         component={RouterLink}
                         to="#"
                         underline="always"
-                        variant="h6"
+                        variant="p"
+                        className="register__link"
                       >
-                        Terms and Conditions
+                        Điều khoản sử dụng và chính sách bảo mật
                       </Link>
                     </Typography>
                   </div>
@@ -174,6 +188,7 @@ const Register = () => {
                     size="large"
                     type="submit"
                     variant="contained"
+                    className="register__submit-btn"
                   >
                     Đăng ký
                   </Button>

@@ -82,6 +82,9 @@
         &__search{
             width: 90%!important;
         }
+        &__option--wrapper{
+            flex-direction: column!important;
+        }
     }
 }
 @media (max-width: 500px){

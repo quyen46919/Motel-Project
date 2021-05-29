@@ -2,6 +2,10 @@
 .MuiDialog-paperWidthSm{
     overflow: hidden!important;
 }
+.MuiAccordionSummary-content{
+    // justify-content: center!important;
+    padding-left: 1rem!important;
+}
 .dialog__block{
     width: 500px;
     padding: 0!important;
@@ -20,5 +24,8 @@
 @media (max-width: 400px){
     .dialog__block{
         padding: 0!important;
+    }
+    .MuiAccordionSummary-content{
+        padding-left: 0rem!important;
     }
 }

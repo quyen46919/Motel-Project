@@ -1,0 +1,62 @@
+
+@import '../../../../assets/variables';
+@import '../../../../assets/mixin';
+
+.left-bars{
+
+    &__icon{
+        color: #5392f9!important;
+    }
+
+    &__navlink{
+        width: 90%;
+        color:#908e8e;
+        // color: $color3;
+        text-decoration: none;
+        box-sizing: border-box;
+        border-radius: 3px;
+        padding-left: 1rem;
+        margin: 0.8rem auto;
+
+        @include displayFlex(row, nowrap, flex-start);
+
+        &:hover{
+            background: $color2;
+            color: white;
+        }
+
+        svg{
+            transform: translateY(-2px);
+        }
+    }
+
+    &__logo{
+        @include displayFlex(row,nowrap,space-between);
+        font-size: 30px;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        color: #1379ff;
+        padding: 0 2rem;
+
+        svg{
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+    }
+}
+.MuiMenuItem-root{
+    flex: 0.5!important;
+}
+
+
+@media (max-width: 1024px){
+    .left-bars{
+        opacity: 1;
+        pointer-events: all;
+        margin-top: 0px!important;
+
+        svg{
+            transform: scale(1.3);
+        }
+    }
+}

@@ -6,6 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   styles: {
@@ -54,7 +55,7 @@ export default function ConfirmPopUp({props}) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            {props.btn1}
+          <NavLink to="/login">{props.btn1}</NavLink>
           </Button>
           <Button onClick={handleClose} color="primary" autoFocus>
             {props.btn2}

@@ -7,6 +7,7 @@ import { Button } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import CustomSelect from './components/CustomSelect';
 import { useState } from 'react';
+import logo from '../../assets/images/logo-1.png';
 
 Intro.propTypes = {
     
@@ -22,7 +23,7 @@ function Intro(props) {
         <div className="intro">
             <div className="intro__nav ">
                 <div className="intro__logo">
-                    <h2>LOGO</h2>
+                    <img src={logo} alt="logo" />
                 </div>
                 <div className="intro__menu">
                     <p>

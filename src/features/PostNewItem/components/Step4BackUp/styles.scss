@@ -1,0 +1,50 @@
+
+@import '../../../../assets/mixin';
+.step4{
+    height: auto;
+    width: 100%;
+    @include displayFlex(column,wrap, center, center);
+    margin-bottom: 3rem;
+
+    p{
+        text-transform: uppercase;
+        font-weight: 400;
+        width: unset;
+    }
+
+    &__span{
+        color: red;
+        font-weight: 500;
+    }
+
+    &__block{
+        width: 1300px;
+        height: auto;
+        @include displayFlex(row, wrap,flex-start);
+        gap:2rem;
+        margin-bottom: 1rem;
+    }
+}
+@media (max-width: 1240px){
+    .step4{
+        &__block{
+            width: 900px;
+        }
+    }
+}
+@media (max-width: 850px){
+    .step4{
+        &__block{
+            width: 400px;
+        }
+    }
+}
+@media (max-width: 400px){
+    .step4{
+        align-items: flex-start;
+        margin: 0 auto;
+        p{
+            width: 300px;
+        }
+    }
+}

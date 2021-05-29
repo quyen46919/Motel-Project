@@ -30,8 +30,8 @@
         margin-right: 30px;
     }
     &__last-line{
-        @include displayFlex(row)
-
+        @include displayFlex(row);
+        margin: 1rem 0;
     }
 }
 @media (max-width: 768px){

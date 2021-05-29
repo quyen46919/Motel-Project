@@ -24,15 +24,13 @@ const useStyles = makeStyles((theme) => ({
 
   //   disabled: PropTypes.bool,
   // };
-export default function CustomSelect({props , title, form}) {
+export default function CustomSelect({props , title}) {
   const classes = useStyles();
   const [currency, setCurrency] = React.useState(1);
 
   const handleChange = (event) => {
     setCurrency(event.target.value);
   };
-
-  // console.log(form.control);
 
   return (
     // <Controller

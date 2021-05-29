@@ -16,6 +16,7 @@ import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import CardItem from '../CardItem';
 import './styles.scss';
 import { AnimatePresence, motion } from 'framer-motion';
+import Area from '../Area';
 
 function MergePage() {
     return (
@@ -106,7 +107,8 @@ function MergePage() {
                         Xem thêm 10 trọ khác
                     </Button>
                 </div>
-                <div className="rent-page__test2"></div>
+                {/* <div className="rent-page__test2"></div> */}
+                <Area/>
                 <div className="rent-page__list-title">
                     <h1>Phòng trọ khu vực Hải Châu</h1>
                 </div>

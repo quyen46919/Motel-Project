@@ -7,11 +7,12 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Step1 from '../Step1';
 import Step2 from '../Step2';
-import Step4 from '../Step4';
 import LastStep from '../LastStep';
 import { useForm } from 'react-hook-form';
 import './styles.scss';
 import Step3 from '../Step3';
+import Step4 from '../Step4';
+import Step4BackUp from '../Step4BackUp';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,43 +34,86 @@ const useStyles = makeStyles((theme) => ({
 
 
 function getSteps() {
-  return ['Loại hình trọ', 'Thông tin về phòng trọ','Mô tả tiện ích', 'Upload ảnh','Xác thực'];
+  return ['Loại hình trọ', 'Thông tin về phòng trọ','Mô tả tiện ích', 'Upload ảnh','Vị trí','Xác thực'];
 }
 
 export default function CustomStepper() {
-  const form = useForm({
-    defaultValues: {
-      step1: 1,
-      step2: '',
-    },
-    mode: "onChange"
-   });
   
+  const [formValues, setFormValues] = React.useState({
+    formality: 1,
+    name: '',
+    phone: '',
+    houseNumber: '1',
+    prices: '',
+    acreage: '',
+    mezzanine: '',
+    maxPeople: '',
+    elec: '',
+    water: '',
+    sameRoom: '',
+    details: ''
+  })
+
   const onSubmit = (values) => {
     console.log("FORM DATA: ", values);
   }
 
+  const getStep1Values = (values) => {
+    console.log(values);
+    setFormValues({...formValues, formality: values});
+  }
+
   const getStep2Values = (values) => {
-      console.log(values);
+    console.log(values);
+      setFormValues({
+        ...formValues, 
+        name: values.name, 
+        phone: values.phone,
+        houseNumber: values.houseNumber,
+        prices: values.prices,
+        acreage: values.acreage,
+        mezzanine: values.mezzanine,
+        maxPeople: values.maxPeople,
+        elec: values.elec,
+        water: values.elec,
+        sameRoom: values.sameRoom,
+        details: values.details
+      });
+      console.log(formValues);
   }
-  const getStep3Values = (value) => {
-    console.log(value);
+  const getStep3Values = (values) => {
+    console.log(values);
+    setFormValues({
+      ...formValues,
+      checkedCarPark: false,
+      checkedFan: false,
+      checkedConditioner: false,
+      checkedCamera: false,
+      checkedGarbageBin: false,
+      checkedKitchen: false,
+      checkedKitchen: false,
+      checkedToilet: false,
+      checkedWifi: values.checkedWifi,
+      checkedCupboard: values.checkedCupboard,
+      checkedDryingGround: values.checkedDryingGround,
+      checkedWaterHeater: values.checkedWaterHeater,
+    })
   }
-  const handleStep3 = (value) => {
+  const getStep4Values = (value) => {
     console.log(value);
   }
   function getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return <Step1 handleNext={handleNext} name="step1" form={form}/>;
-      case 2:
-        return <Step2 handleNext={handleNext} handleBack={handleBack} name="step2" form={form} getStep2Values={getStep2Values}/>;
+        return <Step1 handleNext={handleNext} getStep1Values={getStep1Values}/>;
       case 1:
-        return <Step3 handleNext={handleNext} handleBack={handleBack} form={form} getStep3Values={getStep3Values}/>;
+        return <Step2 handleNext={handleNext} handleBack={handleBack}  getStep2Values={getStep2Values}/>;
+      case 2:
+        return <Step3 handleNext={handleNext} handleBack={handleBack} getStep3Values={getStep3Values}/>;
+      // case 1:
+      //   return <Step4BackUp handleNext={handleNext} handleBack={handleBack}  getStep4Values={getStep4Values}/>;
       case 3:
-        return <Step4 handleNext={handleNext} handleBack={handleBack} form={form}/>;
-      case 4:
-        return <LastStep handleNext={handleNext} handleBack={handleBack} form={form}/>;
+        return <LastStep handleBack={handleBack} />;
       default:
         return 'Unknown stepIndex';
     }
@@ -93,7 +137,7 @@ export default function CustomStepper() {
   };
 
   return (
-    <div className={classes.root} onSubmit={form.handleSubmit(onSubmit)} className="stepper-form">
+    <div className={classes.root} className="stepper-form">
       <Stepper activeStep={activeStep} alternativeLabel className="stepper">
         {steps.map((label) => (
           <Step key={label}>
